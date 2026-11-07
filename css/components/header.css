@@ -1,0 +1,89 @@
+/* Header. Orientation for visitors who land deep (journey step 2) and the always-visible route to step 7.
+   Dark surface on every page so the white logo is consistent.
+   States: nav link default/hover/current/focus · dropdown open/closed · mobile menu open/closed. */
+.site-header {
+  position: sticky; top: 0; z-index: var(--z-header);
+  background: var(--color-background); border-bottom: 1px solid var(--color-border);
+}
+.header-inner { display: flex; align-items: center; gap: var(--space-base); min-height: var(--header-height); }
+
+.brand { display: inline-flex; align-items: center; gap: var(--space-snug); min-height: var(--target-min); text-decoration: none; flex: none; }
+.brand__mark { height: 28px; width: auto; }
+.brand__word { height: 10px; width: auto; }
+@media (max-width: 479px) { .brand__word { display: none; } }
+
+/* Desktop navigation from 1100px. Below that the six items plus the CTA don't fit without crowding. */
+.primary-nav { display: none; margin-left: auto; }
+@media (min-width: 1100px) { .primary-nav { display: block; } }
+.nav-list { display: flex; align-items: center; gap: var(--space-hairline); list-style: none; }
+.nav-item { position: relative; }
+.nav-link {
+  display: inline-flex; align-items: center; gap: var(--space-hairline);
+  min-height: var(--target-min); padding: 0 var(--space-snug);
+  border: 0; border-radius: var(--radius-sm); background: none;
+  color: var(--color-text-primary); font: inherit; font-size: var(--text-sm); font-weight: var(--font-weight-medium);
+  text-decoration: none; cursor: pointer;
+  transition: background-color var(--duration-fast) var(--ease);
+}
+.nav-link:hover { background: var(--color-state-hover); color: var(--color-text-primary); text-decoration: none; }
+/* Current page: orange underline bar plus aria-current; not colour alone (the bar is a shape). */
+.nav-link[aria-current="page"], .nav-link.is-current { box-shadow: inset 0 -2px 0 var(--color-accent-ink); border-radius: var(--radius-sm) var(--radius-sm) 0 0; }
+.nav-link .icon { width: 1rem; height: 1rem; transition: transform var(--duration-fast) var(--ease); }
+.nav-link[aria-expanded="true"] .icon { transform: rotate(180deg); }
+
+.nav-sub {
+  position: absolute; top: calc(100% + var(--space-tight)); left: 0; z-index: var(--z-dropdown);
+  min-width: 18rem; padding: var(--space-tight); list-style: none;
+  background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+}
+.nav-sub[hidden] { display: none; }
+.nav-sub a {
+  display: block; padding: var(--space-snug) var(--space-base); border-radius: var(--radius-sm);
+  color: var(--color-text-primary); text-decoration: none; font-size: var(--text-sm); font-weight: var(--font-weight-medium);
+}
+.nav-sub a span { display: block; color: var(--color-text-secondary); font-weight: var(--font-weight-regular); font-size: var(--text-xs); margin-top: 2px; }
+.nav-sub a:hover { background: var(--color-state-hover); }
+.nav-sub a[aria-current="page"] { box-shadow: inset 2px 0 0 var(--color-accent-ink); }
+
+.header-cta { margin-left: auto; white-space: nowrap; }
+@media (min-width: 1100px) { .header-cta { margin-left: var(--space-tight); } }
+@media (max-width: 359px) { .header-cta { display: none; } }
+
+.menu-toggle {
+  display: inline-flex; align-items: center; gap: var(--space-tight);
+  min-height: var(--target-min); min-width: var(--target-min); padding: 0 var(--space-snug);
+  border: 1px solid var(--color-border-strong); border-radius: var(--radius-sm); background: none;
+  color: var(--color-text-primary); font: inherit; font-size: var(--text-sm); font-weight: var(--font-weight-medium); cursor: pointer;
+}
+.menu-toggle:hover { background: var(--color-state-hover); }
+.menu-toggle .icon-close { display: none; }
+.menu-toggle[aria-expanded="true"] .icon-open { display: none; }
+.menu-toggle[aria-expanded="true"] .icon-close { display: block; }
+@media (min-width: 1100px) { .menu-toggle { display: none; } }
+@media (max-width: 479px) { .menu-toggle__label { display: none; } }
+
+/* Mobile menu: full-height panel under the header, same hierarchy as desktop. */
+.mobile-menu {
+  position: fixed; inset: var(--header-height) 0 0 0; z-index: var(--z-menu);
+  overflow-y: auto; overscroll-behavior: contain;
+  background: var(--color-background); border-top: 1px solid var(--color-border);
+  padding: var(--space-comfortable) var(--gutter) var(--space-spacious);
+}
+.mobile-menu[hidden] { display: none; }
+@media (min-width: 1100px) { .mobile-menu { display: none !important; } }
+.mobile-nav { list-style: none; max-width: 32rem; }
+.mobile-nav > li { border-bottom: 1px solid var(--color-border); }
+.mobile-nav a, .mobile-nav summary {
+  display: flex; align-items: center; justify-content: space-between; min-height: 3.25rem;
+  color: var(--color-text-primary); text-decoration: none; font-size: var(--text-lg); font-weight: var(--font-weight-medium);
+  cursor: pointer; list-style: none;
+}
+.mobile-nav summary::-webkit-details-marker { display: none; }
+.mobile-nav details[open] summary .icon { transform: rotate(180deg); }
+.mobile-nav summary .icon { transition: transform var(--duration-fast) var(--ease); }
+.mobile-nav ul { list-style: none; padding: 0 0 var(--space-snug) var(--space-base); }
+.mobile-nav ul a { min-height: var(--target-min); font-size: var(--text-base); color: var(--color-text-secondary); }
+/* Current page: a bar as well as the colour, so it isn't signalled by colour alone. */
+.mobile-nav a[aria-current="page"] { color: var(--color-link); box-shadow: inset 3px 0 0 var(--color-accent-ink); padding-left: var(--space-snug); }
+.mobile-menu .btn { margin-top: var(--space-roomy); max-width: 32rem; }

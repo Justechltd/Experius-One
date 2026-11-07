@@ -1,0 +1,27 @@
+/* Evidence labels. The brief's honesty rule made visible: every piece of work says what it is.
+   Text carries the meaning; the border style adds a second cue (solid = real, dashed = illustrative). */
+.tag {
+  display: inline-flex; align-items: center; gap: var(--space-hairline);
+  padding: 2px var(--space-tight); border: 1px solid var(--color-border-strong); border-radius: var(--radius-sm);
+  font-size: var(--text-xs); font-weight: var(--font-weight-semibold); line-height: var(--line-height-snug);
+  letter-spacing: 0.04em; text-transform: uppercase; color: var(--color-text-primary); max-width: 100%;
+}
+.tag--client { border-color: var(--color-text-primary); }
+.tag--demo, .tag--experiment, .tag--illustrative { border-style: dashed; color: var(--color-text-secondary); }
+.tag--context { border-color: transparent; padding-inline: 0; color: var(--color-text-secondary); }
+
+/* [CONFIRM] marker: content waiting for Samir's approval. Visible on purpose; remove before launch. */
+.confirm {
+  display: inline; padding: 1px var(--space-hairline); border-radius: 3px;
+  background: var(--color-warning-bg); color: var(--color-warning); outline: 1px dashed var(--color-warning);
+  font-size: 0.8em; font-weight: var(--font-weight-semibold); letter-spacing: 0; text-transform: none;
+}
+
+/* Prototype notice on screens where behaviour is simulated (the form). */
+.proto-note {
+  display: flex; gap: var(--space-tight); align-items: flex-start;
+  padding: var(--space-snug) var(--space-base); border-radius: var(--radius-sm);
+  background: var(--color-info-bg); color: var(--color-text-primary); font-size: var(--text-sm);
+  border-left: 3px solid var(--color-info);
+}
+.proto-note .icon { color: var(--color-info); margin-top: 0.15em; }

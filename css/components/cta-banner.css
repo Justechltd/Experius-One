@@ -1,0 +1,8 @@
+/* CTA banner: the bottom of every long page routes to the Business Review (brief §12.3).
+   Always a dark surface, so it reads as the end of the page's argument. */
+.cta-banner { padding-block: var(--space-section); }
+.cta-banner__inner { display: grid; gap: var(--space-roomy); }
+@media (min-width: 1024px) { .cta-banner__inner { grid-template-columns: 3fr 2fr; align-items: end; gap: var(--space-spacious); } }
+.cta-banner h2 { font-size: var(--text-3xl); max-width: 20ch; }
+.cta-banner p { color: var(--color-text-secondary); font-size: var(--text-lg); margin-top: var(--space-base); }
+.cta-banner .reassure { font-size: var(--text-sm); margin-top: var(--space-snug); }

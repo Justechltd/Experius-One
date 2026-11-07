@@ -1,0 +1,23 @@
+/* Section heading: eyebrow + H2 + intro. The eyebrow names the section's job; headings stay sentence case. */
+.eyebrow {
+  display: block; font-size: var(--text-sm); font-weight: var(--font-weight-semibold); line-height: var(--line-height-snug);
+  letter-spacing: var(--letter-spacing-eyebrow); text-transform: uppercase; color: var(--color-accent-ink);
+}
+.section-heading { max-width: 48rem; margin-bottom: var(--space-spacious); }
+.section-heading > * + * { margin-top: var(--space-base); }
+.section-heading p { color: var(--color-text-secondary); font-size: var(--text-lg); }
+.section-heading--center { margin-inline: auto; text-align: center; }
+.section-heading--center p { margin-inline: auto; }
+
+/* Statement: a single sentence that closes a section (e.g. "The problem may not be..."). */
+.statement { font-size: var(--text-xl); font-weight: var(--font-weight-medium); line-height: var(--line-height-snug); max-width: 46rem; margin-top: var(--space-spacious); padding-left: var(--space-comfortable); border-left: 3px solid var(--color-accent); }
+
+/* Point-of-view block: editorial pull statement. */
+.pov blockquote { margin: 0; }
+.pov blockquote p { font-size: var(--text-2xl); font-weight: var(--font-weight-semibold); line-height: var(--line-height-tight); letter-spacing: var(--letter-spacing-heading); max-width: 40rem; }
+.pov blockquote p + p { color: var(--color-accent-ink); margin-top: var(--space-tight); }
+.pov .pov-body { margin-top: var(--space-roomy); color: var(--color-text-secondary); font-size: var(--text-lg); }
+
+/* Smaller heading sizes for H2s inside side columns, where a full section H2 would dominate. */
+.heading-sm { font-size: var(--text-xl); line-height: var(--line-height-snug); }
+.heading-md { font-size: var(--text-2xl); }

@@ -1,0 +1,17 @@
+/* FAQ accordion: native <details>, so it works without JS and is keyboard- and screen-reader-ready.
+   Used only for secondary questions, never essential information (brief §7.3).
+   States: closed · open · hover · focus-visible. */
+.faq { border-top: 1px solid var(--color-border); max-width: 52rem; }
+.faq details { border-bottom: 1px solid var(--color-border); }
+.faq summary {
+  display: flex; justify-content: space-between; align-items: center; gap: var(--space-base);
+  min-height: var(--target-min); padding-block: var(--space-base);
+  font-size: var(--text-lg); font-weight: var(--font-weight-medium); line-height: var(--line-height-snug);
+  cursor: pointer; list-style: none;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary:hover { color: var(--color-link); }
+.faq summary .icon { flex: none; transition: transform var(--duration-default) var(--ease); }
+.faq details[open] summary .icon { transform: rotate(45deg); }
+.faq .faq__answer { padding-bottom: var(--space-comfortable); color: var(--color-text-secondary); }
+.faq .faq__answer > * + * { margin-top: var(--space-snug); }

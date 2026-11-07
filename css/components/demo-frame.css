@@ -1,0 +1,28 @@
+/* Screen demo frame. Shows what happens in a system, built with synthetic data and labelled as such.
+   A plain frame, not a browser mock-up, so it can't be mistaken for a client's live screen. */
+.demo-frame { border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-surface); overflow: hidden; }
+.demo-frame__bar { display: flex; flex-wrap: wrap; gap: var(--space-tight); justify-content: space-between; align-items: center; padding: var(--space-snug) var(--space-base); border-bottom: 1px solid var(--color-border); background: var(--color-background-alt); font-size: var(--text-sm); font-weight: var(--font-weight-semibold); }
+.demo-frame__body { padding: var(--space-base); overflow-x: auto; }
+.demo-frame__caption { padding: var(--space-snug) var(--space-base); border-top: 1px solid var(--color-border); font-size: var(--text-xs); color: var(--color-text-secondary); }
+
+/* Pipeline board: columns of stages. Scrolls sideways inside its frame on narrow screens, with a visible cue. */
+.board { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(13rem, 1fr); gap: var(--space-snug); list-style: none; }
+.board__col { background: var(--color-background-alt); border-radius: var(--radius-md); padding: var(--space-snug); }
+.board__col .board__title { display: flex; justify-content: space-between; font-size: var(--text-xs); font-weight: var(--font-weight-semibold); letter-spacing: var(--letter-spacing-eyebrow); text-transform: uppercase; color: var(--color-text-secondary); margin-bottom: var(--space-tight); }
+.board__col ul { list-style: none; display: grid; gap: var(--space-tight); }
+.board__card { padding: var(--space-snug); border: 1px solid var(--color-border); border-radius: var(--radius-sm); background: var(--color-surface); font-size: var(--text-sm); }
+.board__card b { display: block; font-weight: var(--font-weight-semibold); }
+.board__card small { display: block; color: var(--color-text-secondary); font-size: var(--text-xs); margin-top: 2px; }
+.board__card .next { display: inline-flex; gap: var(--space-hairline); margin-top: var(--space-tight); font-size: var(--text-xs); font-weight: var(--font-weight-semibold); color: var(--color-accent-ink); }
+.board__card.is-overdue { border-left: 3px solid var(--color-warning); }
+.board__card.is-overdue .next { color: var(--color-warning); }
+.scroll-cue { display: none; font-size: var(--text-xs); color: var(--color-text-secondary); padding: 0 var(--space-base) var(--space-snug); }
+@media (max-width: 1023px) { .scroll-cue { display: block; } }
+
+/* Inquiry table: one record per inquiry, owner and next action always visible. */
+.records { width: 100%; border-collapse: collapse; font-size: var(--text-sm); min-width: 36rem; }
+.records th { text-align: left; font-size: var(--text-xs); font-weight: var(--font-weight-semibold); letter-spacing: var(--letter-spacing-eyebrow); text-transform: uppercase; color: var(--color-text-secondary); padding: var(--space-tight) var(--space-snug); border-bottom: 1px solid var(--color-border-strong); }
+.records td { padding: var(--space-snug); border-bottom: 1px solid var(--color-border); vertical-align: top; }
+.records .status { display: inline-block; padding: 1px var(--space-tight); border: 1px solid var(--color-border-strong); border-radius: var(--radius-sm); font-size: var(--text-xs); font-weight: var(--font-weight-semibold); white-space: nowrap; }
+.records .status--due { border-color: var(--color-warning); color: var(--color-warning); background: var(--color-warning-bg); }
+.records .status--done { border-color: var(--color-success); color: var(--color-success); background: var(--color-success-bg); }

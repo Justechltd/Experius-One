@@ -1,0 +1,23 @@
+/* Footer. Second navigation layer (IA Part 3): all audiences, solutions, legal, contact and the location line. */
+.site-footer { padding-block: var(--space-spacious) var(--space-roomy); border-top: 1px solid var(--color-border); }
+.footer-grid { display: grid; gap: var(--space-roomy); grid-template-columns: 1fr 1fr; }
+.footer-brand { grid-column: 1 / -1; }
+@media (min-width: 1024px) {
+  .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; gap: var(--space-spacious); }
+  .footer-brand { grid-column: auto; }
+}
+.footer-brand img { height: 64px; width: auto; margin-bottom: var(--space-comfortable); }
+.footer-brand p { color: var(--color-text-secondary); font-size: var(--text-sm); max-width: 24rem; }
+.footer-brand .footer-location { margin-top: var(--space-base); color: var(--color-text-primary); }
+.footer-col h2 { font-size: var(--text-sm); letter-spacing: var(--letter-spacing-eyebrow); text-transform: uppercase; color: var(--color-text-secondary); margin-bottom: var(--space-snug); }
+.footer-col ul { list-style: none; }
+.footer-col a { display: inline-flex; align-items: center; min-height: var(--target-min); color: var(--color-text-primary); text-decoration: none; font-size: var(--text-sm); }
+.footer-col a:hover { color: var(--color-link); text-decoration: underline; }
+.footer-bottom {
+  display: flex; flex-wrap: wrap; gap: var(--space-base); justify-content: space-between; align-items: center;
+  margin-top: var(--space-spacious); padding-top: var(--space-comfortable); border-top: 1px solid var(--color-border);
+  font-size: var(--text-sm); color: var(--color-text-secondary);
+}
+.footer-bottom ul { display: flex; flex-wrap: wrap; gap: var(--space-base); list-style: none; }
+.footer-bottom a { display: inline-flex; align-items: center; min-height: var(--target-min); color: var(--color-text-secondary); }
+.footer-bottom a:hover { color: var(--color-text-primary); }

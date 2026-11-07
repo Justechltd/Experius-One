@@ -1,0 +1,15 @@
+/* Prose: long-form reading (insight articles, privacy, terms). Reading width 720px, comfortable rhythm. */
+.prose { max-width: var(--measure); font-size: var(--text-base); }
+.prose > * + * { margin-top: var(--space-base); }
+.prose h2 { font-size: var(--text-2xl); margin-top: var(--space-spacious); }
+.prose h3 { font-size: var(--text-xl); margin-top: var(--space-roomy); }
+.prose ul, .prose ol { padding-left: var(--space-comfortable); }
+.prose li + li { margin-top: var(--space-tight); }
+.prose .lead { font-size: var(--text-lg); color: var(--color-text-primary); }
+.prose figure { margin: var(--space-roomy) 0; }
+.prose blockquote { margin: var(--space-roomy) 0; padding-left: var(--space-comfortable); border-left: 3px solid var(--color-accent); font-size: var(--text-xl); font-weight: var(--font-weight-medium); line-height: var(--line-height-snug); }
+.prose .takeaway { padding: var(--space-comfortable); border-radius: var(--radius-md); background: var(--color-background-alt); border: 1px solid var(--color-border); }
+.prose .takeaway h2 { font-size: var(--text-lg); margin-top: 0; letter-spacing: 0; }
+
+.article-meta { display: flex; flex-wrap: wrap; gap: var(--space-tight) var(--space-base); font-size: var(--text-sm); color: var(--color-text-secondary); margin-top: var(--space-comfortable); }
+.article-meta span + span::before { content: "·"; margin-right: var(--space-base); }

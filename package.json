@@ -1,0 +1,10 @@
+{
+  "name": "experius-website-prototype",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Hi-fi HTML prototype of the Experius website. Static files; Python serves and builds them, no npm dependencies.",
+  "scripts": {
+    "build": "python build.py",
+    "start": "python build.py && python -m http.server 4400 --bind 127.0.0.1"
+  }
+}

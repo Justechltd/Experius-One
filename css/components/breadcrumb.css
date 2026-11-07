@@ -1,0 +1,7 @@
+/* Breadcrumb. Lets a visitor who landed deep move up one level without the menu (IA Part 3). */
+.breadcrumb { padding-top: var(--space-comfortable); }
+.breadcrumb ol { display: flex; flex-wrap: wrap; align-items: center; list-style: none; font-size: var(--text-sm); color: var(--color-text-secondary); }
+.breadcrumb li + li::before { content: "/"; margin-inline: var(--space-tight); color: var(--color-text-secondary); }
+.breadcrumb a { display: inline-flex; align-items: center; min-height: var(--target-min); color: var(--color-text-secondary); }
+.breadcrumb a:hover { color: var(--color-text-primary); }
+.breadcrumb [aria-current="page"] { color: var(--color-text-primary); }

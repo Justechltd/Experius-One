@@ -1,0 +1,92 @@
+/* System explanation components (brief §9.2). All are list markup first, so the meaning survives
+   without CSS, without animation and for screen readers. Motion only shows disconnected → connected. */
+
+/* Before / after: "The business behind the business". */
+.shift { display: grid; gap: var(--space-roomy); align-items: stretch; }
+@media (min-width: 1024px) { .shift { grid-template-columns: 1fr auto 1fr; gap: var(--space-spacious); } }
+.shift__panel { padding: var(--space-comfortable); border-radius: var(--radius-lg); border: 1px solid var(--color-border); background: var(--color-surface); }
+@media (min-width: 768px) { .shift__panel { padding: var(--space-roomy); } }
+.shift__panel h3 { font-size: var(--text-lg); letter-spacing: 0; }
+.shift__panel > p { color: var(--color-text-secondary); font-size: var(--text-sm); margin-top: var(--space-tight); }
+.shift__panel--before { border-style: dashed; border-color: var(--color-border-strong); background: transparent; }
+.scatter { list-style: none; display: flex; flex-wrap: wrap; gap: var(--space-snug) var(--space-tight); margin-top: var(--space-comfortable); padding-block: var(--space-tight); }
+.scatter li { padding: var(--space-tight) var(--space-snug); border: 1px dashed var(--color-border-strong); border-radius: var(--radius-sm); font-size: var(--text-sm); color: var(--color-text-secondary); background: var(--color-background); }
+.scatter li:nth-child(4n+1) { transform: rotate(-4deg); }
+.scatter li:nth-child(4n+2) { transform: translateY(8px) rotate(3deg); }
+.scatter li:nth-child(4n+3) { transform: rotate(1deg); }
+.scatter li:nth-child(4n) { transform: translateY(-4px) rotate(-2deg); }
+.shift__arrow { display: grid; place-items: center; color: var(--color-accent-ink); }
+.shift__arrow .icon { width: 2rem; height: 2rem; transform: rotate(90deg); }
+@media (min-width: 1024px) { .shift__arrow .icon { transform: none; } }
+
+/* Connected flow: a vertical chain where each step is joined to the next by a line. */
+.chain { list-style: none; margin-top: var(--space-comfortable); counter-reset: chain; }
+.chain li { position: relative; counter-increment: chain; display: flex; align-items: center; gap: var(--space-snug); padding-bottom: var(--space-snug); font-weight: var(--font-weight-medium); }
+.chain li::before {
+  content: counter(chain); position: relative; z-index: 1; display: grid; place-items: center; flex: none;
+  width: 2rem; height: 2rem; border-radius: var(--radius-full); background: var(--color-action); color: var(--color-text-on-action);
+  font-size: var(--text-xs); font-weight: var(--font-weight-semibold);
+}
+.chain li:not(:last-child)::after { content: ""; position: absolute; left: calc(1rem - 1px); top: 2rem; bottom: 0; border-left: 2px solid var(--color-accent); }
+.js .shift.reveal .chain li { opacity: 0; transform: translateY(var(--reveal-distance)); transition: opacity var(--duration-slow) var(--ease), transform var(--duration-slow) var(--ease); transition-delay: calc(var(--i, 0) * 110ms + 200ms); }
+.js .shift.reveal.is-visible .chain li { opacity: 1; transform: none; }
+
+/* Inline flow: "Expertise → Insight → Content → Trust". Wraps on small screens; arrows are decorative. */
+.flow-inline { list-style: none; display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-tight); }
+.flow-inline li { display: inline-flex; align-items: center; gap: var(--space-tight); }
+.flow-inline li span { padding: var(--space-tight) var(--space-snug); border: 1px solid var(--color-border); border-radius: var(--radius-sm); background: var(--color-surface); font-size: var(--text-sm); font-weight: var(--font-weight-medium); }
+.flow-inline li + li::before { content: "→" / ""; color: var(--color-accent-ink); font-weight: var(--font-weight-semibold); }
+.flow-inline--highlight li:last-child span { background: var(--color-action); color: var(--color-text-on-action); border-color: var(--color-action); }
+.flow-frame { padding: var(--space-comfortable); border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-background-alt); }
+.flow-frame figcaption { margin-top: var(--space-base); font-size: var(--text-sm); color: var(--color-text-secondary); }
+
+/* Journey map with friction points. Two columns from 768px: the step, and where it can break.
+   A break point is marked with an icon and the words "Can break here", never colour alone. */
+.journey { list-style: none; counter-reset: jstep; border-top: 1px solid var(--color-border); }
+.journey > li { counter-increment: jstep; display: grid; gap: var(--space-tight); padding-block: var(--space-base); border-bottom: 1px solid var(--color-border); }
+@media (min-width: 768px) { .journey > li { grid-template-columns: minmax(12rem, 2fr) 3fr; gap: var(--space-comfortable); align-items: start; } }
+.journey__step { display: flex; align-items: center; gap: var(--space-snug); font-weight: var(--font-weight-semibold); }
+.journey__step::before {
+  content: counter(jstep, decimal-leading-zero); flex: none; display: grid; place-items: center; width: 2.25rem; height: 2.25rem;
+  border-radius: var(--radius-full); border: 1px solid var(--color-border-strong); font-size: var(--text-xs); color: var(--color-text-secondary);
+}
+.journey__note { color: var(--color-text-secondary); }
+.journey > li.is-friction .journey__step::before { background: var(--color-action); border-color: var(--color-action); color: var(--color-text-on-action); }
+.journey__break { display: flex; gap: var(--space-tight); align-items: flex-start; }
+.journey__break strong { color: var(--color-accent-ink); white-space: nowrap; }
+.journey__break .icon { color: var(--color-accent-ink); margin-top: 0.15em; }
+.journey-legend { display: flex; flex-wrap: wrap; gap: var(--space-base); margin-bottom: var(--space-base); font-size: var(--text-sm); color: var(--color-text-secondary); }
+.journey-legend span { display: inline-flex; align-items: center; gap: var(--space-tight); }
+.journey-legend i { width: 0.9rem; height: 0.9rem; border-radius: var(--radius-full); border: 1px solid var(--color-border-strong); }
+.journey-legend i.is-friction { background: var(--color-action); border-color: var(--color-action); }
+
+/* Process steps: Understand → Diagnose → Design → Build → Improve. Five columns on desktop, a line joins them. */
+.process { list-style: none; display: grid; gap: var(--space-comfortable); counter-reset: pstep; }
+@media (min-width: 1024px) { .process { grid-template-columns: repeat(5, 1fr); gap: var(--space-base); } }
+.process li { position: relative; counter-increment: pstep; padding-left: calc(2.75rem + var(--space-base)); }
+@media (min-width: 1024px) { .process li { padding-left: 0; padding-top: calc(2.75rem + var(--space-base)); } }
+.process li::before {
+  content: counter(pstep, decimal-leading-zero); position: absolute; left: 0; top: 0; z-index: 1; display: grid; place-items: center;
+  width: 2.75rem; height: 2.75rem; border-radius: var(--radius-full); background: var(--color-background); border: 2px solid var(--color-accent);
+  font-size: var(--text-sm); font-weight: var(--font-weight-semibold);
+}
+.process li:not(:last-child)::after { content: ""; position: absolute; left: calc(1.375rem - 1px); top: 2.75rem; bottom: calc(var(--space-comfortable) * -1); border-left: 2px solid var(--color-border-strong); }
+@media (min-width: 1024px) { .process li:not(:last-child)::after { left: 2.75rem; right: calc(var(--space-base) * -1); top: calc(1.375rem - 1px); bottom: auto; border-left: 0; border-top: 2px solid var(--color-border-strong); } }
+.process h3 { font-size: var(--text-lg); letter-spacing: 0; }
+.process p { margin-top: var(--space-hairline); color: var(--color-text-secondary); }
+
+/* Rule of Work (Our Approach): large numbered stages with detail. */
+.rule { list-style: none; counter-reset: rule; }
+.rule > li { counter-increment: rule; display: grid; gap: var(--space-base); padding-block: var(--space-spacious); border-top: 1px solid var(--color-border); }
+@media (min-width: 1024px) { .rule > li { grid-template-columns: 1fr 2fr 2fr; gap: var(--space-spacious); } }
+.rule__head::before { content: counter(rule, decimal-leading-zero); display: block; font-size: var(--text-3xl); font-weight: var(--font-weight-semibold); line-height: 1; color: var(--color-accent-ink); margin-bottom: var(--space-snug); }
+.rule__head h3 { font-size: var(--text-2xl); }
+.rule__head p { margin-top: var(--space-tight); color: var(--color-text-secondary); }
+.rule .rule__label { font-size: var(--text-sm); text-transform: uppercase; letter-spacing: var(--letter-spacing-eyebrow); color: var(--color-text-secondary); margin-bottom: var(--space-snug); }
+
+/* Stacked process: always vertical, for narrow columns (Business Review, Thank-you). */
+@media (min-width: 1024px) {
+  .process--stacked { grid-template-columns: 1fr; gap: var(--space-comfortable); }
+  .process--stacked li { padding-top: 0; padding-left: calc(2.75rem + var(--space-base)); }
+  .process--stacked li:not(:last-child)::after { left: calc(1.375rem - 1px); right: auto; top: 2.75rem; bottom: calc(var(--space-comfortable) * -1); border-top: 0; border-left: 2px solid var(--color-border-strong); }
+}

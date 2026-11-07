@@ -1,0 +1,201 @@
+<!--
+title: Book an Experius Business Review
+description: A free, focused 25–30 minute conversation about how your business attracts, converts and serves customers, and what may be worth improving first.
+path: /business-review
+crumbs: Book a Business Review
+scripts: review-form.js
+-->
+<section class="page-hero" aria-labelledby="page-title">
+  <div class="container">
+    <span class="eyebrow">Experius Business Review</span>
+    <h1 id="page-title">Let's understand how your business works.</h1>
+    <p class="lead">Tell us a little about your business and what you would like to improve. We'll read it before the conversation, so we can spend our time understanding the problem, not making you sit through a generic pitch.</p>
+  </div>
+</section>
+
+<section class="section section--alt section--tight" aria-label="About the Business Review and the request form">
+  <div class="container split split--form">
+    <div class="form-panel">
+      <p class="proto-note">{{icon:info}}<span><strong>Prototype:</strong> this form doesn't send anything. Submitting shows the loading state, then the thank-you page.<label class="proto-toggle"><input type="checkbox" id="proto-fail"> Simulate a failed submission</label></span></p>
+
+      <form id="review-form" class="form mt-lg" novalidate aria-labelledby="form-title" data-event-start="business_review_form_start" data-event-submit="business_review_form_submit">
+        <h2 id="form-title" class="heading-md">Tell us about your business</h2>
+        <p class="text-secondary">Takes about 3 minutes. Everything is required unless it says optional.</p>
+
+        <div class="error-summary" id="error-summary" tabindex="-1" hidden>
+          <h2>{{icon:alert}}<span>There is a problem</span></h2>
+          <ul></ul>
+        </div>
+
+        <div class="form-alert" id="submit-failed" tabindex="-1" hidden>
+          {{icon:alert}}
+          <div>
+            <h2>We couldn't send your request</h2>
+            <p>Your answers are still here, nothing is lost. Please try again in a moment, or email us at <a href="mailto:hello@experius.xyz">hello@experius.xyz</a>.</p>
+          </div>
+        </div>
+
+        <fieldset class="form">
+          <legend class="form-group-title">About you and your business</legend>
+
+          <div class="field" data-field="name">
+            <label for="f-name">Your name</label>
+            <input class="input" id="f-name" maxlength="100" aria-required="true" name="name" type="text" autocomplete="name" aria-describedby="f-name-error">
+            <p class="field-error" id="f-name-error">{{icon:alert}}<span></span></p>
+          </div>
+
+          <div class="field" data-field="email">
+            <label for="f-email">Work email</label>
+            <p class="hint" id="f-email-hint">We'll reply to this address.</p>
+            <input class="input" id="f-email" maxlength="254" aria-required="true" name="email" type="email" autocomplete="email" inputmode="email" aria-describedby="f-email-hint f-email-error">
+            <p class="field-error" id="f-email-error">{{icon:alert}}<span></span></p>
+          </div>
+
+          <div class="field" data-field="business">
+            <label for="f-business">Business or organisation</label>
+            <input class="input" id="f-business" maxlength="120" aria-required="true" name="business" type="text" autocomplete="organization" aria-describedby="f-business-error">
+            <p class="field-error" id="f-business-error">{{icon:alert}}<span></span></p>
+          </div>
+
+          <div class="field" data-field="website">
+            <label for="f-website">Website or main online presence <span class="optional">(optional)</span></label>
+            <p class="hint" id="f-website-hint">A website, Facebook page or Instagram profile helps us prepare. Leave it blank if you don't have one yet.</p>
+            <input class="input" id="f-website" maxlength="200" name="website" type="text" inputmode="url" autocomplete="url" aria-describedby="f-website-hint">
+          </div>
+
+          <div class="field" data-field="businessType">
+            <label for="f-type">What best describes your business?</label>
+            <div class="select-wrap"><select class="select" id="f-type" aria-required="true" name="businessType" aria-describedby="f-type-error">
+              <option value="">Choose one</option>
+              <option>Coach, consultant or independent expert</option>
+              <option>Therapy or counselling practice</option>
+              <option>Clinic or wellness practice</option>
+              <option>Training academy or educator</option>
+              <option>Solar or battery installation</option>
+              <option>Agency looking for an implementation partner</option>
+              <option>Another service business</option>
+            </select></div>
+            <p class="field-error" id="f-type-error">{{icon:alert}}<span></span></p>
+          </div>
+        </fieldset>
+
+        <fieldset class="field" data-field="improve" aria-describedby="f-improve-hint f-improve-error">
+          <legend>What would you most like to improve?</legend>
+          <p class="hint" id="f-improve-hint">Choose as many as apply. Not sure is a perfectly good answer.</p>
+          <div class="options options--2">
+            <label class="option"><input type="checkbox" name="improve" id="f-improve" value="website">Website or digital presence</label>
+            <label class="option"><input type="checkbox" name="improve" value="leads">Inquiries and lead management</label>
+            <label class="option"><input type="checkbox" name="improve" value="booking">Booking or registration</label>
+            <label class="option"><input type="checkbox" name="improve" value="crm">CRM and customer information</label>
+            <label class="option"><input type="checkbox" name="improve" value="followup">Follow-up and communication</label>
+            <label class="option"><input type="checkbox" name="improve" value="workflows">Internal workflows</label>
+            <label class="option"><input type="checkbox" name="improve" value="content">Content strategy or production</label>
+            <label class="option"><input type="checkbox" name="improve" value="reporting">Reporting and visibility</label>
+            <label class="option"><input type="checkbox" name="improve" value="unsure">Not sure yet. I'd like to talk it through</label>
+          </div>
+          <p class="field-error" id="f-improve-error">{{icon:alert}}<span></span></p>
+        </fieldset>
+
+        <div class="field" data-field="context">
+          <label for="f-context">What's happening in your business right now?</label>
+          <p class="hint" id="f-context-hint">A few sentences is enough. Please don't include passwords, patient or student details, or confidential documents.</p>
+          <textarea class="textarea" id="f-context" maxlength="2000" aria-required="true" name="context" rows="5" aria-describedby="f-context-hint f-context-error"></textarea>
+          <p class="field-error" id="f-context-error">{{icon:alert}}<span></span></p>
+        </div>
+
+        <fieldset class="form">
+          <legend class="form-group-title">A few optional details</legend>
+          <div class="field">
+            <label for="f-country">Country or time zone <span class="optional">(optional)</span></label>
+            <p class="hint" id="f-country-hint">Helps us suggest meeting times that suit you.</p>
+            <input class="input" id="f-country" maxlength="80" name="country" type="text" autocomplete="country-name" aria-describedby="f-country-hint">
+          </div>
+          <div class="field">
+            <label for="f-contact">Preferred way to talk <span class="optional">(optional)</span></label>
+            <p class="hint" id="f-contact-hint">If you choose WhatsApp or a phone call, we'll ask for your number in our reply.</p>
+            <div class="select-wrap"><select class="select" id="f-contact" name="contactMethod" aria-describedby="f-contact-hint">
+              <option value="">No preference</option>
+              <option>Video call</option>
+              <option>Email</option>
+              <option>WhatsApp</option>
+              <option>Phone call</option>
+            </select></div>
+          </div>
+          <div class="field">
+            <label for="f-source">How did you hear about us? <span class="optional">(optional)</span></label>
+            <div class="select-wrap"><select class="select" id="f-source" name="source">
+              <option value="">Choose one</option>
+              <option>LinkedIn</option>
+              <option>Facebook or Instagram</option>
+              <option>YouTube</option>
+              <option>Google search</option>
+              <option>Someone recommended you</option>
+              <option>A partner introduced us</option>
+              <option>Other</option>
+            </select></div>
+          </div>
+        </fieldset>
+
+        <div class="field" data-field="consent">
+          <label class="option consent"><input type="checkbox" id="f-consent" aria-required="true" name="consent" aria-describedby="f-consent-error">I agree that Experius can use these details to reply to my request. See the <a href="privacy.html">privacy notice</a> for what we keep and for how long.</label>
+          <p class="field-error" id="f-consent-error">{{icon:alert}}<span></span></p>
+        </div>
+
+        <div class="form-footer">
+          <button class="btn btn--primary btn--block" type="submit"><span>Send my request</span></button>
+          <p>We read every request before replying. There's no mailing list, and we won't share your details.</p>
+        </div>
+      </form>
+    </div>
+    <aside class="review-aside stack stack--xl" aria-label="About the Business Review">
+      <div class="stack">
+        <h2 class="heading-sm">What the Business Review is</h2>
+        <p class="text-secondary">A focused conversation about how your business currently attracts, converts and serves customers. We'll understand what is working, where friction may exist and what would be worth improving first. If Experius is a good fit, we'll outline a sensible next step. If it isn't, we'll say so.</p>
+        <ul class="check-list">
+          <li>25–30 minutes, online, or another format we agree</li>
+          <li>With someone who will work on your business, not a sales script</li>
+          <li>Free. If there's a sensible next step, it's scoped and priced in writing before anything starts</li>
+        </ul>
+      </div>
+      <div class="is-isnt">
+        <div class="stack stack--sm">
+          <h3>{{icon:check-circle}} It is</h3>
+          <ul>
+            <li>{{icon:check}} A first conversation</li>
+            <li>{{icon:check}} A chance to understand your context</li>
+            <li>{{icon:check}} A way to find the most relevant problem</li>
+            <li>{{icon:check}} An honest talk about fit and next steps</li>
+          </ul>
+        </div>
+        <div class="stack stack--sm">
+          <h3>{{icon:x-circle}} It isn't</h3>
+          <ul>
+            <li>{{icon:x-circle}} A full audit delivered for free</li>
+            <li>{{icon:x-circle}} A commitment to buy</li>
+            <li>{{icon:x-circle}} A promise of guaranteed growth</li>
+            <li>{{icon:x-circle}} A generic sales presentation</li>
+          </ul>
+        </div>
+      </div>
+      <div class="stack">
+        <h2 class="heading-sm">What happens after you send this</h2>
+        <ol class="process process--stacked">
+          <li><h3>We read your request</h3><p>Someone on the team looks at your business and what you've told us before replying.</p></li>
+          <li><h3>We reply by email</h3><p>If a conversation makes sense, we suggest times. If we're not the right fit, we tell you, and point you somewhere useful if we can.</p></li>
+          <li><h3>We talk</h3><p>A focused conversation about your business, not a presentation about ours.</p></li>
+        </ol>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="review-faq-title">
+  <div class="container">
+    <div class="section-heading"><h2 id="review-faq-title">Before you send it</h2></div>
+    <div class="faq">
+      <details><summary>Does the Business Review cost anything? {{icon:plus}}</summary><div class="faq__answer"><p>No. The Business Review is free. If we both see a fit, we'll suggest a next step and agree its scope and price in writing before any work starts. There's no obligation to go ahead.</p></div></details>
+      <details><summary>Who will I talk to? {{icon:plus}}</summary><div class="faq__answer"><p>Someone from the team who would actually work on your business, usually our founder for a first conversation. Not a salesperson reading a script.</p></div></details>
+      <details><summary>Do I need to prepare anything? {{icon:plus}}</summary><div class="faq__answer"><p>No. It helps to think of one recent example of something that slipped: an inquiry nobody replied to, a booking that took too long. Please don't send confidential documents or customer data.</p></div></details>
+    </div>
+  </div>
+</section>

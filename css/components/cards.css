@@ -1,0 +1,105 @@
+/* Cards. Used only for distinct choices or concepts (brief §7.2), never as decoration.
+   Linked cards make the whole card clickable via a stretched link, so the hit area is never smaller than the card.
+   States: default · hover · focus-within · empty (see .empty-state). */
+.card {
+  position: relative; display: flex; flex-direction: column;
+  padding: var(--space-comfortable); border: 1px solid var(--color-border); border-radius: var(--radius-md);
+  background: var(--color-surface); color: var(--color-text-primary);
+}
+@media (min-width: 768px) { .card { padding: var(--space-roomy); } }
+.card > * + * { margin-top: var(--space-snug); }
+.card h3 { font-size: var(--text-xl); }
+.card p { color: var(--color-text-secondary); }
+.card .card__foot { margin-top: auto; padding-top: var(--space-base); }
+
+.card--link { transition: border-color var(--duration-fast) var(--ease), box-shadow var(--duration-fast) var(--ease), transform var(--duration-fast) var(--ease); }
+.card--link:hover { border-color: var(--color-border-strong); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.card--link:focus-within { outline: var(--focus-width) solid var(--color-focus); outline-offset: var(--focus-offset); }
+.card--link .stretched::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
+.card--link .stretched:focus-visible { outline: none; }
+@media (prefers-reduced-motion: reduce) { .card--link:hover { transform: none; } }
+
+/* Symptom card: compact, recognisable problem in the visitor's words. */
+.symptom { padding: var(--space-comfortable); }
+.symptom h3 { font-size: var(--text-lg); letter-spacing: 0; }
+.symptom .symptom__num { font-size: var(--text-xs); font-weight: var(--font-weight-semibold); color: var(--color-accent-ink); letter-spacing: var(--letter-spacing-eyebrow); }
+
+/* Capability card: the two pillars. Larger, with a list of what it covers. */
+.capability h3 { font-size: var(--text-2xl); }
+.capability ul, .audience ul, .check-list { list-style: none; display: grid; gap: var(--space-tight); margin-top: var(--space-base); }
+.capability li, .audience li, .check-list li { position: relative; padding-left: var(--space-comfortable); color: var(--color-text-primary); }
+.capability li::before, .audience li::before, .check-list li::before {
+  content: ""; position: absolute; left: 0; top: 0.7em; width: 10px; height: 2px; background: var(--color-accent);
+}
+
+.bridge { text-align: center; font-size: var(--text-lg); font-weight: var(--font-weight-semibold); margin-block: var(--space-roomy) 0; max-width: none; }
+.bridge span { color: var(--color-accent-ink); }
+
+/* Audience card: one sentence of context + three problems + "Explore this journey". */
+.audience .audience__context { color: var(--color-text-secondary); }
+.audience li { color: var(--color-text-secondary); }
+
+/* Work card: evidence label first, so honesty is the first thing read. */
+.work-card .work-card__meta { display: flex; flex-wrap: wrap; gap: var(--space-tight); align-items: center; }
+.work-card dl { display: grid; gap: var(--space-tight); margin: var(--space-base) 0 0; }
+.work-card dt { font-weight: var(--font-weight-semibold); color: var(--color-text-primary); }
+.work-card dd { margin: 0; color: var(--color-text-secondary); }
+
+/* Screenshot slot on a work card. Placeholder until approved screens arrive; ratio fixed so nothing shifts when they do. */
+.work-card .shot {
+  aspect-ratio: 16 / 10; display: grid; place-items: center; padding: var(--space-base); text-align: center;
+  border: 1px dashed var(--color-border-strong); border-radius: var(--radius-sm); background: var(--color-background-alt);
+  color: var(--color-text-secondary); font-size: var(--text-sm);
+}
+.work-card img.shot { padding: 0; border-style: solid; border-color: var(--color-border); object-fit: cover; width: 100%; }
+
+/* Insight card */
+.insight-card .insight-card__meta { font-size: var(--text-xs); color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: var(--letter-spacing-eyebrow); font-weight: var(--font-weight-semibold); }
+.insight-card h3 { font-size: var(--text-lg); letter-spacing: 0; }
+
+/* Capability detail: business problem → better process → what may be built → what we need to understand. */
+.cap-detail { display: grid; gap: var(--space-base); }
+.cap-detail dl { display: grid; gap: var(--space-base); margin: 0; }
+@media (min-width: 768px) { .cap-detail dl { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .cap-detail dl { grid-template-columns: repeat(4, 1fr); } }
+.cap-detail dt { font-size: var(--text-xs); font-weight: var(--font-weight-semibold); letter-spacing: var(--letter-spacing-eyebrow); text-transform: uppercase; color: var(--color-text-secondary); }
+.cap-detail dd { margin: var(--space-hairline) 0 0; }
+
+/* Person card. Photo placeholder until real, consented team photos exist. */
+.person .person__photo {
+  aspect-ratio: 4 / 5; border-radius: var(--radius-md); background: var(--color-background-alt); border: 1px dashed var(--color-border-strong);
+  display: grid; place-items: center; color: var(--color-text-secondary); font-size: var(--text-sm); text-align: center; padding: var(--space-base);
+}
+.person h3 { font-size: var(--text-lg); letter-spacing: 0; }
+.person .person__role { color: var(--color-accent-ink); font-size: var(--text-sm); font-weight: var(--font-weight-semibold); }
+
+/* Is / isn't comparison on the Business Review page. Icons + headings carry the meaning, not colour. */
+.is-isnt { display: grid; gap: var(--space-base); }
+@media (min-width: 768px) { .is-isnt { grid-template-columns: 1fr 1fr; } }
+.is-isnt h3 { font-size: var(--text-lg); letter-spacing: 0; display: flex; align-items: center; gap: var(--space-tight); }
+.is-isnt ul { list-style: none; display: grid; gap: var(--space-tight); }
+.is-isnt li { display: flex; gap: var(--space-tight); color: var(--color-text-secondary); }
+.is-isnt li .icon { margin-top: 0.2em; color: var(--color-text-primary); }
+
+/* Empty state: what a list shows before content exists (e.g. no published case studies yet). */
+.empty-state {
+  padding: var(--space-roomy); border: 1px dashed var(--color-border-strong); border-radius: var(--radius-md);
+  text-align: center; color: var(--color-text-secondary);
+}
+.empty-state h3 { color: var(--color-text-primary); font-size: var(--text-lg); letter-spacing: 0; margin-bottom: var(--space-tight); }
+.empty-state p { margin-inline: auto; }
+
+/* Card titles that carry the stretched link keep heading styling; the link state shows on the whole card. */
+.card .stretched { color: inherit; text-decoration: none; }
+.card--link:hover .stretched { text-decoration: underline; text-decoration-thickness: 1px; }
+
+/* Value list: statements, not choices, so no card borders (brief §7.2). */
+.value-list { list-style: none; display: grid; gap: var(--space-comfortable) var(--space-spacious); }
+@media (min-width: 768px) { .value-list { grid-template-columns: 1fr 1fr; } }
+.value-list li { padding-top: var(--space-base); border-top: 2px solid var(--color-accent); }
+.value-list h3 { font-size: var(--text-lg); letter-spacing: 0; }
+.value-list p { margin-top: var(--space-hairline); color: var(--color-text-secondary); }
+
+/* Note card: a boundary or principle the visitor should notice (data handling, why we work with installers). */
+.card--note { border-left: 3px solid var(--color-accent-ink); }
+.card .card__statement { font-size: var(--text-lg); color: var(--color-text-primary); }

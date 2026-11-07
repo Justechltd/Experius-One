@@ -1,0 +1,49 @@
+/* Button. Serves every step that moves a visitor on; the primary variant is reserved for the Business Review CTA.
+   States: default · hover · active · focus-visible · disabled · loading. */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--space-tight);
+  min-height: var(--target-min);
+  padding: var(--space-snug) var(--space-comfortable);
+  border: 1px solid transparent; border-radius: var(--radius-sm);
+  font: inherit; font-size: var(--text-base); font-weight: var(--font-weight-semibold); line-height: var(--line-height-snug);
+  text-align: center; text-decoration: none; cursor: pointer;
+  transition: background-color var(--duration-fast) var(--ease), border-color var(--duration-fast) var(--ease), color var(--duration-fast) var(--ease), transform var(--duration-fast) var(--ease);
+}
+.btn:hover { text-decoration: none; }
+.btn:active { transform: translateY(1px); }
+
+/* Charcoal on orange (5.52:1). Hover goes lighter, which raises contrast. */
+.btn--primary { background: var(--color-action); color: var(--color-text-on-action); }
+.btn--primary:hover { background: var(--color-action-hover); color: var(--color-text-on-action); }
+.btn--primary:active { background: var(--color-action-pressed); }
+
+.btn--secondary { background: transparent; color: var(--color-text-primary); border-color: var(--color-text-primary); }
+.btn--secondary:hover { background: var(--color-state-hover); color: var(--color-text-primary); }
+
+.btn--sm { min-height: var(--target-min); padding: var(--space-tight) var(--space-base); font-size: var(--text-sm); }
+.btn--block { width: 100%; }
+
+.btn[disabled], .btn[aria-disabled="true"] { opacity: 0.45; cursor: not-allowed; transform: none; }
+.btn--primary[disabled]:hover { background: var(--color-action); }
+
+/* Loading: label stays for screen readers; spinner shows progress. */
+.btn.is-loading { cursor: progress; }
+.btn.is-loading::before {
+  content: ""; width: 1em; height: 1em; border-radius: var(--radius-full);
+  border: 2px solid currentColor; border-right-color: transparent;
+  animation: btn-spin 700ms linear infinite;
+}
+@keyframes btn-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .btn.is-loading::before { animation-duration: 2s; } }
+
+/* Text link with arrow, for secondary routes ("Explore this journey"). 44px tall hit area on touch. */
+.link-arrow {
+  display: inline-flex; align-items: center; gap: var(--space-tight); min-height: var(--target-min);
+  color: var(--color-link); font-weight: var(--font-weight-semibold); text-decoration: none;
+}
+.link-arrow .icon { transition: transform var(--duration-fast) var(--ease); }
+.link-arrow:hover { color: var(--color-link-hover); text-decoration: underline; }
+.link-arrow:hover .icon { transform: translateX(3px); }
+
+.btn-row { display: flex; flex-wrap: wrap; gap: var(--space-snug); align-items: center; }
+@media (max-width: 479px) { .btn-row .btn { width: 100%; } }

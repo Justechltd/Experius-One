@@ -1,0 +1,178 @@
+/* Experius design tokens · v0.1 · 5 Nov 2026
+   Source: source-brief.md §8–9 + plan.md §4. Reference: ../design-tokens.md
+   Components use semantic tokens only. Never use raw hex or px in component CSS. */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+  /* BRAND. The raw palette, referenced only by the semantic tokens below.
+     Charcoal is confirmed from the logo. Orange was confirmed by Samir as "approximately #F26522". */
+  --brand-charcoal: #1A1A1A;
+  --brand-black: #000000;
+  --brand-white: #FFFFFF;
+  --brand-orange: #F26522;
+  --brand-orange-ink: #C1460B;   /* same hue, darkened so it can be text on light surfaces (5.06:1 on white) */
+
+  /* COLOR: LIGHT SURFACE (default). Named by job, not by hue.
+     A dark section swaps these values (see [data-surface="dark"]), so components never change. */
+  --color-background: #FFFFFF;
+  --color-background-alt: #F5F5F3;      /* alternating light sections */
+  --color-surface: #FFFFFF;             /* cards, inputs */
+  --color-surface-raised: #FFFFFF;
+
+  --color-text-primary: #1A1A1A;        /* 17.4 on white · 15.9 on alt */
+  --color-text-secondary: #666666;      /* 5.74 · 5.26 */
+  --color-text-on-action: #1A1A1A;      /* charcoal on orange 5.52. White on orange fails (3.15) */
+
+  --color-action: #F26522;              /* primary button fill */
+  --color-action-hover: #F57F45;        /* lighter, so charcoal text gains contrast (6.63) */
+  --color-action-pressed: #E0581A;      /* 4.62 with charcoal text */
+  --color-link: #C1460B;                /* 5.06 · 4.64 */
+  --color-link-hover: #1A1A1A;
+
+  --color-accent: #F26522;              /* decorative only, no meaning (2.89 on alt fails 3:1) */
+  --color-accent-ink: #C1460B;          /* active states, icons and indicators that carry meaning */
+
+  --color-border: #D4D4D4;              /* dividers, card edges (decorative) */
+  --color-border-strong: #858585;       /* input boundaries, needs 3:1 (3.69 · 3.38) */
+  --color-focus: #C1460B;               /* focus ring, 4.64 on alt */
+
+  /* Feedback. Always paired with an icon and text, never colour alone. Error is red, not orange, so it isn't confused with the accent. */
+  --color-error: #B42318;               /* 6.57 · 6.02 */
+  --color-error-bg: #FEF3F2;
+  --color-success: #067647;             /* 5.69 · 5.21 */
+  --color-success-bg: #ECFDF3;
+  --color-warning: #B54708;             /* 5.43 · 4.97 */
+  --color-warning-bg: #FFFAEB;
+  --color-info: #175CD3;                /* 5.99 · 5.48 */
+  --color-info-bg: #EFF8FF;
+
+  --color-state-hover: rgb(26 26 26 / 0.06);  /* tint behind secondary buttons and nav items on hover */
+  --color-overlay: rgb(26 26 26 / 0.6); /* behind the mobile menu */
+
+  /* TYPOGRAPHY. Poppins only, per the brief. Sizes scale fluidly from 375px to 1280px viewports,
+     so no breakpoint jumps. Ranges follow brief §8.5 (mobile → desktop). */
+  --font-body: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: var(--font-body);
+
+  --text-xs: 0.8125rem;                                         /* 13 · captions, metadata only */
+  --text-sm: 0.875rem;                                          /* 14 · UI floor */
+  --text-base: clamp(1rem, 0.9741rem + 0.1105vw, 1.0625rem);   /* 16→17 body */
+  --text-lg: clamp(1.125rem, 1.073rem + 0.221vw, 1.25rem);      /* 18→20 lead paragraph */
+  --text-xl: clamp(1.3125rem, 1.183rem + 0.5525vw, 1.625rem);   /* 21→26 H3 */
+  --text-2xl: clamp(1.75rem, 1.439rem + 1.326vw, 2.5rem);       /* 28→40 H2 */
+  --text-3xl: clamp(2.25rem, 1.784rem + 1.989vw, 3.375rem);     /* 36→54 H1 */
+  --text-4xl: clamp(2.5rem, 1.775rem + 3.094vw, 4.25rem);       /* 40→68 homepage display */
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;          /* headings */
+  --font-weight-bold: 700;              /* display only */
+
+  --line-height-tight: 1.1;             /* display, H1, H2 */
+  --line-height-snug: 1.3;              /* H3, labels, buttons */
+  --line-height-normal: 1.6;            /* body */
+
+  --letter-spacing-heading: -0.02em;
+  --letter-spacing-eyebrow: 0.08em;     /* uppercase eyebrows only. Headings stay sentence case */
+
+  /* SPACING. 4px base (brief §8.6). Use the small steps inside components and the large steps between them. */
+  --space-hairline: 0.25rem;            /* 4 */
+  --space-tight: 0.5rem;                /* 8 */
+  --space-snug: 0.75rem;                /* 12 */
+  --space-base: 1rem;                   /* 16 */
+  --space-comfortable: 1.5rem;          /* 24 */
+  --space-roomy: 2rem;                  /* 32 */
+  --space-spacious: 3rem;               /* 48 */
+  --space-generous: 4rem;               /* 64 */
+  --space-vast: 5rem;                   /* 80 */
+  --space-section: clamp(4rem, 2.55rem + 6.188vw, 7.5rem);   /* 64→120 between page sections */
+
+  /* LAYOUT. The 4/8/12-column grid switches at these breakpoints. Media queries can't read
+     custom properties, so the values are fixed: 480 · 768 · 1024 · 1440 (brief §7.7). */
+  --container-max: 75rem;               /* 1200 */
+  --measure: 45rem;                     /* 720, reading width */
+  --gutter: clamp(1rem, 0.5856rem + 1.768vw, 2rem);          /* 16→32 page side padding */
+  --grid-gap: var(--space-comfortable);
+  --header-height: 4.5rem;
+  --target-min: 2.75rem;                /* 44px minimum touch target */
+
+  /* RADIUS. Mostly square geometry, echoing the EX mark. Pills only for small tags. */
+  --radius-sm: 6px;                     /* buttons, inputs, tags */
+  --radius-md: 10px;                    /* cards */
+  --radius-lg: 14px;                    /* large panels, mobile menu sheet, diagram frames */
+  --radius-full: 999px;                 /* avatars, step numbers */
+
+  /* ELEVATION. Restrained (brief §8.7). Prefer a border. Use a shadow only to show layering. */
+  --shadow-sm: 0 1px 2px rgb(26 26 26 / 0.06);
+  --shadow-md: 0 4px 16px rgb(26 26 26 / 0.08);
+  --shadow-lg: 0 12px 40px rgb(26 26 26 / 0.16);  /* menu panel, dropdowns */
+
+  --focus-width: 3px;                   /* drawn as an outline, so it survives Windows high-contrast mode */
+  --focus-offset: 2px;
+
+  /* MOTION. One easing curve, three durations. Animate transform and opacity only.
+     Slow tops out at 450ms: a mid-range Android on mobile data (an assumption, not yet confirmed)
+     keeps it smooth, and anything longer starts holding content back. */
+  --duration-fast: 150ms;               /* hover, press, colour changes */
+  --duration-default: 250ms;            /* menus, accordions, dropdowns */
+  --duration-slow: 450ms;               /* explanatory steps in the system diagram, scroll reveal */
+  --ease: cubic-bezier(0.2, 0, 0, 1);   /* fast start, gentle stop */
+  --reveal-distance: 12px;
+
+  /* LAYERS */
+  --z-header: 100;
+  --z-dropdown: 200;
+  --z-overlay: 300;
+  --z-menu: 400;
+  --z-skip-link: 500;
+}
+
+/* DARK SURFACE. Put data-surface="dark" on any section (hero, CTA band, footer) and every
+   component inside it flips. The same mechanism powers an OS dark mode later if it's ever wanted. */
+[data-surface="dark"] {
+  --color-background: #1A1A1A;
+  --color-background-alt: #222222;
+  --color-surface: #292929;             /* brief's Graphite */
+  --color-surface-raised: #333333;      /* no orange text here (4.01) */
+
+  --color-text-primary: #F5F5F3;        /* 15.9 · 13.3 on surface */
+  --color-text-secondary: #A3A3A3;      /* 6.90 · 5.77 on surface */
+  --color-text-on-action: #1A1A1A;
+
+  --color-link: #F26522;                /* 5.52 · 4.61 on surface */
+  --color-link-hover: #F5F5F3;
+
+  --color-accent: #F26522;
+  --color-accent-ink: #F26522;
+
+  --color-border: #3A3A3A;
+  --color-border-strong: #8A8A8A;       /* 5.04 · 4.21 on surface */
+  --color-focus: #F26522;
+  --color-state-hover: rgb(245 245 243 / 0.08);
+
+  --color-error: #F97066;
+  --color-error-bg: #3B1A1A;
+  --color-success: #47CD89;
+  --color-success-bg: #12291E;
+  --color-warning: #FDB022;
+  --color-warning-bg: #33260C;
+  --color-info: #84ADFF;
+  --color-info-bg: #16233D;
+
+  --shadow-sm: none;
+  --shadow-md: none;
+  --shadow-lg: 0 12px 40px rgb(0 0 0 / 0.5);
+
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0.01ms;
+    --duration-default: 0.01ms;
+    --duration-slow: 0.01ms;
+    --reveal-distance: 0px;
+  }
+}

@@ -1,0 +1,89 @@
+/* Business Review form (journey step 8, the most expensive place to lose someone).
+   Visible labels, hints under labels, errors next to the field and in a summary.
+   States: default · hover · focus · filled · error · disabled · submitting · failed · success. */
+.form { display: grid; gap: var(--space-comfortable); }
+.form fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+.form-group-title { font-size: var(--text-lg); font-weight: var(--font-weight-semibold); padding: 0; margin-bottom: var(--space-tight); }
+
+.field { display: grid; gap: var(--space-tight); }
+.field label, .field legend { font-weight: var(--font-weight-semibold); font-size: var(--text-base); padding: 0; }
+.field .optional { font-weight: var(--font-weight-regular); color: var(--color-text-secondary); font-size: var(--text-sm); }
+.field .hint { color: var(--color-text-secondary); font-size: var(--text-sm); margin-top: calc(var(--space-hairline) * -1); }
+
+.input, .select, .textarea {
+  width: 100%; min-height: 3rem; padding: var(--space-snug) var(--space-base);
+  border: 1px solid var(--color-border-strong); border-radius: var(--radius-sm);
+  background: var(--color-surface); color: var(--color-text-primary);
+  font: inherit; font-size: var(--text-base); line-height: var(--line-height-snug);
+  transition: border-color var(--duration-fast) var(--ease);
+}
+.input:hover, .select:hover, .textarea:hover { border-color: var(--color-text-secondary); }
+.input:focus-visible, .select:focus-visible, .textarea:focus-visible { outline: var(--focus-width) solid var(--color-focus); outline-offset: 0; border-color: var(--color-text-primary); }
+.input:disabled, .select:disabled, .textarea:disabled { opacity: 0.5; cursor: not-allowed; }
+.textarea { min-height: 8rem; resize: vertical; line-height: var(--line-height-normal); }
+.select { appearance: none; padding-right: var(--space-spacious); }
+/* Chevron drawn with borders so it takes its colour from tokens and flips on dark surfaces. */
+.select-wrap { position: relative; }
+.select-wrap::after {
+  content: ""; position: absolute; right: var(--space-base); top: 50%; width: 0.5rem; height: 0.5rem; pointer-events: none;
+  border-right: 2px solid var(--color-text-secondary); border-bottom: 2px solid var(--color-text-secondary);
+  transform: translateY(-70%) rotate(45deg);
+}
+.input::placeholder, .textarea::placeholder { color: var(--color-text-secondary); opacity: 1; }
+
+/* Checkbox options: the whole row is the target, at least 44px tall. */
+.options { display: grid; gap: var(--space-tight); }
+@media (min-width: 768px) { .options--2 { grid-template-columns: 1fr 1fr; } }
+.option {
+  display: flex; align-items: flex-start; gap: var(--space-snug); min-height: var(--target-min);
+  padding: var(--space-snug) var(--space-base); border: 1px solid var(--color-border); border-radius: var(--radius-sm);
+  background: var(--color-surface); cursor: pointer; font-size: var(--text-sm); line-height: var(--line-height-snug);
+  transition: border-color var(--duration-fast) var(--ease), background-color var(--duration-fast) var(--ease);
+}
+.option:hover { border-color: var(--color-border-strong); }
+.option input { width: 1.25rem; height: 1.25rem; margin: 0; flex: none; accent-color: var(--color-accent-ink); }
+.option:has(input:checked) { border-color: var(--color-text-primary); background: var(--color-state-hover); }
+.option:has(input:focus-visible) { outline: var(--focus-width) solid var(--color-focus); outline-offset: var(--focus-offset); }
+.option input:focus-visible { outline: none; }
+
+/* Error: thicker border + icon + message text; colour is never the only signal. */
+.field.has-error .input, .field.has-error .select, .field.has-error .textarea { border: 2px solid var(--color-error); }
+.field.has-error .options .option { border-color: var(--color-error); }
+.field-error { display: none; align-items: flex-start; gap: var(--space-tight); color: var(--color-error); font-size: var(--text-sm); font-weight: var(--font-weight-medium); }
+.field.has-error .field-error { display: flex; }
+.field-error .icon { margin-top: 0.1em; }
+
+.error-summary {
+  padding: var(--space-comfortable); border: 2px solid var(--color-error); border-radius: var(--radius-md);
+  background: var(--color-error-bg);
+}
+.error-summary[hidden] { display: none; }
+.error-summary h2 { font-size: var(--text-lg); letter-spacing: 0; display: flex; gap: var(--space-tight); align-items: center; color: var(--color-error); }
+.error-summary ul { margin-top: var(--space-snug); padding-left: var(--space-comfortable); }
+.error-summary a { color: var(--color-error); font-weight: var(--font-weight-semibold); }
+
+/* Submission failed: values are kept; offer retry and an email route. */
+.form-alert { display: flex; gap: var(--space-snug); padding: var(--space-comfortable); border-radius: var(--radius-md); border: 2px solid var(--color-error); background: var(--color-error-bg); }
+.form-alert[hidden] { display: none; }
+.form-alert .icon { color: var(--color-error); width: 1.5rem; height: 1.5rem; }
+.form-alert h2 { font-size: var(--text-lg); letter-spacing: 0; color: var(--color-error); }
+.form-alert p { margin-top: var(--space-tight); font-size: var(--text-sm); }
+
+.consent { font-size: var(--text-sm); }
+.form-footer { display: grid; gap: var(--space-base); padding-top: var(--space-base); border-top: 1px solid var(--color-border); }
+.form-footer p { font-size: var(--text-sm); color: var(--color-text-secondary); }
+
+/* Panel holding the form on the Business Review page. */
+.form-panel { padding: var(--space-comfortable); border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-surface); }
+@media (min-width: 768px) { .form-panel { padding: var(--space-spacious); } }
+
+/* Business Review layout: the form is first in the DOM (it's the page's primary element on every screen);
+   from 1024px the explanation moves into the left column beside it. */
+@media (min-width: 1024px) {
+  .split--form > .form-panel { grid-column: 2; grid-row: 1; }
+  .split--form > .review-aside { grid-column: 1; grid-row: 1; }
+}
+
+/* Prototype-only control to preview the failure state. Lives in the prototype notice, outside the form. */
+.proto-toggle { display: flex; gap: var(--space-tight); align-items: center; min-height: var(--target-min); margin-top: var(--space-tight); font-size: var(--text-sm); font-weight: var(--font-weight-semibold); cursor: pointer; }
+.proto-toggle input { width: 1rem; height: 1rem; accent-color: var(--color-info); }
