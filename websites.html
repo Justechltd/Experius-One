@@ -3,82 +3,98 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Websites & Connected Digital Experiences · Experius</title>
-<meta name="description" content="A website should have a clear job: clarify the offer, build trust, qualify inquiries, take bookings and connect to how your team works.">
+<title>Websites &amp; Connected Digital Experiences · Experius</title>
+<meta name="description" content="A website should have a clear job: clarify the offer, build trust, qualify inquiries, take bookings and connect smoothly to how your team actually works.">
 <link rel="canonical" href="https://experius.xyz/solutions/websites">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Experius">
-<meta property="og:title" content="Websites & Connected Digital Experiences">
-<meta property="og:description" content="A website should have a clear job: clarify the offer, build trust, qualify inquiries, take bookings and connect to how your team works.">
+<meta property="og:title" content="Websites &amp; Connected Digital Experiences">
+<meta property="og:description" content="A website should have a clear job: clarify the offer, build trust, qualify inquiries, take bookings and connect smoothly to how your team actually works.">
 <meta property="og:url" content="https://experius.xyz/solutions/websites">
-<!-- [CONFIRM] og:image needs a 1200×630 share image -->
-<meta name="robots" content="noindex">
-<link rel="icon" type="image/png" href="assets/logo-mark-black.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/main.css">
+<meta property="og:image" content="https://experius.xyz/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Experius: business systems for service businesses">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Websites &amp; Connected Digital Experiences">
+<meta name="twitter:description" content="A website should have a clear job: clarify the offer, build trust, qualify inquiries, take bookings and connect smoothly to how your team actually works.">
+<meta name="twitter:image" content="https://experius.xyz/assets/og-image.png">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/png" sizes="512x512" href="/assets/icon-512.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+<link rel="preload" href="/assets/fonts/poppins-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/poppins-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/site.css">
 <script>document.documentElement.classList.add('js');</script>
-<script src="js/site.js" defer></script>
+<script src="/js/config.js" defer></script>
+<script src="/js/analytics.js" defer></script>
+<script src="/js/site.js" defer></script>
+<script src="/js/motion/core.js" defer></script>
+<script src="/js/motion/site-jobs.js" defer></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://experius.xyz/"}, {"@type": "ListItem", "position": 2, "name": "Solutions", "item": "https://experius.xyz/solutions"}, {"@type": "ListItem", "position": 3, "name": "Websites", "item": "https://experius.xyz/solutions/websites"}]}, {"@type": "Service", "name": "Websites & connected digital experiences", "description": "A website should have a clear job: clarify the offer, build trust, qualify inquiries, take bookings and connect smoothly to how your team actually works.", "provider": {"@id": "https://experius.xyz/#org"}, "areaServed": "Worldwide"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can you improve our existing website instead of rebuilding it?", "acceptedAnswer": {"@type": "Answer", "text": "Often, yes. If the site's job is clear and the foundations are sound, focused changes to content and connections can matter more than a redesign."}}, {"@type": "Question", "name": "Which platform will you use?", "acceptedAnswer": {"@type": "Answer", "text": "The one that suits your team's ability to maintain it. We'll explain the options and their trade-offs before recommending one."}}, {"@type": "Question", "name": "Can we update the website ourselves?", "acceptedAnswer": {"@type": "Answer", "text": "That's usually the goal. We hand over training and documentation for the parts your team will change regularly."}}]}]}</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header" data-surface="dark">
   <div class="container header-inner">
-    <a class="brand" href="index.html" aria-label="Experius, home">
-      <img class="brand__mark" src="assets/logo-mark-white.png" alt="" width="428" height="309">
-      <img class="brand__word" src="assets/logo-wordmark-white.png" alt="" width="427" height="28">
+    <a class="brand" href="/index.html" aria-label="Experius, home">
+      <img class="brand__mark" src="/assets/logo-mark-white.png" alt="" width="428" height="309">
+      <img class="brand__word" src="/assets/logo-wordmark-white.png" alt="" width="427" height="28">
     </a>
 
     <nav class="primary-nav" aria-label="Main">
-      <ul class="nav-list">
+      <ul class="nav-list" role="list">
         <li class="nav-item">
           <button class="nav-link nav-toggle is-current" type="button" aria-expanded="false" aria-controls="sub-solutions">Solutions <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
-          <ul class="nav-sub" id="sub-solutions" hidden>
-            <li><a href="solutions.html">All solutions<span>How the two pillars work together</span></a></li>
-            <li><a href="business-operating-systems.html">Business Operating Systems<span>Inquiries, follow-up, booking, visibility</span></a></li>
-            <li><a href="content-creation-management.html">Content Creation &amp; Management<span>Make expertise visible and trusted</span></a></li>
-            <li><a href="websites.html" aria-current="page">Websites &amp; Connected Digital Experiences<span>Give your website a clear job</span></a></li>
+          <ul class="nav-sub" role="list" id="sub-solutions" hidden>
+            <li><a href="/solutions.html">All solutions<span>How the two pillars work together</span></a></li>
+            <li><a href="/business-operating-systems.html">Business Operating Systems<span>Inquiries, follow-up, booking, visibility</span></a></li>
+            <li><a href="/content-creation-management.html">Content Creation &amp; Management<span>Make expertise visible and trusted</span></a></li>
+            <li><a href="/websites.html" aria-current="page">Websites &amp; Connected Digital Experiences<span>Give your website a clear job</span></a></li>
           </ul>
         </li>
         <li class="nav-item">
           <button class="nav-link nav-toggle" type="button" aria-expanded="false" aria-controls="sub-who">Who We Help <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
-          <ul class="nav-sub" id="sub-who" hidden>
-            <li><a href="who-we-help.html">Overview<span>Find your kind of business</span></a></li>
-            <li><a href="expertise-personal-brands.html">Expertise &amp; Personal Brands<span>Coaches, consultants, therapists, experts</span></a></li>
-            <li><a href="clinics-wellness.html">Clinics &amp; Wellness<span>Physio, dental, therapy, rehabilitation</span></a></li>
-            <li><a href="education-training.html">Education &amp; Training<span>Academies, trainers, learning businesses</span></a></li>
-            <li><a href="solar-battery-installers.html">Solar &amp; Battery Installers<span>Residential and commercial installers</span></a></li>
+          <ul class="nav-sub" role="list" id="sub-who" hidden>
+            <li><a href="/who-we-help.html">Overview<span>Find your kind of business</span></a></li>
+            <li><a href="/special-education.html">Special Education &amp; Therapy<span>Special needs schools, therapy and child development centres</span></a></li>
+            <li><a href="/expertise-personal-brands.html">Expertise &amp; Personal Brands<span>Coaches, consultants, therapists, experts</span></a></li>
+            <li><a href="/clinics-wellness.html">Clinics &amp; Wellness<span>Physio, dental, therapy, rehabilitation</span></a></li>
+            <li><a href="/solar-battery-installers.html">Solar &amp; Battery Installers<span>Residential and commercial installers</span></a></li>
           </ul>
         </li>
-        <li class="nav-item"><a class="nav-link" href="our-approach.html">Our Approach</a></li>
-        <li class="nav-item"><a class="nav-link" href="work.html">Work</a></li>
-        <li class="nav-item"><a class="nav-link" href="insights.html">Insights</a></li>
-        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="/our-approach.html">Our Approach</a></li>
+        <li class="nav-item"><a class="nav-link" href="/work.html">Work</a></li>
+        <li class="nav-item"><a class="nav-link" href="/insights.html">Insights</a></li>
+        <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="/contact.html">Contact</a></li>
       </ul>
     </nav>
 
-    <a class="btn btn--primary btn--sm header-cta" data-event="business_review_cta_click" href="business-review.html">Book a Review</a>
+    <a class="btn btn--primary btn--sm header-cta" data-event="business_review_cta_click" href="/business-review.html"><span class="header-cta__long">Book a Business Review</span><span class="header-cta__short">Book a Review</span></a>
 
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu">
+    <a class="menu-fallback" href="#site-footer">Menu</a>
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu">
       <svg class="icon icon-open" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
       <svg class="icon icon-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
-      <span class="menu-toggle__label">Menu</span>
-      <span class="visually-hidden">Open or close the main menu</span>
+      <span class="menu-toggle__label" aria-hidden="true">Menu</span>
     </button>
   </div>
 
   <div class="mobile-menu" id="mobile-menu" hidden>
     <nav aria-label="Main, mobile">
-      <ul class="mobile-nav">
-        <li><a href="index.html">Home</a></li>
+      <ul class="mobile-nav" role="list">
+        <li><a href="/index.html">Home</a></li>
         <li>
           <details>
             <summary>Solutions <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
             <ul>
-              <li><a href="solutions.html">All solutions</a></li>
-              <li><a href="business-operating-systems.html">Business Operating Systems</a></li>
-              <li><a href="content-creation-management.html">Content Creation &amp; Management</a></li>
-              <li><a href="websites.html" aria-current="page">Websites &amp; Connected Digital Experiences</a></li>
+              <li><a href="/solutions.html">All solutions</a></li>
+              <li><a href="/business-operating-systems.html">Business Operating Systems</a></li>
+              <li><a href="/content-creation-management.html">Content Creation &amp; Management</a></li>
+              <li><a href="/websites.html" aria-current="page">Websites &amp; Connected Digital Experiences</a></li>
             </ul>
           </details>
         </li>
@@ -86,34 +102,33 @@
           <details>
             <summary>Who We Help <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
             <ul>
-              <li><a href="who-we-help.html">Overview</a></li>
-              <li><a href="expertise-personal-brands.html">Expertise &amp; Personal Brands</a></li>
-              <li><a href="clinics-wellness.html">Clinics &amp; Wellness</a></li>
-              <li><a href="education-training.html">Education &amp; Training</a></li>
-              <li><a href="solar-battery-installers.html">Solar &amp; Battery Installers</a></li>
+              <li><a href="/who-we-help.html">Overview</a></li>
+              <li><a href="/special-education.html">Special Education &amp; Therapy</a></li>
+              <li><a href="/expertise-personal-brands.html">Expertise &amp; Personal Brands</a></li>
+              <li><a href="/clinics-wellness.html">Clinics &amp; Wellness</a></li>
+              <li><a href="/solar-battery-installers.html">Solar &amp; Battery Installers</a></li>
             </ul>
           </details>
         </li>
-        <li><a href="our-approach.html">Our Approach</a></li>
-        <li><a href="work.html">Work</a></li>
-        <li><a href="insights.html">Insights</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="/our-approach.html">Our Approach</a></li>
+        <li><a href="/work.html">Work</a></li>
+        <li><a href="/insights.html">Insights</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/contact.html">Contact</a></li>
       </ul>
     </nav>
-    <a class="btn btn--primary btn--block" data-event="business_review_cta_click" href="business-review.html">Book a Business Review</a>
+    <a class="btn btn--primary btn--block" data-event="business_review_cta_click" href="/business-review.html">Book a Business Review</a>
   </div>
 </header>
 
-<nav class="breadcrumb container" aria-label="Breadcrumb"><ol><li><a href="index.html">Home</a></li><li><a href="solutions.html">Solutions</a></li><li><span aria-current="page">Websites</span></li></ol></nav>
+<nav class="breadcrumb container" aria-label="Breadcrumb"><ol><li><a href="/index.html">Home</a></li><li><a href="/solutions.html">Solutions</a></li><li><span aria-current="page">Websites</span></li></ol></nav>
 <main id="main" tabindex="-1">
 <section class="page-hero" aria-labelledby="page-title">
   <div class="container">
     <span class="eyebrow">Websites &amp; connected digital experiences</span>
     <h1 id="page-title">What job should your website do?</h1>
     <p class="lead">Many websites look fine and produce very little, not because of the design, but because nobody decided what the website is for. We start with its job in your customer journey, then design and build around that.</p>
-    <p class="identity">Experius is a business systems and content studio. Our team is based in Bangladesh and works with service businesses locally and internationally.</p>
-    <div class="btn-row"><a class="btn btn--primary" data-event="business_review_cta_click" href="business-review.html">Book a Business Review</a></div>
+    <div class="btn-row"><a class="btn btn--primary" data-event="business_review_cta_click" href="/business-review.html">Book a Business Review</a></div>
   </div>
 </section>
 
@@ -123,14 +138,34 @@
       <span class="eyebrow">Six jobs a website can do</span>
       <h2 id="jobs-title">Most sites need two or three of these done well</h2>
     </div>
-    <ul class="grid grid--3" role="list">
-      <li class="card symptom"><span class="symptom__num">01</span><h3>Clarify the offer</h3><p>A visitor understands what you do, and for whom, in seconds.</p></li>
-      <li class="card symptom"><span class="symptom__num">02</span><h3>Build trust</h3><p>Real work, real people and honest explanations, instead of claims.</p></li>
-      <li class="card symptom"><span class="symptom__num">03</span><h3>Answer important questions</h3><p>The questions that stop people contacting you get answered before they ask.</p></li>
-      <li class="card symptom"><span class="symptom__num">04</span><h3>Qualify inquiries</h3><p>The right people get in touch with the information you need to help them.</p></li>
-      <li class="card symptom"><span class="symptom__num">05</span><h3>Enable bookings or registrations</h3><p>People can take the next step without a round of messages.</p></li>
-      <li class="card symptom"><span class="symptom__num">06</span><h3>Connect to your team</h3><p>What visitors submit reaches the right person and record, without copy-paste.</p></li>
-    </ul>
+    <div class="site-jobs" data-site-jobs>
+      <ul class="grid grid--3 site-jobs__list" role="list">
+        <li class="card symptom" data-region="hero"><span class="symptom__num">01</span><h3>Clarify the offer</h3><p>The first screen says who you help, what you do and what to do next, in plain words anyone gets in five seconds.</p></li>
+        <li class="card symptom" data-region="proof"><span class="symptom__num">02</span><h3>Build trust</h3><p>Real projects, your real team and honest explanations. No stock photos, invented reviews or big promises.</p></li>
+        <li class="card symptom" data-region="faq"><span class="symptom__num">03</span><h3>Answer important questions</h3><p>Price, process, timing: the questions that stop people getting in touch are answered right on the page.</p></li>
+        <li class="card symptom" data-region="form"><span class="symptom__num">04</span><h3>Qualify inquiries</h3><p>A short form asks only what you need, so your first reply is useful instead of a list of questions.</p></li>
+        <li class="card symptom" data-region="cal"><span class="symptom__num">05</span><h3>Enable bookings or registrations</h3><p>Visitors book a call, an assessment or a seat themselves, without a back-and-forth of messages.</p></li>
+        <li class="card symptom" data-region="team"><span class="symptom__num">06</span><h3>Connect to your team</h3><p>Every request lands in one list with an owner and a next step, and your team is alerted straight away. No copy-paste.</p></li>
+      </ul>
+      <div class="site-jobs__aside" aria-hidden="true">
+        <div class="wire">
+          <div class="wire__bar"><i></i><i></i><i></i><span class="wire__url"></span></div>
+          <div class="wire__body">
+            <div class="wire__region" data-region="hero"><span class="wire__label">Clarify the offer</span><b class="w-title"></b><b></b><b class="w-short"></b><b class="w-btn"></b></div>
+            <div class="wire__region" data-region="proof"><span class="wire__label">Build trust</span><div class="wire__logos"><b></b><b></b><b></b></div></div>
+            <div class="wire__region" data-region="faq"><span class="wire__label">Answer important questions</span><div class="wire__faq-row"><b></b><i>+</i></div><div class="wire__faq-row"><b></b><i>+</i></div><div class="wire__faq-row"><b></b><i>+</i></div></div>
+            <div class="wire__row">
+              <div class="wire__region" data-region="form"><span class="wire__label">Qualify inquiries</span><span class="wire__field"></span><span class="wire__field"></span><b class="w-btn"></b></div>
+              <div class="wire__region" data-region="cal"><span class="wire__label">Bookings</span><div class="wire__cal"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="is-pick"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="wire__out wire__region" data-region="team"><span class="wire__label">Connect to your team</span>
+          <svg class="wire__arrow" viewBox="0 0 24 24"><path d="M12 4v15"/><path d="m6 13 6 6 6-6"/></svg>
+          <div class="wire__team">Your team<small>One record, one owner, one next step</small></div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -140,13 +175,24 @@
       <span class="eyebrow">How we approach a website</span>
       <h2 id="approach-title">Job first, pages second</h2>
     </div>
-    <ol class="process">
+    <ol class="process" role="list">
       <li><h3>Define the job</h3><p>Agree what the website must achieve for the business.</p></li>
       <li><h3>Map the journey</h3><p>How visitors arrive, what they need to know, where they go next.</p></li>
       <li><h3>Write and design</h3><p>Content first, then a design that makes it clear.</p></li>
       <li><h3>Connect</h3><p>Forms, bookings and inquiries reach your team's system.</p></li>
       <li><h3>Measure</h3><p>Track qualified inquiries, not just visits.</p></li>
     </ol>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="fits-title">
+  <div class="container">
+    <div class="section-heading"><span class="eyebrow">Where this fits</span><h2 id="fits-title">A website is one part of the journey</h2><p>It works best connected to the two things around it.</p></div>
+    <div class="grid grid--2 grid--gap-lg">
+      <article class="card card--link"><span class="eyebrow">Before the website</span><h3><a class="stretched" href="/content-creation-management.html">Content Creation &amp; Management</a></h3><p>Content brings the right people to the site, already understanding what you do.</p></article>
+      <article class="card card--link"><span class="eyebrow">After the website</span><h3><a class="stretched" href="/business-operating-systems.html">Business Operating Systems</a></h3><p>What visitors submit lands with the right person, with a next step and an owner.</p></article>
+    </div>
+    <p class="mt-lg"><a class="link-arrow" href="/demo-clinic-inquiry.html">See a website connected to an inquiry list <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></p>
   </div>
 </section>
 
@@ -169,61 +215,58 @@
       <p>We'll look at what your website does today and where it could do more for your business.</p>
     </div>
     <div>
-      <a class="btn btn--primary" data-event="business_review_cta_click" href="business-review.html">Book a Business Review</a>
+      <a class="btn btn--primary" data-event="business_review_cta_click" href="/business-review.html">Book a Business Review</a>
       <p class="reassure">Free · 25–30 minutes · No generic pitch.</p>
     </div>
   </div>
 </section>
 </main>
-<footer class="site-footer" data-surface="dark">
+<footer class="site-footer" id="site-footer" data-surface="dark">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="assets/logo-stacked-white.png" alt="Experius" width="428" height="396">
+        <img src="/assets/logo-stacked-white.png" alt="Experius" width="428" height="396">
         <p>Experius helps service-based and expertise-driven businesses connect their digital presence, customer journeys and day-to-day operations.</p>
         <p class="footer-location">Based in Bangladesh · Working with businesses locally and internationally.</p>
       </div>
       <div class="footer-col">
         <h2>Solutions</h2>
         <ul>
-          <li><a href="business-operating-systems.html">Business Operating Systems</a></li>
-          <li><a href="content-creation-management.html">Content Creation &amp; Management</a></li>
-          <li><a href="websites.html" aria-current="page">Websites</a></li>
-          <li><a href="our-approach.html">Our Approach</a></li>
-        </ul>
+          <li><a href="/business-operating-systems.html">Business Operating Systems</a></li>
+          <li><a href="/content-creation-management.html">Content Creation &amp; Management</a></li>
+          <li><a href="/websites.html" aria-current="page">Websites</a></li>
+                  </ul>
       </div>
       <div class="footer-col">
         <h2>Who we help</h2>
         <ul>
-          <li><a href="expertise-personal-brands.html">Expertise &amp; Personal Brands</a></li>
-          <li><a href="clinics-wellness.html">Clinics &amp; Wellness</a></li>
-          <li><a href="education-training.html">Education &amp; Training</a></li>
-          <li><a href="solar-battery-installers.html">Solar &amp; Battery Installers</a></li>
+          <li><a href="/special-education.html">Special Education &amp; Therapy</a></li>
+          <li><a href="/expertise-personal-brands.html">Expertise &amp; Personal Brands</a></li>
+          <li><a href="/clinics-wellness.html">Clinics &amp; Wellness</a></li>
+          <li><a href="/solar-battery-installers.html">Solar &amp; Battery Installers</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h2>Experius</h2>
         <ul>
-          <li><a href="work.html">Work</a></li>
-          <li><a href="insights.html">Insights</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a data-event="business_review_cta_click" href="business-review.html">Book a Business Review</a></li>
+          <li><a href="/our-approach.html">Our Approach</a></li>
+          <li><a href="/work.html">Work</a></li>
+          <li><a href="/insights.html">Insights</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a data-event="business_review_cta_click" href="/business-review.html">Book a Business Review</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2026 Experius · <a href="mailto:hello@experius.xyz">hello@experius.xyz</a> <mark class="confirm">[CONFIRM email]</mark></p>
+      <p>© 2026 Experius · <a href="mailto:hello@experius.xyz">hello@experius.xyz</a> · <a href="https://wa.me/8801895626386" target="_blank" rel="noopener">WhatsApp</a></p>
       <ul>
-        <li><a href="#" aria-label="Experius on LinkedIn">LinkedIn</a></li>
-        <li><a href="#" aria-label="Experius on Facebook">Facebook</a></li>
-        <li><a href="#" aria-label="Experius on Instagram">Instagram</a></li>
-        <li><mark class="confirm">[CONFIRM social URLs]</mark></li>
+        <li><a href="https://www.facebook.com/experius.hq/" target="_blank" rel="noopener" aria-label="Experius on Facebook">Facebook</a></li>
       </ul>
       <ul>
-        <li><a href="privacy.html">Privacy</a></li>
-        <li><a href="terms.html">Terms</a></li>
-        <li>Prototype v0.1 · draft content</li>
+        <li><a href="/privacy.html">Privacy</a></li>
+        <li><a href="/terms.html">Terms</a></li>
+        <li><a class="footer-admin" href="/admin/" rel="nofollow">Admin</a></li>
       </ul>
     </div>
   </div>

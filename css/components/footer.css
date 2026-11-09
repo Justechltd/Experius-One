@@ -21,3 +21,7 @@
 .footer-bottom ul { display: flex; flex-wrap: wrap; gap: var(--space-base); list-style: none; }
 .footer-bottom a { display: inline-flex; align-items: center; min-height: var(--target-min); color: var(--color-text-secondary); }
 .footer-bottom a:hover { color: var(--color-text-primary); }
+
+/* Admin entry: present for the team, invisible in hierarchy. Same size and colour as the fine print, no accent. */
+.footer-bottom a.footer-admin { text-decoration: none; color: var(--color-text-secondary); }
+.footer-bottom a.footer-admin:hover, .footer-bottom a.footer-admin:focus-visible { text-decoration: underline; color: var(--color-text-secondary); }

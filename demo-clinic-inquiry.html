@@ -3,82 +3,98 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Every appointment request, in one place · Experius</title>
+<title>Clinic inquiry demo: every request in one place · Experius</title>
 <meta name="description" content="A system demonstration for clinics and wellness practices, built with example data: one inquiry list with an owner, a next action and automatic reminders.">
 <link rel="canonical" href="https://experius.xyz/work/clinic-inquiry-demonstration">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Experius">
-<meta property="og:title" content="Every appointment request, in one place">
+<meta property="og:title" content="Clinic inquiry demo: every request in one place">
 <meta property="og:description" content="A system demonstration for clinics and wellness practices, built with example data: one inquiry list with an owner, a next action and automatic reminders.">
 <meta property="og:url" content="https://experius.xyz/work/clinic-inquiry-demonstration">
-<!-- [CONFIRM] og:image needs a 1200×630 share image -->
-<meta name="robots" content="noindex">
-<link rel="icon" type="image/png" href="assets/logo-mark-black.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/main.css">
+<meta property="og:image" content="https://experius.xyz/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Experius: business systems for service businesses">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Clinic inquiry demo: every request in one place">
+<meta name="twitter:description" content="A system demonstration for clinics and wellness practices, built with example data: one inquiry list with an owner, a next action and automatic reminders.">
+<meta name="twitter:image" content="https://experius.xyz/assets/og-image.png">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/png" sizes="512x512" href="/assets/icon-512.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+<link rel="preload" href="/assets/fonts/poppins-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/poppins-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/site.css">
 <script>document.documentElement.classList.add('js');</script>
-<script src="js/site.js" defer></script>
+<script src="/js/config.js" defer></script>
+<script src="/js/analytics.js" defer></script>
+<script src="/js/site.js" defer></script>
+<script src="/js/motion/core.js" defer></script>
+<script src="/js/motion/demo-player.js" defer></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://experius.xyz/"}, {"@type": "ListItem", "position": 2, "name": "Work", "item": "https://experius.xyz/work"}, {"@type": "ListItem", "position": 3, "name": "Clinic inquiry demonstration", "item": "https://experius.xyz/work/clinic-inquiry-demonstration"}]}]}</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header" data-surface="dark">
   <div class="container header-inner">
-    <a class="brand" href="index.html" aria-label="Experius, home">
-      <img class="brand__mark" src="assets/logo-mark-white.png" alt="" width="428" height="309">
-      <img class="brand__word" src="assets/logo-wordmark-white.png" alt="" width="427" height="28">
+    <a class="brand" href="/index.html" aria-label="Experius, home">
+      <img class="brand__mark" src="/assets/logo-mark-white.png" alt="" width="428" height="309">
+      <img class="brand__word" src="/assets/logo-wordmark-white.png" alt="" width="427" height="28">
     </a>
 
     <nav class="primary-nav" aria-label="Main">
-      <ul class="nav-list">
+      <ul class="nav-list" role="list">
         <li class="nav-item">
           <button class="nav-link nav-toggle" type="button" aria-expanded="false" aria-controls="sub-solutions">Solutions <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
-          <ul class="nav-sub" id="sub-solutions" hidden>
-            <li><a href="solutions.html">All solutions<span>How the two pillars work together</span></a></li>
-            <li><a href="business-operating-systems.html">Business Operating Systems<span>Inquiries, follow-up, booking, visibility</span></a></li>
-            <li><a href="content-creation-management.html">Content Creation &amp; Management<span>Make expertise visible and trusted</span></a></li>
-            <li><a href="websites.html">Websites &amp; Connected Digital Experiences<span>Give your website a clear job</span></a></li>
+          <ul class="nav-sub" role="list" id="sub-solutions" hidden>
+            <li><a href="/solutions.html">All solutions<span>How the two pillars work together</span></a></li>
+            <li><a href="/business-operating-systems.html">Business Operating Systems<span>Inquiries, follow-up, booking, visibility</span></a></li>
+            <li><a href="/content-creation-management.html">Content Creation &amp; Management<span>Make expertise visible and trusted</span></a></li>
+            <li><a href="/websites.html">Websites &amp; Connected Digital Experiences<span>Give your website a clear job</span></a></li>
           </ul>
         </li>
         <li class="nav-item">
           <button class="nav-link nav-toggle" type="button" aria-expanded="false" aria-controls="sub-who">Who We Help <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
-          <ul class="nav-sub" id="sub-who" hidden>
-            <li><a href="who-we-help.html">Overview<span>Find your kind of business</span></a></li>
-            <li><a href="expertise-personal-brands.html">Expertise &amp; Personal Brands<span>Coaches, consultants, therapists, experts</span></a></li>
-            <li><a href="clinics-wellness.html">Clinics &amp; Wellness<span>Physio, dental, therapy, rehabilitation</span></a></li>
-            <li><a href="education-training.html">Education &amp; Training<span>Academies, trainers, learning businesses</span></a></li>
-            <li><a href="solar-battery-installers.html">Solar &amp; Battery Installers<span>Residential and commercial installers</span></a></li>
+          <ul class="nav-sub" role="list" id="sub-who" hidden>
+            <li><a href="/who-we-help.html">Overview<span>Find your kind of business</span></a></li>
+            <li><a href="/special-education.html">Special Education &amp; Therapy<span>Special needs schools, therapy and child development centres</span></a></li>
+            <li><a href="/expertise-personal-brands.html">Expertise &amp; Personal Brands<span>Coaches, consultants, therapists, experts</span></a></li>
+            <li><a href="/clinics-wellness.html">Clinics &amp; Wellness<span>Physio, dental, therapy, rehabilitation</span></a></li>
+            <li><a href="/solar-battery-installers.html">Solar &amp; Battery Installers<span>Residential and commercial installers</span></a></li>
           </ul>
         </li>
-        <li class="nav-item"><a class="nav-link" href="our-approach.html">Our Approach</a></li>
-        <li class="nav-item"><a class="nav-link" href="work.html">Work</a></li>
-        <li class="nav-item"><a class="nav-link" href="insights.html">Insights</a></li>
-        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="/our-approach.html">Our Approach</a></li>
+        <li class="nav-item"><a class="nav-link" href="/work.html">Work</a></li>
+        <li class="nav-item"><a class="nav-link" href="/insights.html">Insights</a></li>
+        <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="/contact.html">Contact</a></li>
       </ul>
     </nav>
 
-    <a class="btn btn--primary btn--sm header-cta" data-event="business_review_cta_click" href="business-review.html">Book a Review</a>
+    <a class="btn btn--primary btn--sm header-cta" data-event="business_review_cta_click" href="/business-review.html"><span class="header-cta__long">Book a Business Review</span><span class="header-cta__short">Book a Review</span></a>
 
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu">
+    <a class="menu-fallback" href="#site-footer">Menu</a>
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu">
       <svg class="icon icon-open" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
       <svg class="icon icon-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
-      <span class="menu-toggle__label">Menu</span>
-      <span class="visually-hidden">Open or close the main menu</span>
+      <span class="menu-toggle__label" aria-hidden="true">Menu</span>
     </button>
   </div>
 
   <div class="mobile-menu" id="mobile-menu" hidden>
     <nav aria-label="Main, mobile">
-      <ul class="mobile-nav">
-        <li><a href="index.html">Home</a></li>
+      <ul class="mobile-nav" role="list">
+        <li><a href="/index.html">Home</a></li>
         <li>
           <details>
             <summary>Solutions <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
             <ul>
-              <li><a href="solutions.html">All solutions</a></li>
-              <li><a href="business-operating-systems.html">Business Operating Systems</a></li>
-              <li><a href="content-creation-management.html">Content Creation &amp; Management</a></li>
-              <li><a href="websites.html">Websites &amp; Connected Digital Experiences</a></li>
+              <li><a href="/solutions.html">All solutions</a></li>
+              <li><a href="/business-operating-systems.html">Business Operating Systems</a></li>
+              <li><a href="/content-creation-management.html">Content Creation &amp; Management</a></li>
+              <li><a href="/websites.html">Websites &amp; Connected Digital Experiences</a></li>
             </ul>
           </details>
         </li>
@@ -86,65 +102,68 @@
           <details>
             <summary>Who We Help <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
             <ul>
-              <li><a href="who-we-help.html">Overview</a></li>
-              <li><a href="expertise-personal-brands.html">Expertise &amp; Personal Brands</a></li>
-              <li><a href="clinics-wellness.html">Clinics &amp; Wellness</a></li>
-              <li><a href="education-training.html">Education &amp; Training</a></li>
-              <li><a href="solar-battery-installers.html">Solar &amp; Battery Installers</a></li>
+              <li><a href="/who-we-help.html">Overview</a></li>
+              <li><a href="/special-education.html">Special Education &amp; Therapy</a></li>
+              <li><a href="/expertise-personal-brands.html">Expertise &amp; Personal Brands</a></li>
+              <li><a href="/clinics-wellness.html">Clinics &amp; Wellness</a></li>
+              <li><a href="/solar-battery-installers.html">Solar &amp; Battery Installers</a></li>
             </ul>
           </details>
         </li>
-        <li><a href="our-approach.html">Our Approach</a></li>
-        <li><a href="work.html">Work</a></li>
-        <li><a href="insights.html">Insights</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="/our-approach.html">Our Approach</a></li>
+        <li><a href="/work.html">Work</a></li>
+        <li><a href="/insights.html">Insights</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/contact.html">Contact</a></li>
       </ul>
     </nav>
-    <a class="btn btn--primary btn--block" data-event="business_review_cta_click" href="business-review.html">Book a Business Review</a>
+    <a class="btn btn--primary btn--block" data-event="business_review_cta_click" href="/business-review.html">Book a Business Review</a>
   </div>
 </header>
 
-<nav class="breadcrumb container" aria-label="Breadcrumb"><ol><li><a href="index.html">Home</a></li><li><a href="work.html">Work</a></li><li><span aria-current="page">Clinic inquiry demonstration</span></li></ol></nav>
+<nav class="breadcrumb container" aria-label="Breadcrumb"><ol><li><a href="/index.html">Home</a></li><li><a href="/work.html">Work</a></li><li><span aria-current="page">Clinic inquiry demonstration</span></li></ol></nav>
 <main id="main" tabindex="-1">
 <section class="page-hero" aria-labelledby="page-title">
   <div class="container">
-    <div class="cluster"><span class="tag tag--demo">System demonstration · example data</span><span class="tag tag--context">Clinics &amp; Wellness</span></div>
+    <div class="cluster"><span class="tag tag--demo">System demonstration · example data</span><a class="tag tag--context tag--link" href="/clinics-wellness.html">Clinics &amp; Wellness</a></div>
     <h1 id="page-title" class="mt-lg">Every appointment request, in one place</h1>
     <p class="lead">How a practice can see every inquiry and appointment request, whichever channel it came from, with someone responsible for each one.</p>
     <p class="proto-note mt-lg"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><span>This is a demonstration, not a client system. All names and details are invented. It holds no patient health information.</span></p>
-    <p class="identity">Experius is a business systems and content studio. Our team is based in Bangladesh and works with service businesses locally and internationally.</p>
   </div>
 </section>
 
 <section class="section section--alt section--tight" aria-labelledby="situation-title">
   <div class="container grid grid--3 grid--gap-lg">
     <div class="stack"><span class="eyebrow">Context</span><h2 id="situation-title" class="heading-sm">The kind of business</h2><p class="text-secondary">A multi-practitioner physiotherapy practice with a small front-desk team.</p></div>
-    <div class="stack"><span class="eyebrow">Situation</span><h3>What often happens</h3><p class="text-secondary">Requests arrive by phone, WhatsApp, Facebook and the website. Each is checked by a different person, at different times.</p></div>
-    <div class="stack"><span class="eyebrow">Problem</span><h3>What isn't working</h3><p class="text-secondary">Some requests get two replies, some get none, and nobody can say how many people asked this week.</p></div>
+    <div class="stack"><span class="eyebrow">Situation</span><h2 class="heading-sm">What often happens</h2><p class="text-secondary">Requests arrive by phone, WhatsApp, Facebook and the website. Each is checked by a different person, at different times.</p></div>
+    <div class="stack"><span class="eyebrow">Problem</span><h2 class="heading-sm">What isn't working</h2><p class="text-secondary">Some requests get two replies, some get none, and nobody can say how many people asked this week.</p></div>
   </div>
 </section>
 
 <section class="section" aria-labelledby="system-title">
   <div class="container">
     <div class="section-heading"><span class="eyebrow">The system</span><h2 id="system-title">One list, an owner, a next action</h2><p>Every request lands here automatically or is logged in one step. Personal health details stay out of it.</p></div>
-    <figure class="demo-frame">
-      <div class="demo-frame__bar"><span>Inquiries this week · 6 open</span><span class="tag tag--demo">Example data</span></div>
+    <figure class="demo-frame" data-demo data-demo-steps="5">
+      <div class="demo-frame__bar"><span>Inquiries this week</span><span class="tag tag--demo">Example data</span></div>
+      <div class="demo-player" data-demo-player></div>
+      <p class="scroll-cue">Scroll sideways to see every column →</p>
       <div class="demo-frame__body" tabindex="0" role="region" aria-label="Inquiry table, scrollable">
+        <p class="demo-summary" data-demo-step="5" data-demo-action="enter"><b>This week:</b> 6 asked · 1 booked · 1 waiting on a patient · 2 due today</p>
         <table class="records">
           <caption class="visually-hidden">Example inquiry list for a demonstration clinic</caption>
           <thead><tr><th scope="col">Received</th><th scope="col">Channel</th><th scope="col">Request</th><th scope="col">Owner</th><th scope="col">Next action</th><th scope="col">Status</th></tr></thead>
           <tbody>
-            <tr><td>Mon 09:12</td><td>Website</td><td>New patient, first assessment</td><td>Front desk: R.</td><td>Offer two times</td><td><span class="status status--due">Due today</span></td></tr>
-            <tr><td>Mon 10:40</td><td>WhatsApp</td><td>Reschedule Thursday visit</td><td>Front desk: R.</td><td>Confirm new time</td><td><span class="status">Waiting on patient</span></td></tr>
-            <tr><td>Mon 13:05</td><td>Phone</td><td>Question about home visits</td><td>Practice manager</td><td>Call back with answer</td><td><span class="status status--due">Due today</span></td></tr>
-            <tr><td>Tue 08:30</td><td>Facebook</td><td>Fees for a sports injury plan</td><td>Front desk: S.</td><td>Send fee guide</td><td><span class="status status--done">Done</span></td></tr>
-            <tr><td>Tue 11:15</td><td>Website</td><td>Follow-up after third session</td><td>Physio: M.</td><td>Book review session</td><td><span class="status">Scheduled</span></td></tr>
-            <tr><td>Tue 15:50</td><td>Phone</td><td>Referral from a GP</td><td>Front desk: S.</td><td>Request referral letter</td><td><span class="status">In progress</span></td></tr>
+            <tr data-demo-step="1" data-demo-action="enter"><td>Mon 09:12</td><td>Website</td><td>New patient, first assessment</td><td><span class="demo-stamp" data-demo-step="2" data-demo-action="stamp">Front desk: R.</span></td><td>Offer two times</td><td><span class="status status--due">Due today</span></td></tr>
+            <tr data-demo-step="1" data-demo-action="enter"><td>Mon 10:40</td><td>WhatsApp</td><td>Reschedule Thursday visit</td><td><span class="demo-stamp" data-demo-step="2" data-demo-action="stamp">Front desk: R.</span></td><td>Confirm new time</td><td><span class="status">Waiting on patient</span></td></tr>
+            <tr data-demo-step="1" data-demo-action="enter"><td>Mon 13:05</td><td>Phone</td><td>Question about home visits</td><td><span class="demo-stamp" data-demo-step="2" data-demo-action="stamp">Practice manager</span></td><td>Call back with answer</td><td><span class="status status--due">Due today</span></td></tr>
+            <tr data-demo-step="1" data-demo-action="enter"><td>Tue 08:30</td><td>Facebook</td><td>Fees for a sports injury plan</td><td><span class="demo-stamp" data-demo-step="2" data-demo-action="stamp">Front desk: S.</span></td><td>Send fee guide</td><td><span class="status status--done">Done</span></td></tr>
+            <tr data-demo-step="1" data-demo-action="enter"><td>Tue 11:15</td><td>Website</td><td>Follow-up after third session</td><td><span class="demo-stamp" data-demo-step="2" data-demo-action="stamp">Physio: M.</span></td><td>Book review session <span class="demo-chip" data-demo-step="4" data-demo-action="chip">Follow-up task created</span></td><td><span class="status">Scheduled</span></td></tr>
+            <tr data-demo-step="1" data-demo-action="enter"><td>Tue 15:50</td><td>Phone</td><td>Referral from a GP</td><td><span class="demo-stamp" data-demo-step="2" data-demo-action="stamp">Front desk: S.</span></td><td>Request referral letter</td><td><span class="status">In progress</span></td></tr>
           </tbody>
         </table>
       </div>
-      <figcaption class="demo-frame__caption">Illustrative screen. Status is written out in words; colour only repeats it.</figcaption>
+      <div class="demo-toast" data-demo-step="3" data-demo-action="toast" aria-hidden="true"><span class="demo-toast__tick" aria-hidden="true">✓</span>Confirmation and reminder sent</div>
+      <figcaption class="demo-frame__caption">Illustrative screen. Status is written out in words; color only repeats it.</figcaption>
     </figure>
   </div>
 </section>
@@ -152,7 +171,7 @@
 <section class="section section--alt" aria-labelledby="experience-title">
   <div class="container split">
     <div class="stack stack--lg"><span class="eyebrow">Experience</span><h2 id="experience-title">How the team would use it</h2></div>
-    <ol class="process process--stacked">
+    <ol class="process process--stacked" role="list" data-demo-list>
       <li><h3>Requests arrive in one list</h3><p>Website forms flow in automatically; calls and messages are logged in one step.</p></li>
       <li><h3>Each request has an owner</h3><p>Nobody wonders whether someone else has replied.</p></li>
       <li><h3>Confirmations and reminders go out on their own</h3><p>Once a time is agreed, the patient gets a confirmation and a reminder.</p></li>
@@ -169,6 +188,10 @@
   </div>
 </section>
 
+<section class="section section--tight" aria-label="More for this kind of business">
+  <div class="container"><p><a class="link-arrow" href="/clinics-wellness.html">See how we help clinics and wellness practices <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></p></div>
+</section>
+
 
 <section class="cta-banner" data-surface="dark" aria-labelledby="cta-title">
   <div class="container cta-banner__inner">
@@ -177,61 +200,58 @@
       <p>Tell us how patients get in touch today. We'll talk about what a connected inquiry flow could look like for you.</p>
     </div>
     <div>
-      <a class="btn btn--primary" data-event="business_review_cta_click" href="business-review.html?type=clinic">Book a Business Review</a>
+      <a class="btn btn--primary" data-event="business_review_cta_click" href="/business-review.html?type=clinic">Book a Business Review</a>
       <p class="reassure">Free · 25–30 minutes · No generic pitch.</p>
     </div>
   </div>
 </section>
 </main>
-<footer class="site-footer" data-surface="dark">
+<footer class="site-footer" id="site-footer" data-surface="dark">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="assets/logo-stacked-white.png" alt="Experius" width="428" height="396">
+        <img src="/assets/logo-stacked-white.png" alt="Experius" width="428" height="396">
         <p>Experius helps service-based and expertise-driven businesses connect their digital presence, customer journeys and day-to-day operations.</p>
         <p class="footer-location">Based in Bangladesh · Working with businesses locally and internationally.</p>
       </div>
       <div class="footer-col">
         <h2>Solutions</h2>
         <ul>
-          <li><a href="business-operating-systems.html">Business Operating Systems</a></li>
-          <li><a href="content-creation-management.html">Content Creation &amp; Management</a></li>
-          <li><a href="websites.html">Websites</a></li>
-          <li><a href="our-approach.html">Our Approach</a></li>
-        </ul>
+          <li><a href="/business-operating-systems.html">Business Operating Systems</a></li>
+          <li><a href="/content-creation-management.html">Content Creation &amp; Management</a></li>
+          <li><a href="/websites.html">Websites</a></li>
+                  </ul>
       </div>
       <div class="footer-col">
         <h2>Who we help</h2>
         <ul>
-          <li><a href="expertise-personal-brands.html">Expertise &amp; Personal Brands</a></li>
-          <li><a href="clinics-wellness.html">Clinics &amp; Wellness</a></li>
-          <li><a href="education-training.html">Education &amp; Training</a></li>
-          <li><a href="solar-battery-installers.html">Solar &amp; Battery Installers</a></li>
+          <li><a href="/special-education.html">Special Education &amp; Therapy</a></li>
+          <li><a href="/expertise-personal-brands.html">Expertise &amp; Personal Brands</a></li>
+          <li><a href="/clinics-wellness.html">Clinics &amp; Wellness</a></li>
+          <li><a href="/solar-battery-installers.html">Solar &amp; Battery Installers</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h2>Experius</h2>
         <ul>
-          <li><a href="work.html">Work</a></li>
-          <li><a href="insights.html">Insights</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a data-event="business_review_cta_click" href="business-review.html">Book a Business Review</a></li>
+          <li><a href="/our-approach.html">Our Approach</a></li>
+          <li><a href="/work.html">Work</a></li>
+          <li><a href="/insights.html">Insights</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a data-event="business_review_cta_click" href="/business-review.html">Book a Business Review</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2026 Experius · <a href="mailto:hello@experius.xyz">hello@experius.xyz</a> <mark class="confirm">[CONFIRM email]</mark></p>
+      <p>© 2026 Experius · <a href="mailto:hello@experius.xyz">hello@experius.xyz</a> · <a href="https://wa.me/8801895626386" target="_blank" rel="noopener">WhatsApp</a></p>
       <ul>
-        <li><a href="#" aria-label="Experius on LinkedIn">LinkedIn</a></li>
-        <li><a href="#" aria-label="Experius on Facebook">Facebook</a></li>
-        <li><a href="#" aria-label="Experius on Instagram">Instagram</a></li>
-        <li><mark class="confirm">[CONFIRM social URLs]</mark></li>
+        <li><a href="https://www.facebook.com/experius.hq/" target="_blank" rel="noopener" aria-label="Experius on Facebook">Facebook</a></li>
       </ul>
       <ul>
-        <li><a href="privacy.html">Privacy</a></li>
-        <li><a href="terms.html">Terms</a></li>
-        <li>Prototype v0.1 · draft content</li>
+        <li><a href="/privacy.html">Privacy</a></li>
+        <li><a href="/terms.html">Terms</a></li>
+        <li><a class="footer-admin" href="/admin/" rel="nofollow">Admin</a></li>
       </ul>
     </div>
   </div>

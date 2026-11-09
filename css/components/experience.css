@@ -1,0 +1,72 @@
+/* v0.3 experience layer: self-check, bridge flow, compact audiences, and the "connector" motif.
+   The connector is the brand's one recurring visual: an orange node joined by a line, the shape of
+   "connect the moving parts". It appears only as joined nodes in diagrams; backgrounds stay plain. */
+
+.hero, .cta-banner, .section--alt { position: relative; isolation: isolate; overflow: clip; }
+
+/* Self-check: each symptom is a big tickable card. Checked = orange edge + tick, never colour alone. */
+.selfcheck fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+.selfcheck__list { list-style: none; }
+.selfcheck__item {
+  position: relative; display: grid; gap: var(--space-hairline); height: 100%; cursor: pointer;
+  padding: var(--space-comfortable) var(--space-comfortable) var(--space-comfortable) calc(var(--space-comfortable) + 2.25rem);
+  border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface);
+  transition: border-color var(--duration-fast) var(--ease), box-shadow var(--duration-fast) var(--ease), transform var(--duration-fast) var(--ease);
+}
+.selfcheck__item:hover { border-color: var(--color-border-strong); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.selfcheck__item input { position: absolute; left: var(--space-comfortable); top: calc(var(--space-comfortable) + 0.1rem); width: 1.375rem; height: 1.375rem; margin: 0; accent-color: var(--color-accent-ink); }
+.selfcheck__item:has(input:focus-visible) { outline: var(--focus-width) solid var(--color-focus); outline-offset: var(--focus-offset); }
+.selfcheck__item input:focus-visible { outline: none; }
+.selfcheck__item:has(input:checked) { border-color: var(--color-accent-ink); box-shadow: inset 3px 0 0 var(--color-accent-ink), var(--shadow-sm); }
+.selfcheck__num { font-size: var(--text-xs); font-weight: var(--font-weight-semibold); letter-spacing: var(--letter-spacing-eyebrow); color: var(--color-accent-ink); }
+.selfcheck__item strong { font-size: var(--text-lg); line-height: var(--line-height-snug); }
+.selfcheck__item span:last-child { color: var(--color-text-secondary); font-size: var(--text-sm); }
+.selfcheck__result {
+  display: grid; gap: var(--space-base); align-items: center; margin-top: var(--space-roomy);
+  padding: var(--space-comfortable); border-radius: var(--radius-lg); border: 1px dashed var(--color-border-strong);
+  transition: border-color var(--duration-default) var(--ease), background-color var(--duration-default) var(--ease);
+}
+@media (min-width: 1024px) { .selfcheck__result { grid-template-columns: 1fr auto; padding: var(--space-comfortable) var(--space-roomy); } }
+.selfcheck.has-ticks .selfcheck__result { border-style: solid; border-color: var(--color-accent-ink); background: var(--color-background-alt); }
+.selfcheck__verdict { font-size: var(--text-lg); max-width: 46rem; }
+
+/* Bridge flow: content carries the first half of the journey, the system the second. */
+.bridge-flow { margin: 0 0 var(--space-base); padding: var(--space-comfortable); border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-surface); display: grid; gap: var(--space-base); }
+@media (min-width: 900px) { .bridge-flow { grid-template-columns: 3fr 4fr; gap: 0; } }
+.bridge-flow__half { list-style: none; display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-tight); position: relative; padding: var(--space-base); border-radius: var(--radius-md); }
+.bridge-flow__half--content { background: var(--color-background-alt); }
+.bridge-flow__half--system { background: var(--brand-charcoal); }
+@media (min-width: 900px) { .bridge-flow__half--content { border-radius: var(--radius-md) 0 0 var(--radius-md); } .bridge-flow__half--system { border-radius: 0 var(--radius-md) var(--radius-md) 0; } }
+.bridge-flow__half li { display: inline-flex; align-items: center; gap: var(--space-tight); font-size: var(--text-sm); font-weight: var(--font-weight-medium); }
+.bridge-flow__half li::before { content: ""; width: 0.625rem; height: 0.625rem; border-radius: var(--radius-full); border: 2px solid var(--color-accent-ink); background: var(--color-surface); flex: none; }
+.bridge-flow__half li + li { padding-left: var(--space-roomy); position: relative; }
+.bridge-flow__half li + li::after { content: ""; position: absolute; left: var(--space-tight); top: 50%; width: calc(var(--space-roomy) - var(--space-base)); border-top: 2px solid var(--color-accent); }
+.bridge-flow__half--system li { color: var(--brand-white); }
+.bridge-flow__half--system li::before { background: var(--color-accent); border-color: var(--color-accent); }
+.bridge-flow figcaption { grid-column: 1 / -1; display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-tight); font-size: var(--text-sm); color: var(--color-text-secondary); }
+.bridge-more { text-align: center; margin: var(--space-base) auto 0; }
+
+/* Compact audience cards on the homepage: title, one line, link. Full detail lives on Who we help. */
+.audience--compact h3 { font-size: var(--text-lg); letter-spacing: 0; }
+
+/* Hero lead sizing on wide screens stays within the type scale he approved (no bigger display type). */
+.text-center { text-align: center; margin-inline: auto; }
+
+/* Fix the Flow worksheet: prints cleanly on one A4/Letter page. */
+.ws-questions { list-style: none; counter-reset: wsq; display: grid; gap: var(--space-base); margin-top: var(--space-base); }
+@media (min-width: 768px) { .ws-questions { grid-template-columns: repeat(4, 1fr); } }
+.ws-questions li { counter-increment: wsq; display: grid; gap: var(--space-hairline); padding: var(--space-base); border-top: 3px solid var(--color-accent-ink); background: var(--color-surface); border-radius: 0 0 var(--radius-sm) var(--radius-sm); }
+.ws-questions strong::before { content: counter(wsq) ". "; color: var(--color-accent-ink); }
+.ws-questions span { color: var(--color-text-secondary); font-size: var(--text-sm); }
+.ws-table-wrap { overflow-x: auto; margin-top: var(--space-base); }
+.ws-table { width: 100%; min-width: 40rem; border-collapse: collapse; background: var(--color-surface); font-size: var(--text-sm); }
+.ws-table th, .ws-table td { border: 1px solid var(--color-border-strong); padding: var(--space-snug); text-align: left; vertical-align: top; }
+.ws-table td { height: 4.5rem; }
+.ws-table thead th { background: var(--color-background-alt); }
+@media print {
+  .site-header, .site-footer, .breadcrumb, .cta-banner, .no-print, .skip-link { display: none !important; }
+  .section, .page-hero { padding-block: 12pt !important; }
+  .section--alt::before { display: none; }
+  body { font-size: 10.5pt; }
+  .ws-table td { height: 52pt; }
+}

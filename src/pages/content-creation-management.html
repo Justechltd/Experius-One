@@ -4,14 +4,22 @@ description: Make your expertise easier to discover, understand and trust, with 
 path: /solutions/content-creation-management
 nav: solutions
 crumbs: Solutions=solutions.html | Content Creation &amp; Management
+scripts: vendor/gsap.min.js, motion/core.js, motion/flow-trace.js
 -->
-<section class="page-hero" aria-labelledby="page-title">
+<section class="page-hero page-hero--visual" aria-labelledby="page-title">
   <div class="container">
     <span class="eyebrow">Content Creation &amp; Management</span>
     <h1 id="page-title">Make your expertise easier to discover, understand and trust.</h1>
     <p class="lead">Good content isn't more posts. It's a clear message for the right people, made in a way you can keep up, that leads somewhere when someone is interested.</p>
-    <p class="identity">Experius is a business systems and content studio. Our team is based in Bangladesh and works with service businesses locally and internationally.</p>
     <div class="btn-row"><a class="btn btn--primary" href="business-review.html">Book a Business Review</a></div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="idea-card" data-hero-visual>
+        <p class="idea-card__tag">From idea to conversation</p>
+        <div class="idea-card__icons"><span data-stage-icon="0"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10.5c.8.8 1 1.5 1 2.5h6c0-1 .2-1.7 1-2.5A6 6 0 0 0 12 3z"/></svg></span><span data-stage-icon="1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M9 12h7"/><path d="M9 16h7"/></svg></span><span data-stage-icon="2"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></svg></span><span data-stage-icon="3"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><span data-stage-icon="4" class="is-on"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg></span></div>
+        <p class="idea-card__label"><span data-stage-label="0">Idea</span><span data-stage-label="1">Post</span><span data-stage-label="2">Trust</span><span data-stage-label="3">Message</span><span data-stage-label="4" class="is-on">Conversation</span></p>
+        <ol class="idea-card__dots"><li data-stage-dot="0" class="is-done"></li><li data-stage-dot="1" class="is-done"></li><li data-stage-dot="2" class="is-done"></li><li data-stage-dot="3" class="is-done"></li><li data-stage-dot="4" class="is-on"></li></ol>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -19,7 +27,7 @@ crumbs: Solutions=solutions.html | Content Creation &amp; Management
   <div class="container">
     <h2 id="flow-title" class="heading-sm">How content becomes business</h2>
     <figure class="flow-frame mt-lg">
-      <ol class="flow-inline flow-inline--highlight">
+      <ol class="flow-inline flow-inline--highlight flow-trace" data-trace="card" data-stages="0,0,1,2,3,4">
         <li><span>Expertise</span></li><li><span>Insight</span></li><li><span>Content</span></li><li><span>Trust</span></li><li><span>Inquiry</span></li><li><span>Conversation</span></li>
       </ol>
       <figcaption>Content is only finished when it gives the right person a reason, and a way, to start a conversation.</figcaption>
@@ -35,7 +43,7 @@ crumbs: Solutions=solutions.html | Content Creation &amp; Management
     </div>
     <ul class="grid grid--3" role="list">
       <li class="card"><h3>Content strategy</h3><p>What you want to be known for, which topics earn trust, and where your audience actually pays attention.</p></li>
-      <li class="card"><h3>Audience and message clarity</h3><p>Who it's for, the problem they recognise, and the words they use for it. Not industry jargon.</p></li>
+      <li class="card"><h3>Audience and message clarity</h3><p>Who it's for, the problem they recognize, and the words they use for it. Not industry jargon.</p></li>
       <li class="card"><h3>Repeatable planning</h3><p>A calendar and themes you can sustain, so visibility doesn't disappear in a busy month.</p></li>
       <li class="card"><h3>Visual and short-form production</h3><p>Short-form video, carousels and visuals that explain an idea quickly and look like you.</p></li>
       <li class="card"><h3>Content operations</h3><p>Who drafts, records, edits, approves and publishes, and where everything lives.</p></li>
@@ -79,7 +87,7 @@ crumbs: Solutions=solutions.html | Content Creation &amp; Management
       <details><summary>Do I have to be on camera? {{icon:plus}}</summary><div class="faq__answer"><p>Not necessarily. Your expertise has to come through, but there are many formats: written, voice, visual explainers, or video with someone else presenting. We'll find what fits you and your audience.</p></div></details>
       <details><summary>Will it sound like me? {{icon:plus}}</summary><div class="faq__answer"><p>That's the point. We start from how you explain things to clients, and you approve everything before it's published.</p></div></details>
       <details><summary>Who owns the content? {{icon:plus}}</summary><div class="faq__answer"><p>You do. Ownership of raw files and finished content is set out in the agreement before we start.</p></div></details>
-      <details><summary>Which languages do you produce in? {{icon:plus}}</summary><div class="faq__answer"><p>English, and natural Bangla-English for audiences in Bangladesh. <mark class="confirm">[CONFIRM languages offered]</mark></p></div></details>
+      <details><summary>Which languages do you produce in? {{icon:plus}}</summary><div class="faq__answer"><p>English, and natural Bangla-English for audiences in Bangladesh.</p></div></details>
     </div>
   </div>
 </section>

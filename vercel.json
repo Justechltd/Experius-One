@@ -1,0 +1,222 @@
+{
+  "buildCommand": "python build.py",
+  "outputDirectory": "public",
+  "cleanUrls": false,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/404.html",
+      "destination": "/404",
+      "permanent": true
+    },
+    {
+      "source": "/about.html",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/business-operating-systems.html",
+      "destination": "/solutions/business-operating-systems",
+      "permanent": true
+    },
+    {
+      "source": "/business-review.html",
+      "destination": "/business-review",
+      "permanent": true
+    },
+    {
+      "source": "/clinics-wellness.html",
+      "destination": "/who-we-help/clinics-wellness",
+      "permanent": true
+    },
+    {
+      "source": "/contact.html",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/content-creation-management.html",
+      "destination": "/solutions/content-creation-management",
+      "permanent": true
+    },
+    {
+      "source": "/demo-clinic-inquiry.html",
+      "destination": "/work/clinic-inquiry-demonstration",
+      "permanent": true
+    },
+    {
+      "source": "/demo-solar-pipeline.html",
+      "destination": "/work/solar-pipeline-demonstration",
+      "permanent": true
+    },
+    {
+      "source": "/expertise-personal-brands.html",
+      "destination": "/who-we-help/expertise-personal-brands",
+      "permanent": true
+    },
+    {
+      "source": "/fix-the-flow-worksheet.html",
+      "destination": "/fix-the-flow-worksheet",
+      "permanent": true
+    },
+    {
+      "source": "/insight-better-flow.html",
+      "destination": "/insights/better-flow-not-another-tool",
+      "permanent": true
+    },
+    {
+      "source": "/insights.html",
+      "destination": "/insights",
+      "permanent": true
+    },
+    {
+      "source": "/our-approach.html",
+      "destination": "/our-approach",
+      "permanent": true
+    },
+    {
+      "source": "/privacy.html",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/solar-battery-installers.html",
+      "destination": "/who-we-help/solar-battery-installers",
+      "permanent": true
+    },
+    {
+      "source": "/solutions.html",
+      "destination": "/solutions",
+      "permanent": true
+    },
+    {
+      "source": "/special-education.html",
+      "destination": "/who-we-help/special-education",
+      "permanent": true
+    },
+    {
+      "source": "/terms.html",
+      "destination": "/terms",
+      "permanent": true
+    },
+    {
+      "source": "/thank-you.html",
+      "destination": "/thank-you",
+      "permanent": true
+    },
+    {
+      "source": "/websites.html",
+      "destination": "/solutions/websites",
+      "permanent": true
+    },
+    {
+      "source": "/who-we-help.html",
+      "destination": "/who-we-help",
+      "permanent": true
+    },
+    {
+      "source": "/work.html",
+      "destination": "/work",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/404",
+      "destination": "/404.html"
+    },
+    {
+      "source": "/about",
+      "destination": "/about.html"
+    },
+    {
+      "source": "/solutions/business-operating-systems",
+      "destination": "/business-operating-systems.html"
+    },
+    {
+      "source": "/business-review",
+      "destination": "/business-review.html"
+    },
+    {
+      "source": "/who-we-help/clinics-wellness",
+      "destination": "/clinics-wellness.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact.html"
+    },
+    {
+      "source": "/solutions/content-creation-management",
+      "destination": "/content-creation-management.html"
+    },
+    {
+      "source": "/work/clinic-inquiry-demonstration",
+      "destination": "/demo-clinic-inquiry.html"
+    },
+    {
+      "source": "/work/solar-pipeline-demonstration",
+      "destination": "/demo-solar-pipeline.html"
+    },
+    {
+      "source": "/who-we-help/expertise-personal-brands",
+      "destination": "/expertise-personal-brands.html"
+    },
+    {
+      "source": "/fix-the-flow-worksheet",
+      "destination": "/fix-the-flow-worksheet.html"
+    },
+    {
+      "source": "/insights/better-flow-not-another-tool",
+      "destination": "/insight-better-flow.html"
+    },
+    {
+      "source": "/insights",
+      "destination": "/insights.html"
+    },
+    {
+      "source": "/our-approach",
+      "destination": "/our-approach.html"
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacy.html"
+    },
+    {
+      "source": "/who-we-help/solar-battery-installers",
+      "destination": "/solar-battery-installers.html"
+    },
+    {
+      "source": "/solutions",
+      "destination": "/solutions.html"
+    },
+    {
+      "source": "/who-we-help/special-education",
+      "destination": "/special-education.html"
+    },
+    {
+      "source": "/terms",
+      "destination": "/terms.html"
+    },
+    {
+      "source": "/thank-you",
+      "destination": "/thank-you.html"
+    },
+    {
+      "source": "/solutions/websites",
+      "destination": "/websites.html"
+    },
+    {
+      "source": "/who-we-help",
+      "destination": "/who-we-help.html"
+    },
+    {
+      "source": "/work",
+      "destination": "/work.html"
+    }
+  ]
+}

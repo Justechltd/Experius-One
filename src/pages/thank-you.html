@@ -1,8 +1,8 @@
 <!--
 title: Thanks, we've received your request
-description: Your Business Review request is with the Experius team.
+description: Your Business Review request is with the Experius team. Here is what happens next, and where to find our work in the meantime.
 path: /thank-you
-scripts: thank-you.js
+scripts: thank-you.js, vendor/gsap.min.js, motion/core.js, motion/next-steps.js
 -->
 <section class="page-hero" aria-labelledby="page-title">
   <div class="container">
@@ -16,11 +16,11 @@ scripts: thank-you.js
   <div class="container split">
     <div class="stack">
       <h2 id="next-title">What happens next</h2>
-      <p class="text-secondary">We'll tell you how quickly we reply once we can keep that promise every time. <mark class="confirm">[CONFIRM response window, brief §6.8]</mark></p>
+      <p class="text-secondary">We reply within 2 working days.</p>
     </div>
-    <ol class="process process--stacked">
+    <ol class="process process--stacked" data-next-steps="progress">
       <li><h3>We read your request</h3><p>We look at your business and what you've told us before we reply.</p></li>
-      <li><h3>We reply by email</h3><p>If it makes sense to talk, we suggest a few times. If it doesn't, we say so honestly.</p></li>
+      <li><h3>We reply within 2 working days</h3><p>If it makes sense to talk, we suggest a few times. If it doesn't, we say so honestly.</p></li>
       <li><h3>We talk for 25–30 minutes</h3><p>About how your business works today and what may be worth improving first.</p></li>
     </ol>
   </div>
@@ -32,12 +32,13 @@ scripts: thank-you.js
       <h2 id="while-title" class="heading-sm">While you wait</h2>
       <p class="text-secondary">If you'd like to see how we think, this is a good place to start.</p>
       <article class="card card--link insight-card">
-        <span class="insight-card__meta">Fix the Flow · 6 min read</span>
+        <span class="insight-card__meta">Fix the Flow · 3 min read</span>
         <h3><a class="stretched" href="insight-better-flow.html">Your business doesn't need another tool. It needs a better flow.</a></h3>
         <p>Why adding software rarely fixes a scattered business, and what to look at instead.</p>
       </article>
     </div>
     <div class="stack">
+      <p><a class="link-arrow" href="fix-the-flow-worksheet.html">Before we talk: fill in the free Fix the Flow worksheet {{icon:arrow-right}}</a></p>
       <h2 class="heading-sm">Made a mistake?</h2>
       <p class="text-secondary">If something in your request was wrong, or you'd like to add something, email us and mention your business name.</p>
       <p><a class="link-arrow" href="mailto:hello@experius.xyz">{{icon:mail}} hello@experius.xyz</a></p>

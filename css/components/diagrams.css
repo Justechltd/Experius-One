@@ -35,8 +35,8 @@
 .flow-inline { list-style: none; display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-tight); }
 .flow-inline li { display: inline-flex; align-items: center; gap: var(--space-tight); }
 .flow-inline li span { padding: var(--space-tight) var(--space-snug); border: 1px solid var(--color-border); border-radius: var(--radius-sm); background: var(--color-surface); font-size: var(--text-sm); font-weight: var(--font-weight-medium); }
-.flow-inline li + li::before { content: "→" / ""; color: var(--color-accent-ink); font-weight: var(--font-weight-semibold); }
-.flow-inline--highlight li:last-child span { background: var(--color-action); color: var(--color-text-on-action); border-color: var(--color-action); }
+.flow-inline li + li::before { content: "→"; content: "→" / ""; color: var(--color-accent-ink); font-weight: var(--font-weight-semibold); }
+.flow-inline--highlight li:last-child span, .flow-inline--start li:first-child span { background: var(--color-action); color: var(--color-text-on-action); border-color: var(--color-action); }
 .flow-frame { padding: var(--space-comfortable); border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-background-alt); }
 .flow-frame figcaption { margin-top: var(--space-base); font-size: var(--text-sm); color: var(--color-text-secondary); }
 
@@ -78,9 +78,9 @@
 /* Rule of Work (Our Approach): large numbered stages with detail. */
 .rule { list-style: none; counter-reset: rule; }
 .rule > li { counter-increment: rule; display: grid; gap: var(--space-base); padding-block: var(--space-spacious); border-top: 1px solid var(--color-border); }
-@media (min-width: 1024px) { .rule > li { grid-template-columns: 1fr 2fr 2fr; gap: var(--space-spacious); } }
+@media (min-width: 1024px) { .rule > li { grid-template-columns: 15rem minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-spacious); } }
 .rule__head::before { content: counter(rule, decimal-leading-zero); display: block; font-size: var(--text-3xl); font-weight: var(--font-weight-semibold); line-height: 1; color: var(--color-accent-ink); margin-bottom: var(--space-snug); }
-.rule__head h3 { font-size: var(--text-2xl); }
+.rule__head :is(h2, h3) { font-size: var(--text-2xl); }
 .rule__head p { margin-top: var(--space-tight); color: var(--color-text-secondary); }
 .rule .rule__label { font-size: var(--text-sm); text-transform: uppercase; letter-spacing: var(--letter-spacing-eyebrow); color: var(--color-text-secondary); margin-bottom: var(--space-snug); }
 
