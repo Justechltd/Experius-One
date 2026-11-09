@@ -37,7 +37,6 @@
   .hero .eyebrow { font-size: 0.6875rem; letter-spacing: 0.08em; }
   .hero h1, .hero h1.mt-lg { margin-top: var(--space-base); font-size: 2.25rem; line-height: 1.08; }
   .hero .lead { font-size: var(--text-base); margin-top: var(--space-base); line-height: 1.55; }
-  .hero .lead--sub { margin-top: var(--space-snug); font-size: var(--text-sm); color: var(--color-text-primary); padding-left: var(--space-snug); border-left: 2px solid var(--color-accent); }
   .hero .btn-row { margin-top: var(--space-comfortable); gap: var(--space-tight); }
   .hero .btn-row .btn { min-height: 3rem; }
   .hero .cta-note { font-size: var(--text-sm); }
