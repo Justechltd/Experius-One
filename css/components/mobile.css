@@ -1,0 +1,105 @@
+/* Mobile layer. Loaded last so it can override component and motion rules without !important.
+   Desktop (1100px and up) is untouched; most rules apply below 600px or 768px. */
+
+/* ---------- Header swap (below 1100px) ----------
+   First screen: mark + wordmark + menu. After the hero buttons scroll away (site.js adds
+   html.cta-passed), the wordmark fades out and "Book a Review" fades in over the same spot.
+   The CTA is absolutely placed so the swap never reflows the bar. Without JS nothing changes. */
+@media (max-width: 1099px) {
+  .brand__word { display: block; height: 11px; transition: opacity var(--duration-default) var(--ease), transform var(--duration-default) var(--ease); }
+  .header-inner { position: relative; }
+  .menu-toggle { margin-left: auto; }
+  html.header-swap .header-cta {
+    position: absolute; top: 50%; right: calc(var(--gutter) + var(--target-min) + var(--space-snug));
+    margin: 0; opacity: 0; visibility: hidden; pointer-events: none;
+    transform: translateY(-50%) translateY(-6px);
+    transition: opacity var(--duration-default) var(--ease), transform var(--duration-default) var(--ease), visibility 0s linear var(--duration-default);
+  }
+  html.header-swap.cta-passed .header-cta {
+    opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(-50%);
+    transition: opacity var(--duration-default) var(--ease), transform var(--duration-default) var(--ease), visibility 0s;
+  }
+  html.header-swap.cta-passed .brand__word { opacity: 0; transform: translateX(-6px); }
+  /* With the menu open, the bar keeps the wordmark; the menu has its own full-width CTA. */
+  body.menu-open .header-cta { opacity: 0 !important; visibility: hidden !important; }
+  body.menu-open .brand__word { opacity: 1 !important; transform: none !important; }
+}
+@media (max-width: 359px) { .brand__word { height: 9px; } }
+
+/* ---------- Spacing rhythm and hero fit (below 600px) ---------- */
+@media (max-width: 599px) {
+  :root { --header-height: 4rem; --space-section: 3.25rem; }
+  .section-heading { margin-bottom: var(--space-roomy); }
+  .section-heading p { font-size: var(--text-base); }
+
+  /* Home hero: eyebrow, headline, both leads and both buttons fit the first screen at 360×780 and up. */
+  .hero { padding-block: var(--space-comfortable) var(--space-spacious); }
+  .hero .eyebrow { font-size: 0.6875rem; letter-spacing: 0.08em; }
+  .hero h1, .hero h1.mt-lg { margin-top: var(--space-base); font-size: 2.25rem; line-height: 1.08; }
+  .hero .lead { font-size: var(--text-base); margin-top: var(--space-base); line-height: 1.55; }
+  .hero .lead--sub { margin-top: var(--space-snug); font-size: var(--text-sm); color: var(--color-text-primary); padding-left: var(--space-snug); border-left: 2px solid var(--color-accent); }
+  .hero .btn-row { margin-top: var(--space-comfortable); gap: var(--space-tight); }
+  .hero .btn-row .btn { min-height: 3rem; }
+  .hero .cta-note { font-size: var(--text-sm); }
+  .hero .trust-line { margin-top: var(--space-base); }
+
+  /* Inner pages: less air above the title so their CTAs also sit higher. */
+  .page-hero { padding-block: var(--space-comfortable) var(--space-roomy); }
+  .page-hero .lead { font-size: var(--text-base); margin-top: var(--space-base); }
+  .page-hero .btn-row { margin-top: var(--space-comfortable); }
+
+  .card { padding: var(--space-comfortable) var(--space-base); }
+  .capability ul { font-size: var(--text-sm); }
+
+  /* ---------- Bridge flow: two vertical step lists side by side ----------
+     Desktop wraps the chips in a row; on a phone that left connectors dangling at line starts. */
+  .bridge-flow { grid-template-columns: 1fr 1fr; gap: var(--space-tight); padding: var(--space-snug); }
+  .bridge-flow__half { flex-direction: column; flex-wrap: nowrap; align-items: flex-start; gap: var(--space-base); padding: var(--space-base) var(--space-snug); }
+  .bridge-flow__half li { line-height: 1.25rem; }
+  .bridge-flow__half li + li { padding-left: 0; }
+  .bridge-flow__half li + li::after {
+    left: calc(0.3125rem - 1px); top: calc(-1 * (var(--space-base) + 0.3125rem));
+    width: 0; height: calc(var(--space-base) + 0.625rem);
+    border-top: 0; border-left: 2px solid var(--color-accent); transform-origin: center top;
+  }
+  .bridge-flow.is-motion .bridge-flow__half li + li::after { transform: scaleY(0); }
+  .bridge-flow.is-motion.is-drawn .bridge-flow__half li + li::after { transform: none; }
+  .bridge-flow figcaption { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-tight); font-size: var(--text-xs); padding-inline: var(--space-hairline); }
+
+  .bridge { font-size: var(--text-lg); }
+}
+
+/* ---------- Below 768px: single-column zones ---------- */
+@media (max-width: 767px) {
+  /* Self-check: compact tickable rows instead of tall cards. Tap target stays well over 44px. */
+  .selfcheck__list.grid { gap: var(--space-tight); }
+  .selfcheck__item { padding: var(--space-snug) var(--space-base) var(--space-snug) calc(var(--space-base) + 2.125rem); gap: 2px; }
+  .selfcheck__item input { left: var(--space-base); top: calc(var(--space-snug) + 0.125rem); }
+  .selfcheck__num { display: none; }
+  .selfcheck__item strong { font-size: var(--text-base); }
+  .selfcheck__item:hover { transform: none; }
+  .selfcheck__result { margin-top: var(--space-comfortable); padding: var(--space-base); }
+  .selfcheck__verdict { font-size: var(--text-base); }
+
+  /* Rail: a native swipe row (scroll-snap). The next card peeks in so it reads as more to see. */
+  .rail-hint {
+    display: flex; align-items: center; gap: var(--space-tight); margin: calc(-1 * var(--space-base)) 0 var(--space-base);
+    font-size: var(--text-xs); font-weight: var(--font-weight-semibold); letter-spacing: var(--letter-spacing-eyebrow); text-transform: uppercase; color: var(--color-text-secondary);
+  }
+  .rail-hint::after { content: ""; width: 2rem; border-top: 2px solid var(--color-accent); }
+  .grid.rail {
+    grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: min(85%, 22rem); gap: var(--space-snug);
+    overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory;
+    margin-inline: calc(-1 * var(--gutter)); padding: var(--space-hairline) var(--gutter) var(--space-base);
+    scroll-padding-inline: var(--gutter);
+    scrollbar-width: thin; scrollbar-color: var(--color-accent) transparent;
+  }
+  .grid.rail > * { scroll-snap-align: start; }
+  .grid.rail > .card--link:hover { transform: none; }
+}
+.rail-hint { display: none; }
+@media (max-width: 767px) { .rail-hint { display: flex; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .brand__word, html.header-swap .header-cta { transition: none !important; }
+}

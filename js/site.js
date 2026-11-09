@@ -91,6 +91,33 @@
     window.addEventListener('pageshow', function (e) { if (e.persisted && !menu.hidden) setMenu(false); });
   }
 
+  /* Header swap (below 1100px). The page opens with the wordmark and no header CTA, so the hero's
+     own buttons carry the first screen. Once the visitor scrolls past them, the wordmark gives way
+     to "Book a Review" in the sticky bar; scrolling back up restores the wordmark.
+     Without JS the CTA simply stays visible (the swap class is never added). */
+  var root = document.documentElement;
+  // Only a CTA in the page's own hero counts; pages without one swap after a short scroll.
+  var heroCta = document.querySelector('main .hero .btn-row, main .page-hero .btn-row');
+  if (heroCta && !heroCta.offsetParent) heroCta = null;
+  if (header) {
+    root.classList.add('header-swap');
+    var ticking = false;
+    var passed = null;
+    function checkCta() {
+      ticking = false;
+      var hb = header.getBoundingClientRect().bottom;
+      var now = heroCta
+        ? heroCta.getBoundingClientRect().bottom < hb
+        : window.scrollY > window.innerHeight * 0.6;
+      if (now !== passed) { passed = now; root.classList.toggle('cta-passed', now); }
+    }
+    window.addEventListener('scroll', function () {
+      if (!ticking) { ticking = true; window.requestAnimationFrame(checkCta); }
+    }, { passive: true });
+    window.addEventListener('resize', checkCta);
+    checkCta();
+  }
+
   /* Print buttons (Fix the Flow worksheet). */
   Array.prototype.forEach.call(document.querySelectorAll('[data-print]'), function (b) {
     b.addEventListener('click', function () { window.print(); });

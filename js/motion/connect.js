@@ -83,7 +83,8 @@
         t.set(dot, { x: pts[0].x, y: pts[0].y, xPercent: -50, yPercent: -50, opacity: 0, scale: 0.6 });
         t.to(dot, { opacity: 1, scale: 1, duration: 0.3 });
         for (var i = 1; i <= last; i++) {
-          if (Math.abs(pts[i].y - pts[i - 1].y) < 6) {
+          // Same row (desktop) or same column (mobile stacks each half vertically): slide along the line.
+          if (Math.abs(pts[i].y - pts[i - 1].y) < 6 || Math.abs(pts[i].x - pts[i - 1].x) < 6) {
             t.to(dot, { x: pts[i].x, y: pts[i].y, duration: 0.45 }, '+=0.2');
           } else { // the flow wraps to a new row: fade out, jump, fade in
             t.to(dot, { opacity: 0, duration: 0.2 }, '+=0.2');
