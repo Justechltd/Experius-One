@@ -1881,20 +1881,24 @@ html:has(.case[open]) { overflow: hidden; }
   .section-heading > * + * { margin-top: var(--space-snug); }
   .section-heading p { font-size: var(--text-base); line-height: 1.65; }
 
-  /* Home hero: one composed first screen. Eyebrow, headline and lead read at the top; the two buttons
+  /* Home hero: one composed first screen. Eyebrow, headline and lead read as one block; the two buttons
      sit on the bottom edge of the screen (svh, so the browser toolbars are accounted for).
      If the content is taller than the screen it simply grows. */
-  .hero { padding-block: var(--space-roomy) var(--space-generous); }
+  .hero { padding-block: var(--space-comfortable) var(--space-generous); }
   .hero__lockup {
     display: flex; flex-direction: column;
-    min-height: calc(100svh - var(--header-height) - var(--space-roomy) - var(--space-comfortable));
+    min-height: calc(100svh - var(--header-height) - var(--space-comfortable) - var(--space-comfortable));
   }
   .hero .eyebrow { font-size: 0.6875rem; letter-spacing: 0.04em; white-space: nowrap; }
   /* 9vw keeps "Build a business / that works / beyond you." on three lines from 360 to 430 wide. */
   .hero h1, .hero h1.mt-lg { margin-top: 1.25rem; font-size: clamp(2rem, 9vw, 2.5rem); line-height: 1.1; max-width: none; }
-  .hero .lead { margin-top: 1.25rem; font-size: var(--text-base); line-height: 1.7; color: var(--color-text-secondary); }
-  /* margin-top:auto drops the two buttons onto the bottom edge of the first screen, in thumb reach. */
-  .hero .btn-row { margin-top: auto; padding-top: var(--space-spacious); gap: var(--space-snug); }
+  .hero .lead { margin-top: 1.25rem; font-size: var(--text-lg); line-height: 1.65; color: var(--color-text-secondary); }
+  /* Free height is shared, not dumped in one gap: a little above the text, more above the buttons
+     (1 : 1.6), so the text block sits just above centre and the buttons stay on the bottom edge. */
+  .hero__lockup::before { content: ""; flex: 1 0 0; }
+  .hero__lockup::after { content: ""; flex: 1.6 0 0; order: 1; min-height: var(--space-spacious); }
+  .hero__lockup > .btn-row { order: 2; }
+  .hero .btn-row { margin-top: 0; gap: var(--space-snug); }
   .hero .btn-row .btn { min-height: 3rem; }
 
   /* Inner pages: same calm rhythm, title a little higher so their CTAs sit on the first screen. */
