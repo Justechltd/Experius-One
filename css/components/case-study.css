@@ -1,0 +1,65 @@
+/* Case-study pop-up on the Work page. A soft box (native <dialog>) that opens from a client card.
+   Without JS the card keeps its short summary and the button stays hidden. Esc, backdrop click and Close all dismiss it.
+   Only opacity and transform animate; reduced motion zeroes the durations via tokens. */
+
+/* Card: the whole card opens the case study once JS has switched the button on.
+   The button covers the card and has no visible text, so the card keeps exactly its original size.
+   A small "+" in the bottom corner is the cue; the words are there for screen readers. */
+.work-card .case-open {
+  position: absolute; inset: 0; width: 100%; margin: 0; padding: 0; border: 0; border-radius: inherit;
+  background: none; color: var(--color-link); font: inherit; cursor: pointer;
+}
+.work-card .case-open::after {
+  content: "+"; content: "+" / ""; position: absolute; right: var(--space-base); bottom: var(--space-base);
+  display: grid; place-items: center; width: 2rem; height: 2rem; border: 1px solid var(--color-border-strong); border-radius: var(--radius-full);
+  background: var(--color-surface); font-size: 1.25rem; line-height: 1; font-weight: var(--font-weight-medium);
+  transition: background-color var(--duration-fast) var(--ease), color var(--duration-fast) var(--ease), border-color var(--duration-fast) var(--ease);
+}
+.work-card--case.is-case-ready { transition: border-color var(--duration-fast) var(--ease), box-shadow var(--duration-fast) var(--ease), transform var(--duration-fast) var(--ease); }
+.work-card--case.is-case-ready:hover { border-color: var(--color-border-strong); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.work-card--case.is-case-ready:hover .case-open::after { background: var(--color-action); border-color: var(--color-action); color: var(--color-text-on-action); }
+.work-card--case.is-case-ready:has(.case-open:focus-visible) { outline: var(--focus-width) solid var(--color-focus); outline-offset: var(--focus-offset); }
+.work-card--case .case-open:focus-visible { outline: none; }
+.work-card--case .card__foot a { position: relative; z-index: 2; }
+
+.launchpad-intro { margin: var(--space-tight) 0 var(--space-comfortable); }
+
+/* The box. */
+.case {
+  width: min(46rem, calc(100% - 2 * var(--space-base))); max-width: none; max-height: calc(100dvh - 2 * var(--space-base)); margin: auto; padding: 0;
+  border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-surface); color: var(--color-text-primary);
+  box-shadow: var(--shadow-lg); overflow: hidden;
+}
+.case[open] { display: flex; flex-direction: column; animation: case-in var(--duration-default) var(--ease); }
+/* ::backdrop does not reliably inherit custom properties, so this value mirrors --color-overlay. */
+.case::backdrop { background: rgb(26 26 26 / 0.55); }
+@keyframes case-in { from { opacity: 0; transform: translateY(0.75rem); } to { opacity: 1; transform: none; } }
+html:has(.case[open]) { overflow: hidden; }
+
+.case__bar { display: flex; align-items: center; justify-content: space-between; gap: var(--space-base); padding: var(--space-snug) var(--space-base) var(--space-snug) var(--space-comfortable); border-bottom: 1px solid var(--color-border); background: var(--color-background-alt); }
+.case__bar .work-card__meta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-tight); min-width: 0; }
+.case__close {
+  display: inline-flex; flex: none; align-items: center; gap: var(--space-tight); min-height: var(--target-min); padding: 0 var(--space-base);
+  border: 1px solid var(--color-border-strong); border-radius: var(--radius-full); background: var(--color-surface);
+  font: inherit; font-size: var(--text-sm); font-weight: var(--font-weight-medium); color: var(--color-text-primary); cursor: pointer;
+}
+.case__close:hover { background: var(--color-state-hover); }
+.case__body { overflow-y: auto; padding: var(--space-comfortable); display: grid; gap: var(--space-comfortable); align-content: start; }
+@media (min-width: 768px) { .case__body { padding: var(--space-roomy); } }
+.case__body h2 { font-size: var(--text-2xl); }
+.case__lead { font-size: var(--text-lg); line-height: var(--line-height-normal, 1.6); color: var(--color-text-primary); max-width: 52ch; }
+.case__cols { display: grid; gap: var(--space-comfortable); }
+@media (min-width: 640px) { .case__cols { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-spacious); } }
+.case__label { font-size: var(--text-xs); font-weight: var(--font-weight-semibold); letter-spacing: var(--letter-spacing-eyebrow); text-transform: uppercase; color: var(--color-text-secondary); }
+.case__label ~ .case__label { margin-top: var(--space-base); }
+.case__cols section > p { margin-top: var(--space-tight); }
+.case__cols .check-list { margin-top: var(--space-snug); }
+.case__proof { padding-top: var(--space-base); border-top: 1px solid var(--color-border); font-size: var(--text-sm); }
+.case__foot { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-base); }
+.case__foot > span { color: var(--color-text-secondary); font-size: var(--text-sm); }
+
+/* Phones: a sheet that rises from the bottom. */
+@media (max-width: 639.98px) {
+  .case { width: 100%; max-height: 92dvh; margin: auto 0 0; border-radius: var(--radius-lg) var(--radius-lg) 0 0; border-bottom: 0; }
+}
+@media print { .case-open, .case { display: none !important; } }

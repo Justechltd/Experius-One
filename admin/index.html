@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Experius admin</title>
+<link rel="icon" href="/assets/logo-mark-black.png" type="image/png">
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/components/button.css">
+<link rel="stylesheet" href="/css/components/form.css">
+<link rel="stylesheet" href="/css/admin.css">
+</head>
+<body class="admin">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<main id="main" class="a-main" tabindex="-1">
+
+  <!-- Backend not connected -->
+  <section id="view-nobackend" class="a-center" hidden>
+    <div class="a-card a-card--narrow">
+      <img class="a-mark" src="/assets/logo-mark-black.png" alt="Experius" width="428" height="309">
+      <h1 class="a-title">Backend not connected yet</h1>
+      <p class="a-muted">The admin needs its database before it can show anything. Once the backend address is added to the site's config, sign-in appears here.</p>
+    </div>
+      <a class="a-back" href="/"><span aria-hidden="true">←</span> Back to website</a>
+  </section>
+
+  <!-- Login -->
+  <section id="view-login" class="a-center" hidden>
+    <div class="a-card a-card--narrow">
+      <img class="a-mark" src="/assets/logo-mark-black.png" alt="Experius" width="428" height="309">
+      <h1 class="a-title">Admin sign-in</h1>
+      <div id="login-notice" class="a-notice" role="status" hidden></div>
+      <form id="login-form" class="form" novalidate>
+        <div class="field">
+          <label for="login-email">Email</label>
+          <input class="input" id="login-email" name="email" type="email" autocomplete="username" required>
+        </div>
+        <div class="field">
+          <label for="login-password">Password</label>
+          <input class="input" id="login-password" name="password" type="password" autocomplete="current-password" required>
+        </div>
+        <div id="login-error" class="a-alert" role="alert" hidden></div>
+        <button id="login-submit" class="btn btn--primary btn--block" type="submit">Sign in</button>
+        <p class="a-hint">Forgot your password? Reset it in the Supabase dashboard.</p>
+      </form>
+    </div>
+      <a class="a-back" href="/"><span aria-hidden="true">←</span> Back to website</a>
+  </section>
+
+  <!-- Signed-in app -->
+  <div id="view-app" hidden>
+    <header class="a-topbar">
+      <div class="a-topbar__inner">
+        <div class="a-brand">
+          <img class="a-brand__mark" src="/assets/logo-mark-black.png" alt="" width="428" height="309">
+          <span class="a-brand__name">Admin</span>
+        </div>
+        <div class="a-topbar__user">
+          <span id="user-email" class="a-user" title=""></span>
+          <button id="signout" class="btn btn--secondary btn--sm" type="button">Sign out</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="a-shell">
+      <div class="a-bar">
+        <div class="a-tabs" role="tablist" aria-label="Admin sections">
+          <button class="a-tab" role="tab" id="tab-overview" aria-controls="panel-overview" aria-selected="true" tabindex="0" data-tab="overview" type="button">Overview</button>
+          <button class="a-tab" role="tab" id="tab-requests" aria-controls="panel-requests" aria-selected="false" tabindex="-1" data-tab="requests" type="button">Requests</button>
+          <button class="a-tab" role="tab" id="tab-analytics" aria-controls="panel-analytics" aria-selected="false" tabindex="-1" data-tab="analytics" type="button">Analytics</button>
+          <button class="a-tab" role="tab" id="tab-settings" aria-controls="panel-settings" aria-selected="false" tabindex="-1" data-tab="settings" type="button">Settings</button>
+        </div>
+        <div id="range-wrap" class="a-range-wrap">
+          <fieldset class="a-seg" id="range">
+            <legend class="visually-hidden">Date range</legend>
+            <label class="a-seg__opt"><input type="radio" name="range" value="7"><span>7 days</span></label>
+            <label class="a-seg__opt"><input type="radio" name="range" value="30" checked><span>30 days</span></label>
+            <label class="a-seg__opt"><input type="radio" name="range" value="90"><span>90 days</span></label>
+          </fieldset>
+          <button id="refresh" class="btn btn--secondary btn--sm" type="button">Refresh</button>
+        </div>
+      </div>
+
+      <section id="panel-overview" class="a-panel" role="tabpanel" aria-labelledby="tab-overview" tabindex="0">
+        <div id="ov-tiles" class="a-tiles"></div>
+        <section class="a-section" aria-labelledby="ov-latest-title">
+          <div class="a-section__head">
+            <h2 id="ov-latest-title" class="a-h2">Latest requests</h2>
+            <a class="a-link" href="#requests" id="ov-all">All requests</a>
+          </div>
+          <div id="ov-latest"></div>
+        </section>
+      </section>
+
+      <section id="panel-requests" class="a-panel" role="tabpanel" aria-labelledby="tab-requests" tabindex="0" hidden>
+        <div class="a-toolbar">
+          <div class="field a-toolbar__field">
+            <label for="rq-status">Status</label>
+            <div class="select-wrap"><select class="select" id="rq-status"></select></div>
+          </div>
+          <div class="field a-toolbar__field a-toolbar__field--grow">
+            <label for="rq-search">Search</label>
+            <input class="input" id="rq-search" type="search" placeholder="Name, email or business" autocomplete="off">
+          </div>
+          <button id="rq-export" class="btn btn--secondary" type="button">Export CSV</button>
+        </div>
+        <p id="rq-count" class="a-muted a-count" role="status"></p>
+        <div id="rq-body"></div>
+      </section>
+
+      <section id="panel-analytics" class="a-panel" role="tabpanel" aria-labelledby="tab-analytics" tabindex="0" hidden>
+        <div id="an-body"></div>
+      </section>
+
+      <section id="panel-settings" class="a-panel" role="tabpanel" aria-labelledby="tab-settings" tabindex="0" hidden>
+        <section class="a-section a-settings" aria-labelledby="pw-title">
+          <h2 id="pw-title" class="a-h2">Change password</h2>
+          <p class="a-muted">Enter your current password, then the new one twice. Use at least 12 characters. You stay signed in on this device.</p>
+          <form id="pw-form" class="form" novalidate>
+            <input id="pw-username" type="email" name="username" autocomplete="username" hidden readonly>
+            <div class="field">
+              <label for="pw-current">Current password</label>
+              <input class="input" id="pw-current" name="current-password" type="password" autocomplete="current-password" required>
+            </div>
+            <div class="field">
+              <label for="pw-new">New password</label>
+              <input class="input" id="pw-new" name="new-password" type="password" autocomplete="new-password" minlength="12" required>
+            </div>
+            <div class="field">
+              <label for="pw-confirm">Repeat new password</label>
+              <input class="input" id="pw-confirm" name="confirm-password" type="password" autocomplete="new-password" minlength="12" required>
+            </div>
+            <div id="pw-error" class="a-alert" role="alert" hidden></div>
+            <div id="pw-ok" class="a-notice a-notice--ok" role="status" hidden></div>
+            <button id="pw-submit" class="btn btn--primary" type="submit">Change password</button>
+          </form>
+        </section>
+      </section>
+    </div>
+  </div>
+</main>
+
+<!-- Request detail drawer -->
+<dialog id="drawer" class="a-drawer" aria-labelledby="drawer-title">
+  <div class="a-drawer__inner">
+    <header class="a-drawer__head">
+      <div class="a-drawer__titles">
+        <p class="a-eyebrow" id="drawer-date"></p>
+        <h2 class="a-h2" id="drawer-title"></h2>
+      </div>
+      <button id="drawer-close" class="btn btn--secondary btn--sm" type="button" aria-label="Close details">Close</button>
+    </header>
+    <div id="drawer-body" class="a-drawer__body"></div>
+  </div>
+</dialog>
+
+<script src="/js/config.js"></script>
+<script src="/js/vendor/supabase.min.js"></script>
+<script src="/js/admin.js"></script>
+</body>
+</html>

@@ -3,82 +3,96 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Who We Help · Experius</title>
-<meta name="description" content="Experius works with expertise-led and service businesses: personal brands, clinics and wellness practices, education and training businesses, and solar and battery installers.">
+<title>Who we help: service businesses we work with · Experius</title>
+<meta name="description" content="Expertise brands, clinics, special education and solar installers: see where each customer journey breaks down, and what a smoother flow looks like for each.">
 <link rel="canonical" href="https://experius.xyz/who-we-help">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Experius">
-<meta property="og:title" content="Who We Help">
-<meta property="og:description" content="Experius works with expertise-led and service businesses: personal brands, clinics and wellness practices, education and training businesses, and solar and battery installers.">
+<meta property="og:title" content="Who we help: service businesses we work with">
+<meta property="og:description" content="Expertise brands, clinics, special education and solar installers: see where each customer journey breaks down, and what a smoother flow looks like for each.">
 <meta property="og:url" content="https://experius.xyz/who-we-help">
-<!-- [CONFIRM] og:image needs a 1200×630 share image -->
-<meta name="robots" content="noindex">
-<link rel="icon" type="image/png" href="assets/logo-mark-black.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/main.css">
+<meta property="og:image" content="https://experius.xyz/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Experius: business systems for service businesses">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Who we help: service businesses we work with">
+<meta name="twitter:description" content="Expertise brands, clinics, special education and solar installers: see where each customer journey breaks down, and what a smoother flow looks like for each.">
+<meta name="twitter:image" content="https://experius.xyz/assets/og-image.png">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/png" sizes="512x512" href="/assets/icon-512.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+<link rel="preload" href="/assets/fonts/poppins-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/poppins-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/site.css">
 <script>document.documentElement.classList.add('js');</script>
-<script src="js/site.js" defer></script>
+<script src="/js/config.js" defer></script>
+<script src="/js/analytics.js" defer></script>
+<script src="/js/site.js" defer></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://experius.xyz/"}, {"@type": "ListItem", "position": 2, "name": "Who We Help", "item": "https://experius.xyz/who-we-help"}]}]}</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header" data-surface="dark">
   <div class="container header-inner">
-    <a class="brand" href="index.html" aria-label="Experius, home">
-      <img class="brand__mark" src="assets/logo-mark-white.png" alt="" width="428" height="309">
-      <img class="brand__word" src="assets/logo-wordmark-white.png" alt="" width="427" height="28">
+    <a class="brand" href="/index.html" aria-label="Experius, home">
+      <img class="brand__mark" src="/assets/logo-mark-white.png" alt="" width="428" height="309">
+      <img class="brand__word" src="/assets/logo-wordmark-white.png" alt="" width="427" height="28">
     </a>
 
     <nav class="primary-nav" aria-label="Main">
-      <ul class="nav-list">
+      <ul class="nav-list" role="list">
         <li class="nav-item">
           <button class="nav-link nav-toggle" type="button" aria-expanded="false" aria-controls="sub-solutions">Solutions <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
-          <ul class="nav-sub" id="sub-solutions" hidden>
-            <li><a href="solutions.html">All solutions<span>How the two pillars work together</span></a></li>
-            <li><a href="business-operating-systems.html">Business Operating Systems<span>Inquiries, follow-up, booking, visibility</span></a></li>
-            <li><a href="content-creation-management.html">Content Creation &amp; Management<span>Make expertise visible and trusted</span></a></li>
-            <li><a href="websites.html">Websites &amp; Connected Digital Experiences<span>Give your website a clear job</span></a></li>
+          <ul class="nav-sub" role="list" id="sub-solutions" hidden>
+            <li><a href="/solutions.html">All solutions<span>How the two pillars work together</span></a></li>
+            <li><a href="/business-operating-systems.html">Business Operating Systems<span>Inquiries, follow-up, booking, visibility</span></a></li>
+            <li><a href="/content-creation-management.html">Content Creation &amp; Management<span>Make expertise visible and trusted</span></a></li>
+            <li><a href="/websites.html">Websites &amp; Connected Digital Experiences<span>Give your website a clear job</span></a></li>
           </ul>
         </li>
         <li class="nav-item">
           <button class="nav-link nav-toggle is-current" type="button" aria-expanded="false" aria-controls="sub-who">Who We Help <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
-          <ul class="nav-sub" id="sub-who" hidden>
-            <li><a href="who-we-help.html" aria-current="page">Overview<span>Find your kind of business</span></a></li>
-            <li><a href="expertise-personal-brands.html">Expertise &amp; Personal Brands<span>Coaches, consultants, therapists, experts</span></a></li>
-            <li><a href="clinics-wellness.html">Clinics &amp; Wellness<span>Physio, dental, therapy, rehabilitation</span></a></li>
-            <li><a href="education-training.html">Education &amp; Training<span>Academies, trainers, learning businesses</span></a></li>
-            <li><a href="solar-battery-installers.html">Solar &amp; Battery Installers<span>Residential and commercial installers</span></a></li>
+          <ul class="nav-sub" role="list" id="sub-who" hidden>
+            <li><a href="/who-we-help.html" aria-current="page">Overview<span>Find your kind of business</span></a></li>
+            <li><a href="/special-education.html">Special Education &amp; Therapy<span>Special needs schools, therapy and child development centres</span></a></li>
+            <li><a href="/expertise-personal-brands.html">Expertise &amp; Personal Brands<span>Coaches, consultants, therapists, experts</span></a></li>
+            <li><a href="/clinics-wellness.html">Clinics &amp; Wellness<span>Physio, dental, therapy, rehabilitation</span></a></li>
+            <li><a href="/solar-battery-installers.html">Solar &amp; Battery Installers<span>Residential and commercial installers</span></a></li>
           </ul>
         </li>
-        <li class="nav-item"><a class="nav-link" href="our-approach.html">Our Approach</a></li>
-        <li class="nav-item"><a class="nav-link" href="work.html">Work</a></li>
-        <li class="nav-item"><a class="nav-link" href="insights.html">Insights</a></li>
-        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="/our-approach.html">Our Approach</a></li>
+        <li class="nav-item"><a class="nav-link" href="/work.html">Work</a></li>
+        <li class="nav-item"><a class="nav-link" href="/insights.html">Insights</a></li>
+        <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="/contact.html">Contact</a></li>
       </ul>
     </nav>
 
-    <a class="btn btn--primary btn--sm header-cta" data-event="business_review_cta_click" href="business-review.html">Book a Review</a>
+    <a class="btn btn--primary btn--sm header-cta" data-event="business_review_cta_click" href="/business-review.html"><span class="header-cta__long">Book a Business Review</span><span class="header-cta__short">Book a Review</span></a>
 
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu">
+    <a class="menu-fallback" href="#site-footer">Menu</a>
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu">
       <svg class="icon icon-open" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
       <svg class="icon icon-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
-      <span class="menu-toggle__label">Menu</span>
-      <span class="visually-hidden">Open or close the main menu</span>
+      <span class="menu-toggle__label" aria-hidden="true">Menu</span>
     </button>
   </div>
 
   <div class="mobile-menu" id="mobile-menu" hidden>
     <nav aria-label="Main, mobile">
-      <ul class="mobile-nav">
-        <li><a href="index.html">Home</a></li>
+      <ul class="mobile-nav" role="list">
+        <li><a href="/index.html">Home</a></li>
         <li>
           <details>
             <summary>Solutions <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
             <ul>
-              <li><a href="solutions.html">All solutions</a></li>
-              <li><a href="business-operating-systems.html">Business Operating Systems</a></li>
-              <li><a href="content-creation-management.html">Content Creation &amp; Management</a></li>
-              <li><a href="websites.html">Websites &amp; Connected Digital Experiences</a></li>
+              <li><a href="/solutions.html">All solutions</a></li>
+              <li><a href="/business-operating-systems.html">Business Operating Systems</a></li>
+              <li><a href="/content-creation-management.html">Content Creation &amp; Management</a></li>
+              <li><a href="/websites.html">Websites &amp; Connected Digital Experiences</a></li>
             </ul>
           </details>
         </li>
@@ -86,33 +100,32 @@
           <details>
             <summary>Who We Help <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
             <ul>
-              <li><a href="who-we-help.html" aria-current="page">Overview</a></li>
-              <li><a href="expertise-personal-brands.html">Expertise &amp; Personal Brands</a></li>
-              <li><a href="clinics-wellness.html">Clinics &amp; Wellness</a></li>
-              <li><a href="education-training.html">Education &amp; Training</a></li>
-              <li><a href="solar-battery-installers.html">Solar &amp; Battery Installers</a></li>
+              <li><a href="/who-we-help.html" aria-current="page">Overview</a></li>
+              <li><a href="/special-education.html">Special Education &amp; Therapy</a></li>
+              <li><a href="/expertise-personal-brands.html">Expertise &amp; Personal Brands</a></li>
+              <li><a href="/clinics-wellness.html">Clinics &amp; Wellness</a></li>
+              <li><a href="/solar-battery-installers.html">Solar &amp; Battery Installers</a></li>
             </ul>
           </details>
         </li>
-        <li><a href="our-approach.html">Our Approach</a></li>
-        <li><a href="work.html">Work</a></li>
-        <li><a href="insights.html">Insights</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="/our-approach.html">Our Approach</a></li>
+        <li><a href="/work.html">Work</a></li>
+        <li><a href="/insights.html">Insights</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/contact.html">Contact</a></li>
       </ul>
     </nav>
-    <a class="btn btn--primary btn--block" data-event="business_review_cta_click" href="business-review.html">Book a Business Review</a>
+    <a class="btn btn--primary btn--block" data-event="business_review_cta_click" href="/business-review.html">Book a Business Review</a>
   </div>
 </header>
 
-<nav class="breadcrumb container" aria-label="Breadcrumb"><ol><li><a href="index.html">Home</a></li><li><span aria-current="page">Who We Help</span></li></ol></nav>
+<nav class="breadcrumb container" aria-label="Breadcrumb"><ol><li><a href="/index.html">Home</a></li><li><span aria-current="page">Who We Help</span></li></ol></nav>
 <main id="main" tabindex="-1">
 <section class="page-hero" aria-labelledby="page-title">
   <div class="container">
     <span class="eyebrow">Who we help</span>
     <h1 id="page-title">We work with businesses built on expertise and service.</h1>
     <p class="lead">Each kind of business has its own customer journey and its own places where that journey breaks. Find yours below, and see the problems we look for and what a better flow could look like.</p>
-    <p class="identity">Experius is a business systems and content studio. Our team is based in Bangladesh and works with service businesses locally and internationally.</p>
   </div>
 </section>
 
@@ -120,28 +133,28 @@
   <div class="container grid grid--2 grid--gap-lg">
     <article class="card card--link audience">
       <span class="eyebrow">01</span>
-      <h2 class="heading-sm"><a class="stretched" href="expertise-personal-brands.html">Expertise &amp; Personal Brands</a></h2>
+      <h2 class="heading-sm"><a class="stretched" href="/special-education.html">Special Education &amp; Therapy</a></h2>
+      <p class="audience__context">Special needs schools, therapy centres and child development services guiding families from a first worried question to regular support.</p>
+      <ul><li>Parents wait too long for a first reply</li><li>A child's background is spread across forms and chats</li><li>Progress updates depend on who has time</li></ul>
+      <div class="card__foot"><span class="link-arrow" aria-hidden="true">Explore this journey <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></div>
+    </article>
+    <article class="card card--link audience">
+      <span class="eyebrow">02</span>
+      <h2 class="heading-sm"><a class="stretched" href="/expertise-personal-brands.html">Expertise &amp; Personal Brands</a></h2>
       <p class="audience__context">Coaches, consultants, therapists, independent experts and professional service providers building a business around what they know.</p>
       <ul><li>Content attracts attention but doesn't explain the offer</li><li>Inquiries are scattered across DMs, email and WhatsApp</li><li>Consultations and onboarding are arranged by hand</li></ul>
       <div class="card__foot"><span class="link-arrow" aria-hidden="true">Explore this journey <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></div>
     </article>
     <article class="card card--link audience">
-      <span class="eyebrow">02</span>
-      <h2 class="heading-sm"><a class="stretched" href="clinics-wellness.html">Clinics &amp; Wellness</a></h2>
+      <span class="eyebrow">03</span>
+      <h2 class="heading-sm"><a class="stretched" href="/clinics-wellness.html">Clinics &amp; Wellness</a></h2>
       <p class="audience__context">Physiotherapy, dental, therapy, rehabilitation and other practices with practitioners, appointments and ongoing care.</p>
       <ul><li>Inquiries aren't tracked in one place</li><li>Appointment requests take too many manual steps</li><li>Nobody clearly owns follow-up after a visit</li></ul>
       <div class="card__foot"><span class="link-arrow" aria-hidden="true">Explore this journey <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></div>
     </article>
     <article class="card card--link audience">
-      <span class="eyebrow">03</span>
-      <h2 class="heading-sm"><a class="stretched" href="education-training.html">Education &amp; Training</a></h2>
-      <p class="audience__context">Training academies, educators, trainers and learning businesses moving people from first interest to enrolment and beyond.</p>
-      <ul><li>Leads ask about fees and dates, then go quiet</li><li>Registration details get typed in twice</li><li>Student communication is scattered across groups</li></ul>
-      <div class="card__foot"><span class="link-arrow" aria-hidden="true">Explore this journey <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></div>
-    </article>
-    <article class="card card--link audience">
       <span class="eyebrow">04</span>
-      <h2 class="heading-sm"><a class="stretched" href="solar-battery-installers.html">Solar &amp; Battery Installers</a></h2>
+      <h2 class="heading-sm"><a class="stretched" href="/solar-battery-installers.html">Solar &amp; Battery Installers</a></h2>
       <p class="audience__context">Residential and commercial installers with long sales cycles, site surveys, field crews and years of after-sales.</p>
       <ul><li>Buyers need a lot of explaining before they commit</li><li>Quotes go out and follow-up depends on memory</li><li>After installation, service and referrals get lost</li></ul>
       <div class="card__foot"><span class="link-arrow" aria-hidden="true">Explore this journey <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></div>
@@ -154,12 +167,12 @@
     <div class="stack">
       <h2 id="other-title" class="heading-md">Not listed here?</h2>
       <p class="text-secondary">Most of what we do applies to any service business where customers get in touch, get looked after and come back. If something in your business feels harder than it should be, a Business Review is a good place to start.</p>
-      <p><a class="link-arrow" data-event="business_review_cta_click" href="business-review.html">Book a Business Review <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></p>
+      <p><a class="link-arrow" data-event="business_review_cta_click" href="/business-review.html">Book a Business Review <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></p>
     </div>
     <div class="stack">
       <h2 class="heading-md">Are you an agency?</h2>
       <p class="text-secondary">We also work behind the scenes as an implementation partner for websites, systems and automation. Mention it when you get in touch and we'll talk about how we'd work together.</p>
-      <p><a class="link-arrow" href="contact.html">Contact us about partnering <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></p>
+      <p><a class="link-arrow" href="/contact.html">Contact us about partnering <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></p>
     </div>
   </div>
 </section>
@@ -172,61 +185,58 @@
       <p>Book an Experius Business Review: a focused conversation about your business, what is getting in the way and what may be worth improving.</p>
     </div>
     <div>
-      <a class="btn btn--primary" data-event="business_review_cta_click" href="business-review.html">Book a Business Review</a>
+      <a class="btn btn--primary" data-event="business_review_cta_click" href="/business-review.html">Book a Business Review</a>
       <p class="reassure">Free · 25–30 minutes · No generic pitch.</p>
     </div>
   </div>
 </section>
 </main>
-<footer class="site-footer" data-surface="dark">
+<footer class="site-footer" id="site-footer" data-surface="dark">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="assets/logo-stacked-white.png" alt="Experius" width="428" height="396">
+        <img src="/assets/logo-stacked-white.png" alt="Experius" width="428" height="396">
         <p>Experius helps service-based and expertise-driven businesses connect their digital presence, customer journeys and day-to-day operations.</p>
         <p class="footer-location">Based in Bangladesh · Working with businesses locally and internationally.</p>
       </div>
       <div class="footer-col">
         <h2>Solutions</h2>
         <ul>
-          <li><a href="business-operating-systems.html">Business Operating Systems</a></li>
-          <li><a href="content-creation-management.html">Content Creation &amp; Management</a></li>
-          <li><a href="websites.html">Websites</a></li>
-          <li><a href="our-approach.html">Our Approach</a></li>
-        </ul>
+          <li><a href="/business-operating-systems.html">Business Operating Systems</a></li>
+          <li><a href="/content-creation-management.html">Content Creation &amp; Management</a></li>
+          <li><a href="/websites.html">Websites</a></li>
+                  </ul>
       </div>
       <div class="footer-col">
         <h2>Who we help</h2>
         <ul>
-          <li><a href="expertise-personal-brands.html">Expertise &amp; Personal Brands</a></li>
-          <li><a href="clinics-wellness.html">Clinics &amp; Wellness</a></li>
-          <li><a href="education-training.html">Education &amp; Training</a></li>
-          <li><a href="solar-battery-installers.html">Solar &amp; Battery Installers</a></li>
+          <li><a href="/special-education.html">Special Education &amp; Therapy</a></li>
+          <li><a href="/expertise-personal-brands.html">Expertise &amp; Personal Brands</a></li>
+          <li><a href="/clinics-wellness.html">Clinics &amp; Wellness</a></li>
+          <li><a href="/solar-battery-installers.html">Solar &amp; Battery Installers</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h2>Experius</h2>
         <ul>
-          <li><a href="work.html">Work</a></li>
-          <li><a href="insights.html">Insights</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a data-event="business_review_cta_click" href="business-review.html">Book a Business Review</a></li>
+          <li><a href="/our-approach.html">Our Approach</a></li>
+          <li><a href="/work.html">Work</a></li>
+          <li><a href="/insights.html">Insights</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a data-event="business_review_cta_click" href="/business-review.html">Book a Business Review</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2026 Experius · <a href="mailto:hello@experius.xyz">hello@experius.xyz</a> <mark class="confirm">[CONFIRM email]</mark></p>
+      <p>© 2026 Experius · <a href="mailto:hello@experius.xyz">hello@experius.xyz</a> · <a href="https://wa.me/8801895626386" target="_blank" rel="noopener">WhatsApp</a></p>
       <ul>
-        <li><a href="#" aria-label="Experius on LinkedIn">LinkedIn</a></li>
-        <li><a href="#" aria-label="Experius on Facebook">Facebook</a></li>
-        <li><a href="#" aria-label="Experius on Instagram">Instagram</a></li>
-        <li><mark class="confirm">[CONFIRM social URLs]</mark></li>
+        <li><a href="https://www.facebook.com/experius.hq/" target="_blank" rel="noopener" aria-label="Experius on Facebook">Facebook</a></li>
       </ul>
       <ul>
-        <li><a href="privacy.html">Privacy</a></li>
-        <li><a href="terms.html">Terms</a></li>
-        <li>Prototype v0.1 · draft content</li>
+        <li><a href="/privacy.html">Privacy</a></li>
+        <li><a href="/terms.html">Terms</a></li>
+        <li><a class="footer-admin" href="/admin/" rel="nofollow">Admin</a></li>
       </ul>
     </div>
   </div>

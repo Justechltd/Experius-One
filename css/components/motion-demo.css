@@ -1,0 +1,103 @@
+/* Motion styles for the demo batch (v0.3): the step player on the two demonstration pages.
+   The markup is the finished screen. Everything below only describes how it is acted out once
+   js/motion/demo-player.js has added .is-motion, and only moves transform and opacity. */
+
+.demo-frame[data-demo] { position: relative; }
+
+/* ---------- Player bar ---------- */
+.demo-player { display: grid; gap: var(--space-snug); padding: var(--space-snug) var(--space-base); border-bottom: 1px solid var(--color-border); }
+.demo-player:empty { display: none; }
+.demo-player [hidden] { display: none; }
+.demo-player__controls { display: flex; flex-wrap: wrap; gap: var(--space-tight); }
+.demo-player__controls .btn { min-height: var(--target-min); }
+.demo-player__panel { display: grid; gap: var(--space-tight); }
+.demo-player__dots { display: flex; flex-wrap: wrap; gap: var(--space-tight); }
+.demo-player__dot { display: inline-flex; align-items: center; justify-content: center; width: 1.75rem; height: 1.75rem; border: 2px solid var(--color-border); border-radius: var(--radius-full); font-size: var(--text-xs); font-weight: var(--font-weight-semibold); line-height: 1; color: var(--color-text-secondary); }
+.demo-player__dot.is-reached { border-color: var(--color-accent-ink); color: var(--color-text-primary); }
+.demo-player__dot.is-current { border-color: var(--color-action); background: var(--color-action); color: var(--color-text-on-action); }
+.demo-player__text { display: grid; gap: var(--space-hairline); }
+.demo-player__caption { font-size: var(--text-base); font-weight: var(--font-weight-semibold); min-height: 3em; }
+.demo-player__explain { font-size: var(--text-sm); color: var(--color-text-secondary); min-height: 4.5em; }
+@media (min-width: 640px) { .demo-player__caption { min-height: 1.5em; } .demo-player__explain { min-height: 3em; } }
+@media (max-width: 479px) { .demo-player__controls .btn { flex: 1 1 calc(50% - var(--space-tight)); } }
+
+/* ---------- Highlighted step in "How the team would use it" ---------- */
+.process[data-demo-list] li::before { transition: transform var(--duration-slow) var(--ease); }
+.process[data-demo-list].is-motion li { cursor: pointer; }
+.process[data-demo-list] li.is-current::before { background: var(--color-action); border-color: var(--color-action); color: var(--color-text-on-action); transform: scale(1.1); }
+.process[data-demo-list] li.is-current h3 { text-decoration: underline; text-decoration-color: var(--color-accent); text-decoration-thickness: 2px; text-underline-offset: 0.25em; }
+
+/* ---------- Chips and toast (real text in the markup; decoration only appears under JS) ---------- */
+.demo-chip { display: inline-flex; align-items: center; gap: var(--space-hairline); width: fit-content; margin-top: var(--space-tight); padding: 1px var(--space-tight); border: 1px solid var(--color-success); border-radius: var(--radius-sm); background: var(--color-success-bg); color: var(--color-success); font-size: var(--text-xs); font-weight: var(--font-weight-semibold); }
+.board__card .demo-chip { display: flex; }
+.demo-chip::before { content: "\2713"; }
+
+.demo-summary { margin-bottom: var(--space-snug); padding: var(--space-tight) var(--space-snug); border-left: 3px solid var(--color-accent); border-radius: var(--radius-sm); background: var(--color-background-alt); font-size: var(--text-sm); }
+.demo-summary b { font-weight: var(--font-weight-semibold); }
+.demo-stamp { display: inline-block; transform-origin: left center; }
+
+.demo-toast { display: none; }
+
+/* ---------- Animated look (only once the player is running on the page) ---------- */
+.demo-frame.is-motion [data-demo-action="enter"],
+.demo-frame.is-motion [data-demo-action="stamp"],
+.demo-frame.is-motion [data-demo-action="chip"],
+.demo-frame.is-motion [data-demo-action="flag"] {
+  transition: opacity var(--duration-slow) var(--ease), transform var(--duration-slow) var(--ease);
+}
+.demo-frame.is-motion [data-demo-action="enter"]:not(.is-applied) { opacity: 0; transform: translateY(-0.75rem); }
+.demo-frame.is-motion tr[data-demo-action="enter"].is-applied { transition-delay: calc(var(--demo-i, 0) * 70ms); }
+.demo-frame.is-motion [data-demo-action="stamp"]:not(.is-applied) { opacity: 0; transform: scale(1.35); }
+.demo-frame.is-motion [data-demo-action="stamp"].is-applied { transition-delay: calc(var(--demo-i, 0) * 60ms); }
+.demo-frame.is-motion [data-demo-action="chip"]:not(.is-applied) { opacity: 0; transform: scale(0.85); }
+
+.demo-frame.is-motion [data-demo-action="swap"] { transition: opacity var(--duration-fast) var(--ease); }
+.demo-frame.is-motion [data-demo-action="swap"].is-swapping { opacity: 0; }
+
+.demo-frame.is-motion .demo-toast {
+  display: flex; align-items: center; gap: var(--space-tight); position: absolute; right: var(--space-base); bottom: 3.5rem; z-index: 2;
+  max-width: calc(100% - 2 * var(--space-base)); padding: var(--space-snug) var(--space-base); border-radius: var(--radius-md);
+  background: var(--brand-charcoal); color: var(--brand-white); font-size: var(--text-sm); font-weight: var(--font-weight-semibold);
+  box-shadow: var(--shadow-lg); pointer-events: none;
+  opacity: 0; transform: translateX(1.5rem);
+  transition: opacity var(--duration-slow) var(--ease), transform var(--duration-slow) var(--ease);
+}
+.demo-frame.is-motion .demo-toast.is-applied { opacity: 1; transform: translateX(0); }
+.demo-toast__tick { color: var(--color-accent); }
+
+/* Short highlight when a card changes (opacity of a ring, plus a small lift or shake). */
+.board__card { position: relative; }
+.board__card::after { content: ""; position: absolute; inset: -3px; border: 2px solid var(--color-accent); border-radius: calc(var(--radius-sm) + 3px); opacity: 0; pointer-events: none; }
+.board__card.is-pulse { animation: demo-lift var(--duration-slow) var(--ease); }
+.board__card.is-pulse::after { animation: demo-ring 700ms var(--ease); }
+.board__card[data-demo-action="flag"].is-pulse { animation: demo-shake var(--duration-slow) var(--ease); }
+@keyframes demo-lift { 0% { transform: scale(1); } 40% { transform: scale(1.03); } 100% { transform: scale(1); } }
+@keyframes demo-shake { 0%, 100% { transform: translateX(0); } 20% { transform: translateX(-5px); } 45% { transform: translateX(4px); } 70% { transform: translateX(-2px); } }
+@keyframes demo-ring { 0% { opacity: 0; } 25% { opacity: 1; } 100% { opacity: 0; } }
+
+/* ---------- Focus: what the current step changed stays full strength, the rest steps back ---------- */
+/* Units that carry their own opacity transition (the enter/flag rules above) keep it; the rest get one here. */
+.demo-frame.is-motion :is(.board__card, .records tbody tr, .demo-summary):not([data-demo-action]) { transition: opacity var(--duration-slow) var(--ease); }
+/* A step that has not happened yet (enter, not applied) stays hidden; everything else dims. */
+.demo-frame.is-focusing :is(.board__card, .records tbody tr, .demo-summary):not(.is-active):is(.is-applied, :not([data-demo-action="enter"])) { opacity: .4; }
+.board__card.is-active { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+.records tbody tr.is-active { outline: 2px solid var(--color-accent); outline-offset: -2px; }
+.demo-summary.is-active { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+.board__card.is-active::before {
+  content: "Changed"; content: "Changed" / "";
+  position: absolute; top: -0.6rem; right: var(--space-tight); z-index: 1;
+  padding: 0 var(--space-tight); border-radius: var(--radius-sm);
+  background: var(--color-action); color: var(--color-text-on-action);
+  font-size: var(--text-xs); font-weight: var(--font-weight-semibold); line-height: 1.5; pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .demo-frame.is-motion :is(.board__card, .records tbody tr, .demo-summary):not([data-demo-action]) { transition: none; }
+  .board__card.is-pulse, .board__card.is-pulse::after, .board__card[data-demo-action="flag"].is-pulse { animation: none; }
+  .demo-frame.is-motion [data-demo-action="enter"],
+  .demo-frame.is-motion [data-demo-action="stamp"],
+  .demo-frame.is-motion tr[data-demo-action="enter"].is-applied { transition-delay: 0s; }
+}
+
+/* Keep the card the same width before and after it is flagged. */
+.demo-frame.is-motion .board__card[data-demo-action="flag"]:not(.is-overdue) { border-left: 3px solid var(--color-border); }

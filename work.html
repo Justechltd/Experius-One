@@ -3,82 +3,97 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Work · Experius</title>
-<meta name="description" content="Client projects, system demonstrations and experiments, each clearly labelled for what it is.">
+<title>Our work: client projects and demonstrations · Experius</title>
+<meta name="description" content="Client projects shown with permission, system demonstrations built with example data, and experiments we run on our own business. See what we have built.">
 <link rel="canonical" href="https://experius.xyz/work">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Experius">
-<meta property="og:title" content="Work">
-<meta property="og:description" content="Client projects, system demonstrations and experiments, each clearly labelled for what it is.">
+<meta property="og:title" content="Our work: client projects and demonstrations">
+<meta property="og:description" content="Client projects shown with permission, system demonstrations built with example data, and experiments we run on our own business. See what we have built.">
 <meta property="og:url" content="https://experius.xyz/work">
-<!-- [CONFIRM] og:image needs a 1200×630 share image -->
-<meta name="robots" content="noindex">
-<link rel="icon" type="image/png" href="assets/logo-mark-black.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/main.css">
+<meta property="og:image" content="https://experius.xyz/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Experius: business systems for service businesses">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Our work: client projects and demonstrations">
+<meta name="twitter:description" content="Client projects shown with permission, system demonstrations built with example data, and experiments we run on our own business. See what we have built.">
+<meta name="twitter:image" content="https://experius.xyz/assets/og-image.png">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/png" sizes="512x512" href="/assets/icon-512.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+<link rel="preload" href="/assets/fonts/poppins-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/poppins-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/site.css">
 <script>document.documentElement.classList.add('js');</script>
-<script src="js/site.js" defer></script>
+<script src="/js/config.js" defer></script>
+<script src="/js/analytics.js" defer></script>
+<script src="/js/site.js" defer></script>
+<script src="/js/case-study.js" defer></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://experius.xyz/"}, {"@type": "ListItem", "position": 2, "name": "Work", "item": "https://experius.xyz/work"}]}]}</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header" data-surface="dark">
   <div class="container header-inner">
-    <a class="brand" href="index.html" aria-label="Experius, home">
-      <img class="brand__mark" src="assets/logo-mark-white.png" alt="" width="428" height="309">
-      <img class="brand__word" src="assets/logo-wordmark-white.png" alt="" width="427" height="28">
+    <a class="brand" href="/index.html" aria-label="Experius, home">
+      <img class="brand__mark" src="/assets/logo-mark-white.png" alt="" width="428" height="309">
+      <img class="brand__word" src="/assets/logo-wordmark-white.png" alt="" width="427" height="28">
     </a>
 
     <nav class="primary-nav" aria-label="Main">
-      <ul class="nav-list">
+      <ul class="nav-list" role="list">
         <li class="nav-item">
           <button class="nav-link nav-toggle" type="button" aria-expanded="false" aria-controls="sub-solutions">Solutions <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
-          <ul class="nav-sub" id="sub-solutions" hidden>
-            <li><a href="solutions.html">All solutions<span>How the two pillars work together</span></a></li>
-            <li><a href="business-operating-systems.html">Business Operating Systems<span>Inquiries, follow-up, booking, visibility</span></a></li>
-            <li><a href="content-creation-management.html">Content Creation &amp; Management<span>Make expertise visible and trusted</span></a></li>
-            <li><a href="websites.html">Websites &amp; Connected Digital Experiences<span>Give your website a clear job</span></a></li>
+          <ul class="nav-sub" role="list" id="sub-solutions" hidden>
+            <li><a href="/solutions.html">All solutions<span>How the two pillars work together</span></a></li>
+            <li><a href="/business-operating-systems.html">Business Operating Systems<span>Inquiries, follow-up, booking, visibility</span></a></li>
+            <li><a href="/content-creation-management.html">Content Creation &amp; Management<span>Make expertise visible and trusted</span></a></li>
+            <li><a href="/websites.html">Websites &amp; Connected Digital Experiences<span>Give your website a clear job</span></a></li>
           </ul>
         </li>
         <li class="nav-item">
           <button class="nav-link nav-toggle" type="button" aria-expanded="false" aria-controls="sub-who">Who We Help <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
-          <ul class="nav-sub" id="sub-who" hidden>
-            <li><a href="who-we-help.html">Overview<span>Find your kind of business</span></a></li>
-            <li><a href="expertise-personal-brands.html">Expertise &amp; Personal Brands<span>Coaches, consultants, therapists, experts</span></a></li>
-            <li><a href="clinics-wellness.html">Clinics &amp; Wellness<span>Physio, dental, therapy, rehabilitation</span></a></li>
-            <li><a href="education-training.html">Education &amp; Training<span>Academies, trainers, learning businesses</span></a></li>
-            <li><a href="solar-battery-installers.html">Solar &amp; Battery Installers<span>Residential and commercial installers</span></a></li>
+          <ul class="nav-sub" role="list" id="sub-who" hidden>
+            <li><a href="/who-we-help.html">Overview<span>Find your kind of business</span></a></li>
+            <li><a href="/special-education.html">Special Education &amp; Therapy<span>Special needs schools, therapy and child development centres</span></a></li>
+            <li><a href="/expertise-personal-brands.html">Expertise &amp; Personal Brands<span>Coaches, consultants, therapists, experts</span></a></li>
+            <li><a href="/clinics-wellness.html">Clinics &amp; Wellness<span>Physio, dental, therapy, rehabilitation</span></a></li>
+            <li><a href="/solar-battery-installers.html">Solar &amp; Battery Installers<span>Residential and commercial installers</span></a></li>
           </ul>
         </li>
-        <li class="nav-item"><a class="nav-link" href="our-approach.html">Our Approach</a></li>
-        <li class="nav-item"><a class="nav-link" href="work.html" aria-current="page">Work</a></li>
-        <li class="nav-item"><a class="nav-link" href="insights.html">Insights</a></li>
-        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="/our-approach.html">Our Approach</a></li>
+        <li class="nav-item"><a class="nav-link" href="/work.html" aria-current="page">Work</a></li>
+        <li class="nav-item"><a class="nav-link" href="/insights.html">Insights</a></li>
+        <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="/contact.html">Contact</a></li>
       </ul>
     </nav>
 
-    <a class="btn btn--primary btn--sm header-cta" data-event="business_review_cta_click" href="business-review.html">Book a Review</a>
+    <a class="btn btn--primary btn--sm header-cta" data-event="business_review_cta_click" href="/business-review.html"><span class="header-cta__long">Book a Business Review</span><span class="header-cta__short">Book a Review</span></a>
 
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu">
+    <a class="menu-fallback" href="#site-footer">Menu</a>
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu">
       <svg class="icon icon-open" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
       <svg class="icon icon-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
-      <span class="menu-toggle__label">Menu</span>
-      <span class="visually-hidden">Open or close the main menu</span>
+      <span class="menu-toggle__label" aria-hidden="true">Menu</span>
     </button>
   </div>
 
   <div class="mobile-menu" id="mobile-menu" hidden>
     <nav aria-label="Main, mobile">
-      <ul class="mobile-nav">
-        <li><a href="index.html">Home</a></li>
+      <ul class="mobile-nav" role="list">
+        <li><a href="/index.html">Home</a></li>
         <li>
           <details>
             <summary>Solutions <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
             <ul>
-              <li><a href="solutions.html">All solutions</a></li>
-              <li><a href="business-operating-systems.html">Business Operating Systems</a></li>
-              <li><a href="content-creation-management.html">Content Creation &amp; Management</a></li>
-              <li><a href="websites.html">Websites &amp; Connected Digital Experiences</a></li>
+              <li><a href="/solutions.html">All solutions</a></li>
+              <li><a href="/business-operating-systems.html">Business Operating Systems</a></li>
+              <li><a href="/content-creation-management.html">Content Creation &amp; Management</a></li>
+              <li><a href="/websites.html">Websites &amp; Connected Digital Experiences</a></li>
             </ul>
           </details>
         </li>
@@ -86,37 +101,37 @@
           <details>
             <summary>Who We Help <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
             <ul>
-              <li><a href="who-we-help.html">Overview</a></li>
-              <li><a href="expertise-personal-brands.html">Expertise &amp; Personal Brands</a></li>
-              <li><a href="clinics-wellness.html">Clinics &amp; Wellness</a></li>
-              <li><a href="education-training.html">Education &amp; Training</a></li>
-              <li><a href="solar-battery-installers.html">Solar &amp; Battery Installers</a></li>
+              <li><a href="/who-we-help.html">Overview</a></li>
+              <li><a href="/special-education.html">Special Education &amp; Therapy</a></li>
+              <li><a href="/expertise-personal-brands.html">Expertise &amp; Personal Brands</a></li>
+              <li><a href="/clinics-wellness.html">Clinics &amp; Wellness</a></li>
+              <li><a href="/solar-battery-installers.html">Solar &amp; Battery Installers</a></li>
             </ul>
           </details>
         </li>
-        <li><a href="our-approach.html">Our Approach</a></li>
-        <li><a href="work.html" aria-current="page">Work</a></li>
-        <li><a href="insights.html">Insights</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="/our-approach.html">Our Approach</a></li>
+        <li><a href="/work.html" aria-current="page">Work</a></li>
+        <li><a href="/insights.html">Insights</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/contact.html">Contact</a></li>
       </ul>
     </nav>
-    <a class="btn btn--primary btn--block" data-event="business_review_cta_click" href="business-review.html">Book a Business Review</a>
+    <a class="btn btn--primary btn--block" data-event="business_review_cta_click" href="/business-review.html">Book a Business Review</a>
   </div>
 </header>
 
-<nav class="breadcrumb container" aria-label="Breadcrumb"><ol><li><a href="index.html">Home</a></li><li><span aria-current="page">Work</span></li></ol></nav>
+<nav class="breadcrumb container" aria-label="Breadcrumb"><ol><li><a href="/index.html">Home</a></li><li><span aria-current="page">Work</span></li></ol></nav>
 <main id="main" tabindex="-1">
 <section class="page-hero" aria-labelledby="page-title">
   <div class="container">
     <span class="eyebrow">Work</span>
-    <h1 id="page-title">Real work, and clearly labelled demonstrations.</h1>
-    <p class="lead">Everything here says what it is. A client project is a system we delivered, shown with the client's permission. A demonstration shows how a system works, using example data. An experiment is something we're testing on our own business.</p>
-    <p class="identity">Experius is a business systems and content studio. Our team is based in Bangladesh and works with service businesses locally and internationally.</p>
+    <h1 id="page-title">Real work, and clearly labeled demonstrations.</h1>
+    <p class="lead">Everything here says what it is. A client project is work we delivered or support for a real business. A pre-launch build is a working system for a client that hasn't gone live yet. A demonstration shows how a system works, using example data. An experiment is something we're testing on our own business.</p>
     <ul class="cluster mt-lg" role="list" aria-label="Evidence labels used on this page">
       <li><span class="tag tag--client">Client project</span></li>
       <li><span class="tag tag--demo">System demonstration</span></li>
       <li><span class="tag tag--experiment">Experiment</span></li>
+      <li><span class="tag tag--prelaunch">Pre-launch</span></li>
     </ul>
   </div>
 </section>
@@ -125,46 +140,233 @@
   <div class="container">
     <div class="section-heading">
       <span class="eyebrow">Client projects</span>
-      <h2 id="clients-title">Delivered work, shown with permission</h2>
-      <p>What we built, shown the way each client agreed. We don't publish client results or quotes unless the client chooses to share them.</p>
+      <h2 id="clients-title">Work we've delivered</h2>
+      <p>What we built or supported, shown the way each client agreed. Open any project to read the case study. We don't publish client results or quotes unless the client chooses to share them.</p>
     </div>
     <div class="grid grid--3 grid--gap-lg">
-      <article class="card work-card">
-        <div class="work-card__meta"><span class="tag tag--client">Client project</span><span class="tag tag--context">Non-profit · Bangladesh</span></div>
-        <div class="shot">Screenshot to come</div>
+      <article class="card work-card work-card--case">
+        <div class="work-card__meta"><span class="tag tag--client">Client project</span><span class="tag tag--context">Property developer · Dhaka</span></div>
+        <h3>Xen Developments</h3>
+        <p>A property developer in Dhaka.</p>
+        <dl><dt>What we did</dt><dd>A website, software (an admin panel, plus booking and sales tools), content, and Meta ad management.</dd></dl>
+        <ul class="cluster work-card__scope" role="list" aria-label="Delivered"><li><span class="tag tag--context">Website</span></li><li><span class="tag tag--context">Software</span></li><li><span class="tag tag--context">Content</span></li><li><span class="tag tag--context">Ads</span></li></ul>
+        <button type="button" class="case-open" data-case="case-xen" aria-haspopup="dialog" hidden><span class="visually-hidden">Read the case study: Xen Developments</span></button>
+        <p class="card__foot"><a class="link-arrow" href="https://www.xendevltd.com" target="_blank" rel="noopener">Visit the site <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></p>
+      </article>
+      <article class="card work-card work-card--case">
+        <div class="work-card__meta"><span class="tag tag--client">Client project</span><span class="tag tag--context">Special education · Bangladesh</span></div>
         <h3>Angel Foundation</h3>
         <p>A non-profit supporting children with special needs.</p>
-        <dl><dt>What we built</dt><dd>A website and a bookings and client-management dashboard.</dd></dl>
+        <dl><dt>What we did</dt><dd>A website, a bookings and client-management dashboard, and content support: Facebook posts, reels, educational posters and blog articles.</dd></dl>
+        <ul class="cluster work-card__scope" role="list" aria-label="Delivered"><li><span class="tag tag--context">Website</span></li><li><span class="tag tag--context">Dashboard</span></li><li><span class="tag tag--context">Content</span></li></ul>
+        <button type="button" class="case-open" data-case="case-angel" aria-haspopup="dialog" hidden><span class="visually-hidden">Read the case study: Angel Foundation</span></button>
+        <p class="card__foot"><a class="link-arrow" href="https://www.angelfoundationbd.org" target="_blank" rel="noopener">Visit the site <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></p>
       </article>
-      <article class="card work-card">
-        <div class="work-card__meta"><span class="tag tag--client">Client project</span><span class="tag tag--context">Australia</span></div>
-        <div class="shot">Screenshot to come</div>
-        <h3>Tapika <mark class="confirm">[CONFIRM display name]</mark></h3>
-        <p><mark class="confirm">[CONFIRM: one line on the business]</mark></p>
-        <dl><dt>What we built</dt><dd><mark class="confirm">[CONFIRM: what the system does]</mark></dd></dl>
+      <article class="card work-card work-card--case">
+        <div class="work-card__meta"><span class="tag tag--client">Client project</span><span class="tag tag--context">Jewellery brand · Online store</span></div>
+        <h3>Noree Jewellery</h3>
+        <p>A jewellery brand selling online.</p>
+        <dl><dt>What we did</dt><dd>The online store, and an analytics dashboard that shows how visitors use it.</dd></dl>
+        <ul class="cluster work-card__scope" role="list" aria-label="Delivered"><li><span class="tag tag--context">Website</span></li><li><span class="tag tag--context">Dashboard</span></li></ul>
+        <button type="button" class="case-open" data-case="case-noree" aria-haspopup="dialog" hidden><span class="visually-hidden">Read the case study: Noree Jewellery</span></button>
+        <p class="card__foot"><a class="link-arrow" href="https://www.noreejewellery.com" target="_blank" rel="noopener">Visit the site <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></p>
       </article>
-      <article class="card work-card">
-        <div class="work-card__meta"><span class="tag tag--client">Client project</span><span class="tag tag--context">Personal brand · E-commerce</span></div>
-        <div class="shot">Screenshot to come</div>
-        <h3>Noore Jewelry</h3>
-        <p>A personal-brand jewellery business selling online.</p>
-        <dl><dt>What we built</dt><dd><mark class="confirm">[CONFIRM scope: e.g. online store, product content]</mark></dd></dl>
+      <article class="card work-card work-card--case">
+        <div class="work-card__meta"><span class="tag tag--client">Client project</span><span class="tag tag--context">Library · Bangladesh</span></div>
+        <h3>Noholi Library</h3>
+        <p>A members' library in Bangladesh.</p>
+        <dl><dt>What we did</dt><dd>A public website with a member area, and an operating system for staff: catalogue, loans, fines, member applications and messages.</dd></dl>
+        <ul class="cluster work-card__scope" role="list" aria-label="Delivered"><li><span class="tag tag--context">Website</span></li><li><span class="tag tag--context">Software</span></li></ul>
+        <button type="button" class="case-open" data-case="case-noholi" aria-haspopup="dialog" hidden><span class="visually-hidden">Read the case study: Noholi Library</span></button>
       </article>
-      <article class="card work-card">
-        <div class="work-card__meta"><span class="tag tag--client">Client project</span><span class="tag tag--context">Professional services</span></div>
-        <div class="shot">Screenshot to come, with the client's name and branding hidden</div>
-        <h3>A personal-brand consultancy</h3>
-        <p>The client asked not to be named.</p>
-        <dl><dt>What we built</dt><dd>A website and a custom dashboard.</dd></dl>
-      </article>
-      <article class="card work-card">
-        <div class="work-card__meta"><span class="tag tag--client">Client project</span><span class="tag tag--context">Solar &amp; Battery Installers · Australia</span></div>
-        <div class="shot">Screenshot to come</div>
+      <article class="card work-card work-card--case">
+        <div class="work-card__meta"><span class="tag tag--client">Client project</span><span class="tag tag--context">Solar &amp; battery installer · NSW, Australia</span></div>
         <h3>Austar Solar</h3>
-        <p>A solar and battery installer in New South Wales, Australia.</p>
-        <dl><dt>What we built</dt><dd>Content for their audience. <mark class="confirm">[CONFIRM formats, e.g. short-form video, posts]</mark></dd></dl>
+        <p>A solar, battery and EV charger installer working across New South Wales.</p>
+        <dl><dt>What we did</dt><dd>Commercial lead lists for their sales team, and short videos and feed posts for Facebook.</dd></dl>
+        <ul class="cluster work-card__scope" role="list" aria-label="Delivered"><li><span class="tag tag--context">Leads</span></li><li><span class="tag tag--context">Content</span></li></ul>
+        <button type="button" class="case-open" data-case="case-austar" aria-haspopup="dialog" hidden><span class="visually-hidden">Read the case study: Austar Solar</span></button>
+        <p class="card__foot"><a class="link-arrow" href="https://austarsolar.com.au" target="_blank" rel="noopener">Visit the site <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></p>
       </article>
     </div>
+    <h3 class="heading-sm mt-lg">On the launchpad</h3>
+    <p class="text-secondary launchpad-intro">Built and working, and waiting for the client to go live or take the next step.</p>
+    <div class="grid grid--3 grid--gap-lg">
+      <article class="card work-card work-card--case">
+        <div class="work-card__meta"><span class="tag tag--prelaunch">Pre-launch</span><span class="tag tag--context">Nepal to Australia</span></div>
+        <h3>Tapika</h3>
+        <p>A gifting store sending gifts from Nepal to Australia.</p>
+        <dl><dt>What we built</dt><dd>A working pre-launch build of the online shop and the order-management screen behind it. Not live yet.</dd></dl>
+        <ul class="cluster work-card__scope" role="list" aria-label="Delivered"><li><span class="tag tag--context">Website</span></li><li><span class="tag tag--context">Software</span></li></ul>
+        <button type="button" class="case-open" data-case="case-tapika" aria-haspopup="dialog" hidden><span class="visually-hidden">Read the case study: Tapika</span></button>
+      </article>
+      <article class="card work-card work-card--case">
+        <div class="work-card__meta"><span class="tag tag--prelaunch">Pre-launch</span><span class="tag tag--context">Event rental</span></div>
+        <h3>Filix</h3>
+        <p>A mechanical-bull rental business for birthdays and family celebrations.</p>
+        <dl><dt>What we built</dt><dd>A bilingual public booking site and a working dashboard demo for leads, bookings and payments.</dd></dl>
+        <ul class="cluster work-card__scope" role="list" aria-label="Delivered"><li><span class="tag tag--context">Website</span></li><li><span class="tag tag--context">Software</span></li></ul>
+        <button type="button" class="case-open" data-case="case-filix" aria-haspopup="dialog" hidden><span class="visually-hidden">Read the case study: Filix</span></button>
+      </article>
+      <article class="card work-card work-card--case">
+        <div class="work-card__meta"><span class="tag tag--prelaunch">Pre-launch</span><span class="tag tag--context">Wellness · Admin and analytics</span></div>
+        <h3>Nirvana Wellness</h3>
+        <p>A wellness and therapy practice with its own website.</p>
+        <dl><dt>What we built</dt><dd>A rebuilt admin panel and fixes to the site's analytics and booking intake.</dd></dl>
+        <ul class="cluster work-card__scope" role="list" aria-label="Delivered"><li><span class="tag tag--context">Website</span></li><li><span class="tag tag--context">Dashboard</span></li></ul>
+        <button type="button" class="case-open" data-case="case-nirvana" aria-haspopup="dialog" hidden><span class="visually-hidden">Read the case study: Nirvana Wellness</span></button>
+      </article>
+    </div>
+    <dialog class="case" id="case-xen" aria-labelledby="case-xen-title">
+      <div class="case__bar">
+        <div class="work-card__meta"><span class="tag tag--client">Client project</span><span class="tag tag--context">Property developer · Dhaka</span></div>
+        <button type="button" class="case__close" data-case-close><span aria-hidden="true">&times;</span> Close</button>
+      </div>
+      <div class="case__body">
+        <h2 id="case-xen-title">Xen Developments</h2>
+        <p class="case__lead">A residential developer in Dhaka that needs its projects, bookings and sales in one place, and a steady presence online.</p>
+        <ul class="cluster work-card__scope" role="list" aria-label="Delivered"><li><span class="tag tag--context">Website</span></li><li><span class="tag tag--context">Software</span></li><li><span class="tag tag--context">Content</span></li><li><span class="tag tag--context">Ads</span></li></ul>
+        <div class="case__cols">
+          <section><h3 class="case__label">What we did</h3><ul class="check-list" role="list"><li>A public website for the company and its projects.</li><li>An admin panel to manage projects, bookings and sales, with booking and sales tools for the team.</li><li>Facebook posts and short video for the projects.</li><li>Meta ad campaigns that send interested people straight to WhatsApp.</li></ul></section>
+          <section>
+            <h3 class="case__label">Where it stands</h3><p>The website is live. Ads run in short tests and are paused between them.</p>
+            <h3 class="case__label">Results</h3><p>No results are published here unless the client chooses to share them.</p>
+          </section>
+        </div>
+        <div class="case__foot"><a class="btn btn--primary" data-event="business_review_cta_click" href="/business-review.html">Book a Business Review</a><span>Facing something similar? We'll talk it through.</span> <a class="link-arrow" href="https://www.xendevltd.com" target="_blank" rel="noopener">Visit the site <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
+      </div>
+    </dialog>
+    <dialog class="case" id="case-angel" aria-labelledby="case-angel-title">
+      <div class="case__bar">
+        <div class="work-card__meta"><span class="tag tag--client">Client project</span><span class="tag tag--context">Special education · Bangladesh</span></div>
+        <button type="button" class="case__close" data-case-close><span aria-hidden="true">&times;</span> Close</button>
+      </div>
+      <div class="case__body">
+        <h2 id="case-angel-title">Angel Foundation</h2>
+        <p class="case__lead">A non-profit in Bangladesh supporting children with special needs. We help families find and book support, help the team run it, and help parents and educators understand the work.</p>
+        <ul class="cluster work-card__scope" role="list" aria-label="Delivered"><li><span class="tag tag--context">Website</span></li><li><span class="tag tag--context">Dashboard</span></li><li><span class="tag tag--context">Content</span></li></ul>
+        <div class="case__cols">
+          <section><h3 class="case__label">What we did</h3><ul class="check-list" role="list"><li>A public website with an online consultation booking calendar.</li><li>A dashboard where the team sees booking requests, confirms or cancels them, and manages enquiries.</li><li>A steady weekly plan of Facebook posts, reels and educational posters, with the team reviewing a preview before anything goes out.</li><li>A Bangla series for parents, and blog articles for those who want to read more.</li></ul></section>
+          <section>
+            <h3 class="case__label">Where it stands</h3><p>The website and dashboard are live and content is scheduled ahead. We never show a child's face without written consent, and we make no claims about diagnosis or outcomes.</p>
+            <h3 class="case__label">Results</h3><p>No results are published here unless the client chooses to share them.</p>
+          </section>
+        </div>
+        <div class="case__foot"><a class="btn btn--primary" data-event="business_review_cta_click" href="/business-review.html">Book a Business Review</a><span>Facing something similar? We'll talk it through.</span> <a class="link-arrow" href="https://www.angelfoundationbd.org" target="_blank" rel="noopener">Visit the site <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
+      </div>
+    </dialog>
+    <dialog class="case" id="case-noree" aria-labelledby="case-noree-title">
+      <div class="case__bar">
+        <div class="work-card__meta"><span class="tag tag--client">Client project</span><span class="tag tag--context">Jewellery brand · Online store</span></div>
+        <button type="button" class="case__close" data-case-close><span aria-hidden="true">&times;</span> Close</button>
+      </div>
+      <div class="case__body">
+        <h2 id="case-noree-title">Noree Jewellery</h2>
+        <p class="case__lead">A jewellery brand that sells online and wanted a store that looks the way its pieces are worn: calm, editorial and easy to buy from.</p>
+        <ul class="cluster work-card__scope" role="list" aria-label="Delivered"><li><span class="tag tag--context">Website</span></li><li><span class="tag tag--context">Dashboard</span></li></ul>
+        <div class="case__cols">
+          <section><h3 class="case__label">What we did</h3><ul class="check-list" role="list"><li>The online store, with an editorial homepage built around how the jewellery is worn.</li><li>An analytics dashboard in the store's own admin that shows visits, product views and add-to-carts. The data stays in the client's own database, with no third-party tracker.</li><li>Pictures compressed when they are uploaded, so pages stay fast on a phone.</li></ul></section>
+          <section>
+            <h3 class="case__label">Where it stands</h3><p>The store is live.</p>
+            <h3 class="case__label">Results</h3><p>No results are published here unless the client chooses to share them.</p>
+          </section>
+        </div>
+        <div class="case__foot"><a class="btn btn--primary" data-event="business_review_cta_click" href="/business-review.html">Book a Business Review</a><span>Facing something similar? We'll talk it through.</span> <a class="link-arrow" href="https://www.noreejewellery.com" target="_blank" rel="noopener">Visit the site <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
+      </div>
+    </dialog>
+    <dialog class="case" id="case-noholi" aria-labelledby="case-noholi-title">
+      <div class="case__bar">
+        <div class="work-card__meta"><span class="tag tag--client">Client project</span><span class="tag tag--context">Library · Bangladesh</span></div>
+        <button type="button" class="case__close" data-case-close><span aria-hidden="true">&times;</span> Close</button>
+      </div>
+      <div class="case__body">
+        <h2 id="case-noholi-title">Noholi Library</h2>
+        <p class="case__lead">A members' library in Bangladesh. Members browse and apply online; staff run the library from one system instead of separate sheets.</p>
+        <ul class="cluster work-card__scope" role="list" aria-label="Delivered"><li><span class="tag tag--context">Website</span></li><li><span class="tag tag--context">Software</span></li></ul>
+        <div class="case__cols">
+          <section><h3 class="case__label">What we did</h3><ul class="check-list" role="list"><li>A public website with a member area.</li><li>A staff operating system for the catalogue, loans, fines, member applications and messages.</li><li>A short guide video that shows new members how to use the library online.</li></ul></section>
+          <section>
+            <h3 class="case__label">Where it stands</h3><p>The website and the staff system are both live. Member and loan records are never shown here.</p>
+            <h3 class="case__label">Results</h3><p>No results are published here unless the client chooses to share them.</p>
+          </section>
+        </div>
+        <div class="case__foot"><a class="btn btn--primary" data-event="business_review_cta_click" href="/business-review.html">Book a Business Review</a><span>Facing something similar? We'll talk it through.</span> </div>
+      </div>
+    </dialog>
+    <dialog class="case" id="case-austar" aria-labelledby="case-austar-title">
+      <div class="case__bar">
+        <div class="work-card__meta"><span class="tag tag--client">Client project</span><span class="tag tag--context">Solar &amp; battery installer · NSW, Australia</span></div>
+        <button type="button" class="case__close" data-case-close><span aria-hidden="true">&times;</span> Close</button>
+      </div>
+      <div class="case__body">
+        <h2 id="case-austar-title">Austar Solar</h2>
+        <p class="case__lead">An installer with homes and businesses across Sydney, the coast and regional New South Wales. Their sales team needed more of the right businesses to talk to, and their Facebook page needed content people would stop for.</p>
+        <ul class="cluster work-card__scope" role="list" aria-label="Delivered"><li><span class="tag tag--context">Leads</span></li><li><span class="tag tag--context">Content</span></li></ul>
+        <div class="case__cols">
+          <section><h3 class="case__label">What we did</h3><ul class="check-list" role="list"><li>A researched list of commercial buildings across their service areas, so their own team can reach out to businesses worth talking to.</li><li>Short animated reels about batteries, upgrades, solar for business and local service.</li><li>Feed posts and carousels with their own visual style, not frames cut from the videos.</li><li>Real installs are never faked: everything is drawn as motion graphics, with no stock or AI photos of homes or panels.</li></ul></section>
+          <section>
+            <h3 class="case__label">Results</h3><p>No results are published here unless the client chooses to share them.</p>
+          </section>
+        </div>
+        <div class="case__foot"><a class="btn btn--primary" data-event="business_review_cta_click" href="/business-review.html">Book a Business Review</a><span>Facing something similar? We'll talk it through.</span> <a class="link-arrow" href="https://austarsolar.com.au" target="_blank" rel="noopener">Visit the site <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
+      </div>
+    </dialog>
+    <dialog class="case" id="case-tapika" aria-labelledby="case-tapika-title">
+      <div class="case__bar">
+        <div class="work-card__meta"><span class="tag tag--prelaunch">Pre-launch</span><span class="tag tag--context">Nepal to Australia</span></div>
+        <button type="button" class="case__close" data-case-close><span aria-hidden="true">&times;</span> Close</button>
+      </div>
+      <div class="case__body">
+        <h2 id="case-tapika-title">Tapika</h2>
+        <p class="case__lead">A gifting business that sends gifts from Nepal to families in Australia.</p>
+        <ul class="cluster work-card__scope" role="list" aria-label="Delivered"><li><span class="tag tag--context">Website</span></li><li><span class="tag tag--context">Software</span></li></ul>
+        <div class="case__cols">
+          <section><h3 class="case__label">What we built</h3><ul class="check-list" role="list"><li>An online shop, priced in rupees first.</li><li>A payment step where the customer sends a screenshot of their payment.</li><li>An order-management screen so every gift order has one place and one owner.</li></ul></section>
+          <section>
+            <h3 class="case__label">Where it stands</h3><p>Pre-launch. The system works and is waiting for the client to go live. We never show customers' faces or details.</p>
+            <h3 class="case__label">Results</h3><p>No results are published here unless the client chooses to share them.</p>
+          </section>
+        </div>
+        <div class="case__foot"><a class="btn btn--primary" data-event="business_review_cta_click" href="/business-review.html">Book a Business Review</a><span>Facing something similar? We'll talk it through.</span> </div>
+      </div>
+    </dialog>
+    <dialog class="case" id="case-filix" aria-labelledby="case-filix-title">
+      <div class="case__bar">
+        <div class="work-card__meta"><span class="tag tag--prelaunch">Pre-launch</span><span class="tag tag--context">Event rental</span></div>
+        <button type="button" class="case__close" data-case-close><span aria-hidden="true">&times;</span> Close</button>
+      </div>
+      <div class="case__body">
+        <h2 id="case-filix-title">Filix</h2>
+        <p class="case__lead">A mechanical-bull rental business that is booked for birthdays, quinceañeras and family celebrations, mostly by Spanish-speaking families.</p>
+        <ul class="cluster work-card__scope" role="list" aria-label="Delivered"><li><span class="tag tag--context">Website</span></li><li><span class="tag tag--context">Software</span></li></ul>
+        <div class="case__cols">
+          <section><h3 class="case__label">What we built</h3><ul class="check-list" role="list"><li>A Spanish-first public site with a step-by-step booking flow.</li><li>A dashboard for leads, bookings, a calendar, customers, payments and event checklists, working as a demo.</li></ul></section>
+          <section>
+            <h3 class="case__label">Where it stands</h3><p>The site is live on a preview address. The dashboard is a working demo and is not connected to a live database yet. Prices shown are examples.</p>
+            <h3 class="case__label">Results</h3><p>No results are published here unless the client chooses to share them.</p>
+          </section>
+        </div>
+        <div class="case__foot"><a class="btn btn--primary" data-event="business_review_cta_click" href="/business-review.html">Book a Business Review</a><span>Facing something similar? We'll talk it through.</span> </div>
+      </div>
+    </dialog>
+    <dialog class="case" id="case-nirvana" aria-labelledby="case-nirvana-title">
+      <div class="case__bar">
+        <div class="work-card__meta"><span class="tag tag--prelaunch">Pre-launch</span><span class="tag tag--context">Wellness · Admin and analytics</span></div>
+        <button type="button" class="case__close" data-case-close><span aria-hidden="true">&times;</span> Close</button>
+      </div>
+      <div class="case__body">
+        <h2 id="case-nirvana-title">Nirvana Wellness</h2>
+        <p class="case__lead">A wellness and therapy practice. The website was designed by the practice's own designer, and we took over the admin side so the team could run it.</p>
+        <ul class="cluster work-card__scope" role="list" aria-label="Delivered"><li><span class="tag tag--context">Website</span></li><li><span class="tag tag--context">Dashboard</span></li></ul>
+        <div class="case__cols">
+          <section><h3 class="case__label">What we built</h3><ul class="check-list" role="list"><li>A rebuilt admin panel for the team.</li><li>Fixes to analytics and to the intake forms, so enquiries reach the team.</li></ul></section>
+          <section>
+            <h3 class="case__label">Results</h3><p>No results are published here unless the client chooses to share them.</p>
+          </section>
+        </div>
+        <div class="case__foot"><a class="btn btn--primary" data-event="business_review_cta_click" href="/business-review.html">Book a Business Review</a><span>Facing something similar? We'll talk it through.</span> </div>
+      </div>
+    </dialog>
   </div>
 </section>
 
@@ -174,15 +376,27 @@
     <div class="grid grid--2 grid--gap-lg">
       <article class="card card--link work-card">
         <div class="work-card__meta"><span class="tag tag--demo">System demonstration</span><span class="tag tag--context">Solar &amp; Battery Installers</span></div>
-        <h3><a class="stretched" href="demo-solar-pipeline.html">From inquiry to installation, in one pipeline</a></h3>
+        <h3><a class="stretched" href="/demo-solar-pipeline.html">From inquiry to installation, in one pipeline</a></h3>
         <dl><dt>Problem</dt><dd>Quotes go out, follow-up depends on memory, and after installation nobody owns the customer.</dd><dt>Solution shown</dt><dd>One pipeline from inquiry to service, with an owner and a next action for every customer.</dd></dl>
         <div class="card__foot"><span class="link-arrow" aria-hidden="true">View the demonstration <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></div>
       </article>
       <article class="card card--link work-card">
         <div class="work-card__meta"><span class="tag tag--demo">System demonstration</span><span class="tag tag--context">Clinics &amp; Wellness</span></div>
-        <h3><a class="stretched" href="demo-clinic-inquiry.html">Every appointment request, in one place</a></h3>
+        <h3><a class="stretched" href="/demo-clinic-inquiry.html">Every appointment request, in one place</a></h3>
         <dl><dt>Problem</dt><dd>Requests arrive by phone, WhatsApp and the website, and some never get a reply.</dd><dt>Solution shown</dt><dd>One inquiry list, with an owner, a next action and automatic reminders.</dd></dl>
         <div class="card__foot"><span class="link-arrow" aria-hidden="true">View the demonstration <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></div>
+      </article>
+      <article class="card work-card">
+        <div class="work-card__meta"><span class="tag tag--demo">System demonstration</span><span class="tag tag--context">Construction &amp; property</span></div>
+        <h3>Construction OS</h3>
+        <dl><dt>Problem</dt><dd>Projects, phases, purchases and flat sales are tracked in separate sheets, so nobody sees the whole picture.</dd><dt>Solution shown</dt><dd>One system for projects and phases, purchase vouchers, sales and payments, with a view for managers and one for the owner.</dd></dl>
+        <p class="card__note-sm">Walkthrough video coming soon.</p>
+      </article>
+      <article class="card work-card">
+        <div class="work-card__meta"><span class="tag tag--demo">System demonstration</span><span class="tag tag--context">Clinics &amp; Wellness</span></div>
+        <h3>Clinic OS</h3>
+        <dl><dt>Problem</dt><dd>Patient records, appointments and reminders live in different places, and the front desk holds it together by memory.</dd><dt>Solution shown</dt><dd>Patients, appointments, reminders and follow-ups in one clinic system, built for physio and dental practices.</dd></dl>
+        <p class="card__note-sm">Walkthrough video coming soon.</p>
       </article>
     </div>
   </div>
@@ -191,9 +405,26 @@
 <section class="section section--alt" aria-labelledby="exp-title">
   <div class="container">
     <div class="section-heading"><span class="eyebrow">Experiments</span><h2 id="exp-title">What we're testing on our own business</h2></div>
-    <div class="empty-state">
-      <h3>Nothing published yet</h3>
-      <p>We'll share experiments from building Experius here, including what didn't work.</p>
+    <p class="section-intro">Things we try on Experius first, written up honestly, including what didn't work.</p>
+    <div class="grid grid--2 grid--gap-lg">
+      <article class="card work-card">
+        <div class="work-card__meta"><span class="tag tag--experiment">Experiment</span><span class="tag tag--context">Lead finding</span></div>
+        <h3>Where do businesses without a website actually live?</h3>
+        <dl>
+          <dt>What we tried</dt><dd>We searched Instagram, Facebook and LinkedIn for service businesses that could use a website, and checked each one by hand.</dd>
+          <dt>What happened</dt><dd>On Instagram, 61 of the 63 businesses we checked had no website. On Facebook it was 149 of 351. On LinkedIn, almost every company already had one.</dd>
+          <dt>What we learned</dt><dd>The right channel depends on what you sell. We stopped using LinkedIn to find website prospects and put that time into Instagram.</dd>
+        </dl>
+      </article>
+      <article class="card work-card">
+        <div class="work-card__meta"><span class="tag tag--experiment">Experiment</span><span class="tag tag--context">Our own tool</span></div>
+        <h3>ContentOps: running content for several brands in one place</h3>
+        <dl>
+          <dt>What we tried</dt><dd>We built our own content tool: one calendar per brand, a status for every post, and a review link clients open without logging in.</dd>
+          <dt>What happened</dt><dd>It's live, and we've loaded real monthly calendars into it. The client review loop hasn't been proven end to end with a real client yet.</dd>
+          <dt>What we learned</dt><dd>The hard part isn't the calendar. It's getting a clear yes or no from the client on time, which is what we're testing next.</dd>
+        </dl>
+      </article>
     </div>
   </div>
 </section>
@@ -206,61 +437,58 @@
       <p>Tell us what's happening in your business. We'll talk about whether a similar approach would help.</p>
     </div>
     <div>
-      <a class="btn btn--primary" data-event="business_review_cta_click" href="business-review.html">Book a Business Review</a>
+      <a class="btn btn--primary" data-event="business_review_cta_click" href="/business-review.html">Book a Business Review</a>
       <p class="reassure">Free · 25–30 minutes · No generic pitch.</p>
     </div>
   </div>
 </section>
 </main>
-<footer class="site-footer" data-surface="dark">
+<footer class="site-footer" id="site-footer" data-surface="dark">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="assets/logo-stacked-white.png" alt="Experius" width="428" height="396">
+        <img src="/assets/logo-stacked-white.png" alt="Experius" width="428" height="396">
         <p>Experius helps service-based and expertise-driven businesses connect their digital presence, customer journeys and day-to-day operations.</p>
         <p class="footer-location">Based in Bangladesh · Working with businesses locally and internationally.</p>
       </div>
       <div class="footer-col">
         <h2>Solutions</h2>
         <ul>
-          <li><a href="business-operating-systems.html">Business Operating Systems</a></li>
-          <li><a href="content-creation-management.html">Content Creation &amp; Management</a></li>
-          <li><a href="websites.html">Websites</a></li>
-          <li><a href="our-approach.html">Our Approach</a></li>
-        </ul>
+          <li><a href="/business-operating-systems.html">Business Operating Systems</a></li>
+          <li><a href="/content-creation-management.html">Content Creation &amp; Management</a></li>
+          <li><a href="/websites.html">Websites</a></li>
+                  </ul>
       </div>
       <div class="footer-col">
         <h2>Who we help</h2>
         <ul>
-          <li><a href="expertise-personal-brands.html">Expertise &amp; Personal Brands</a></li>
-          <li><a href="clinics-wellness.html">Clinics &amp; Wellness</a></li>
-          <li><a href="education-training.html">Education &amp; Training</a></li>
-          <li><a href="solar-battery-installers.html">Solar &amp; Battery Installers</a></li>
+          <li><a href="/special-education.html">Special Education &amp; Therapy</a></li>
+          <li><a href="/expertise-personal-brands.html">Expertise &amp; Personal Brands</a></li>
+          <li><a href="/clinics-wellness.html">Clinics &amp; Wellness</a></li>
+          <li><a href="/solar-battery-installers.html">Solar &amp; Battery Installers</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h2>Experius</h2>
         <ul>
-          <li><a href="work.html" aria-current="page">Work</a></li>
-          <li><a href="insights.html">Insights</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a data-event="business_review_cta_click" href="business-review.html">Book a Business Review</a></li>
+          <li><a href="/our-approach.html">Our Approach</a></li>
+          <li><a href="/work.html" aria-current="page">Work</a></li>
+          <li><a href="/insights.html">Insights</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a data-event="business_review_cta_click" href="/business-review.html">Book a Business Review</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2026 Experius · <a href="mailto:hello@experius.xyz">hello@experius.xyz</a> <mark class="confirm">[CONFIRM email]</mark></p>
+      <p>© 2026 Experius · <a href="mailto:hello@experius.xyz">hello@experius.xyz</a> · <a href="https://wa.me/8801895626386" target="_blank" rel="noopener">WhatsApp</a></p>
       <ul>
-        <li><a href="#" aria-label="Experius on LinkedIn">LinkedIn</a></li>
-        <li><a href="#" aria-label="Experius on Facebook">Facebook</a></li>
-        <li><a href="#" aria-label="Experius on Instagram">Instagram</a></li>
-        <li><mark class="confirm">[CONFIRM social URLs]</mark></li>
+        <li><a href="https://www.facebook.com/experius.hq/" target="_blank" rel="noopener" aria-label="Experius on Facebook">Facebook</a></li>
       </ul>
       <ul>
-        <li><a href="privacy.html">Privacy</a></li>
-        <li><a href="terms.html">Terms</a></li>
-        <li>Prototype v0.1 · draft content</li>
+        <li><a href="/privacy.html">Privacy</a></li>
+        <li><a href="/terms.html">Terms</a></li>
+        <li><a class="footer-admin" href="/admin/" rel="nofollow">Admin</a></li>
       </ul>
     </div>
   </div>

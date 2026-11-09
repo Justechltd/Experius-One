@@ -14,7 +14,8 @@
 
 .card--link { transition: border-color var(--duration-fast) var(--ease), box-shadow var(--duration-fast) var(--ease), transform var(--duration-fast) var(--ease); }
 .card--link:hover { border-color: var(--color-border-strong); box-shadow: var(--shadow-md); transform: translateY(-2px); }
-.card--link:focus-within { outline: var(--focus-width) solid var(--color-focus); outline-offset: var(--focus-offset); }
+/* Ring only for keyboard focus on the card's link, never on mouse click. */
+.card--link:has(.stretched:focus-visible) { outline: var(--focus-width) solid var(--color-focus); outline-offset: var(--focus-offset); }
 .card--link .stretched::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
 .card--link .stretched:focus-visible { outline: none; }
 @media (prefers-reduced-motion: reduce) { .card--link:hover { transform: none; } }
@@ -57,19 +58,46 @@
 .insight-card .insight-card__meta { font-size: var(--text-xs); color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: var(--letter-spacing-eyebrow); font-weight: var(--font-weight-semibold); }
 .insight-card h3 { font-size: var(--text-lg); letter-spacing: 0; }
 
-/* Capability detail: business problem → better process → what may be built → what we need to understand. */
-.cap-detail { display: grid; gap: var(--space-base); }
-.cap-detail dl { display: grid; gap: var(--space-base); margin: 0; }
-@media (min-width: 768px) { .cap-detail dl { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 1024px) { .cap-detail dl { grid-template-columns: repeat(4, 1fr); } }
+/* Capability detail: business problem → better process → what may be built → what we need to understand.
+   Quiet hierarchy: the story (problem, better process) reads larger; the working detail sits below, smaller.
+   Colour jobs: orange-ink labels the friction, ink blue (secondary) labels the way out and the numbers. */
+.cap-list { counter-reset: cap; }
+.cap-detail { counter-increment: cap; display: grid; gap: var(--space-comfortable); }
+.cap-detail h3 { padding-bottom: var(--space-base); border-bottom: 1px solid var(--color-border); }
+.cap-detail h3::before {
+  content: counter(cap, decimal-leading-zero); content: counter(cap, decimal-leading-zero) / "";
+  display: block; margin-bottom: var(--space-hairline); font-size: var(--text-xs); font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-eyebrow); color: var(--color-secondary);
+}
+.cap-detail[id] { scroll-margin-top: calc(var(--header-height) + var(--space-base)); }
+.cap-detail dl { display: grid; grid-template-columns: 1fr; gap: var(--space-comfortable) var(--space-spacious); margin: 0; }
+@media (min-width: 768px) { .cap-detail dl { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .cap-detail dt { font-size: var(--text-xs); font-weight: var(--font-weight-semibold); letter-spacing: var(--letter-spacing-eyebrow); text-transform: uppercase; color: var(--color-text-secondary); }
-.cap-detail dd { margin: var(--space-hairline) 0 0; }
+.cap-detail dd { margin: var(--space-tight) 0 0; line-height: var(--line-height-normal, 1.6); }
+/* The story: slightly larger. */
+.cap-detail dl > div:nth-child(1) dt { color: var(--color-accent-ink); }
+.cap-detail dl > div:nth-child(2) dt { color: var(--color-secondary); }
+.cap-detail dl > div:nth-child(-n+2) dd { font-size: var(--text-lg); max-width: 44ch; }
+/* The working detail: smaller, set off by a hairline. */
+.cap-detail dl > div:nth-child(n+3) { padding-top: var(--space-base); border-top: 1px solid var(--color-border); }
+.cap-detail dl > div:nth-child(n+3) dd { font-size: var(--text-sm); color: var(--color-text-secondary); max-width: 38ch; }
+/* Jump pills. */
+.cap-jump { margin-bottom: var(--space-spacious); gap: var(--space-tight); }
+.cap-jump a {
+  display: inline-flex; align-items: center; min-height: var(--target-min); padding: 0 var(--space-snug);
+  border: 1px solid var(--color-border-strong); border-radius: var(--radius-full);
+  font-size: var(--text-sm); font-weight: var(--font-weight-medium); text-decoration: none; color: var(--color-text-primary);
+}
+.cap-jump a:hover { border-color: var(--color-secondary); color: var(--color-secondary); }
 
 /* Person card. Photo placeholder until real, consented team photos exist. */
+/* Monogram tile until the real photo arrives (assets/team/<name>.webp, 800x1000; swap the div for an img with the same class). */
 .person .person__photo {
-  aspect-ratio: 4 / 5; border-radius: var(--radius-md); background: var(--color-background-alt); border: 1px dashed var(--color-border-strong);
-  display: grid; place-items: center; color: var(--color-text-secondary); font-size: var(--text-sm); text-align: center; padding: var(--space-base);
+  aspect-ratio: 4 / 5; border-radius: var(--radius-md); overflow: hidden; display: grid; place-items: center;
+  background: radial-gradient(circle at 30% 25%, rgb(242 101 34 / 0.18), transparent 60%), var(--brand-charcoal);
+  color: var(--brand-white); font-size: var(--text-3xl); font-weight: var(--font-weight-semibold);
 }
+.person img.person__photo { width: 100%; height: auto; object-fit: cover; }
 .person h3 { font-size: var(--text-lg); letter-spacing: 0; }
 .person .person__role { color: var(--color-accent-ink); font-size: var(--text-sm); font-weight: var(--font-weight-semibold); }
 
@@ -103,3 +131,18 @@
 /* Note card: a boundary or principle the visitor should notice (data handling, why we work with installers). */
 .card--note { border-left: 3px solid var(--color-accent-ink); }
 .card .card__statement { font-size: var(--text-lg); color: var(--color-text-primary); }
+
+.card .card__note-sm { font-size: var(--text-sm); margin-top: auto; padding-top: var(--space-base); }
+.section-intro { color: var(--color-text-secondary); margin: calc(var(--space-comfortable) * -1) 0 var(--space-roomy); }
+
+/* Content pillars on Insights: numbered, with one line each. Labels, not filters. */
+.pillars { list-style: none; counter-reset: pillar; display: grid; gap: var(--space-base) var(--space-roomy); }
+@media (min-width: 768px) { .pillars { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .pillars { grid-template-columns: repeat(3, 1fr); } }
+.pillars li { counter-increment: pillar; display: grid; gap: var(--space-hairline); padding-top: var(--space-snug); border-top: 1px solid var(--color-border-strong); }
+.pillars strong::before { content: counter(pillar, decimal-leading-zero) "  "; color: var(--color-accent-ink); font-size: var(--text-xs); letter-spacing: var(--letter-spacing-eyebrow); }
+.pillars span { color: var(--color-text-secondary); font-size: var(--text-sm); }
+
+.social-links { list-style: none; display: flex; flex-wrap: wrap; gap: var(--space-tight); margin-top: var(--space-snug); }
+.social-links a { display: inline-flex; align-items: center; min-height: var(--target-min); padding: 0 var(--space-base); border: 1px solid var(--color-border-strong); border-radius: var(--radius-sm); text-decoration: none; font-size: var(--text-sm); font-weight: var(--font-weight-medium); color: var(--color-text-primary); }
+.social-links a:hover { border-color: var(--color-text-primary); }

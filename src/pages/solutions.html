@@ -1,16 +1,16 @@
 <!--
-title: Solutions
-description: Two kinds of work that reinforce each other: Business Operating Systems connect the workflows behind your business, and Content Creation & Management makes your expertise visible and trusted.
+title: Solutions: systems, content and websites
+description: Two pillars that work together: business operating systems and content, plus websites with a clear job for each page. Start with a free Business Review.
 path: /solutions
 nav: solutions
 crumbs: Solutions
+scripts: vendor/gsap.min.js, motion/core.js, motion/connect.js
 -->
 <section class="page-hero" aria-labelledby="page-title">
   <div class="container">
     <span class="eyebrow">Solutions</span>
     <h1 id="page-title">Better business systems begin with understanding the business.</h1>
     <p class="lead">We don't prescribe a tool before understanding the problem. Explore the areas where Experius can help, or book a Business Review and let the conversation decide what's relevant.</p>
-    <p class="identity">Experius is a business systems and content studio. Our team is based in Bangladesh and works with service businesses locally and internationally.</p>
     <div class="btn-row">
       <a class="btn btn--primary" href="business-review.html">Book a Business Review</a>
       <a class="btn btn--secondary" href="our-approach.html">See how we work</a>
@@ -44,17 +44,27 @@ crumbs: Solutions
 </section>
 
 <section class="section" aria-labelledby="together-title">
-  <div class="container split split--center">
-    <div class="stack stack--lg">
+  <div class="container stack stack--lg">
+    <div class="stack stack--lg together-copy">
       <span class="eyebrow">How they work together</span>
       <h2 id="together-title">Visibility brings attention. Systems turn attention into business.</h2>
       <p class="text-secondary">Content without a system produces interest that nobody follows up. A system without visibility has nothing to process. Most businesses we talk to are strong on one side and stuck on the other, so we look at both, and recommend only the part you need.</p>
     </div>
-    <figure class="flow-frame">
-      <ol class="flow-inline flow-inline--highlight">
-        <li><span>Expertise</span></li><li><span>Content</span></li><li><span>Attention</span></li><li><span>Inquiry</span></li><li><span>Record</span></li><li><span>Follow-up</span></li><li><span>Client</span></li>
+    <figure class="bridge-flow" aria-label="How content and systems carry a customer from first attention to becoming a client">
+      <ol class="bridge-flow__half bridge-flow__half--content">
+        <li>Expertise</li><li>Content</li><li>Attention</li>
       </ol>
-      <figcaption>Content does the first half of the journey. The operating system carries the second half.</figcaption>
+      <ol class="bridge-flow__half bridge-flow__half--system">
+        <li>Inquiry</li><li>Record</li><li>Follow-up</li><li>Client</li>
+      </ol>
+      <div class="bridge-flow__controls" data-bridge-controls hidden>
+        <div class="bridge-toggle" role="group" aria-label="Show the flow with or without a system">
+          <button class="bridge-toggle__btn" type="button" aria-pressed="true" data-bridge-mode="with">With a system</button>
+          <button class="bridge-toggle__btn" type="button" aria-pressed="false" data-bridge-mode="without">Without a system</button>
+        </div>
+        <p class="bridge-flow__live" aria-live="polite" data-bridge-live>With a system, every inquiry gets a record, an owner and a next step.</p>
+      </div>
+      <figcaption><span>Content carries the first half.</span> <span>The system carries the second.</span></figcaption>
     </figure>
   </div>
 </section>

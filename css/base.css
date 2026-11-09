@@ -1,7 +1,7 @@
 /* Base: element defaults only. Anything with a class lives in a component file. */
 *, *::before, *::after { box-sizing: border-box; }
 
-html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--header-height) + var(--space-base)); }
+html { scrollbar-gutter: stable; -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--header-height) + var(--space-base)); }
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 
 body {
@@ -64,3 +64,7 @@ hr { border: 0; border-top: 1px solid var(--color-border); margin: var(--space-s
 /* Scroll reveal is enhancement only: hidden state applies just when JS has loaded (html.js). */
 .js .reveal { opacity: 0; transform: translateY(var(--reveal-distance)); transition: opacity var(--duration-slow) var(--ease), transform var(--duration-slow) var(--ease); }
 .js .reveal.is-visible { opacity: 1; transform: none; }
+/* Safety net: if site.js never runs (html.js but no html.js-ready), revealed content appears anyway after 2.5s. */
+.js:not(.js-ready) .reveal { animation: reveal-fallback 0s 2.5s forwards; }
+@keyframes reveal-fallback { to { opacity: 1; transform: none; } }
+/* Lists styled without bullets keep their list semantics (build.py adds role="list"). */

@@ -1,16 +1,16 @@
 <!--
 title: Websites & Connected Digital Experiences
-description: A website should have a clear job: clarify the offer, build trust, qualify inquiries, take bookings and connect to how your team works.
+description: A website should have a clear job: clarify the offer, build trust, qualify inquiries, take bookings and connect smoothly to how your team actually works.
 path: /solutions/websites
 nav: solutions
 crumbs: Solutions=solutions.html | Websites
+scripts: motion/core.js, motion/site-jobs.js
 -->
 <section class="page-hero" aria-labelledby="page-title">
   <div class="container">
     <span class="eyebrow">Websites &amp; connected digital experiences</span>
     <h1 id="page-title">What job should your website do?</h1>
     <p class="lead">Many websites look fine and produce very little, not because of the design, but because nobody decided what the website is for. We start with its job in your customer journey, then design and build around that.</p>
-    <p class="identity">Experius is a business systems and content studio. Our team is based in Bangladesh and works with service businesses locally and internationally.</p>
     <div class="btn-row"><a class="btn btn--primary" href="business-review.html">Book a Business Review</a></div>
   </div>
 </section>
@@ -21,14 +21,34 @@ crumbs: Solutions=solutions.html | Websites
       <span class="eyebrow">Six jobs a website can do</span>
       <h2 id="jobs-title">Most sites need two or three of these done well</h2>
     </div>
-    <ul class="grid grid--3" role="list">
-      <li class="card symptom"><span class="symptom__num">01</span><h3>Clarify the offer</h3><p>A visitor understands what you do, and for whom, in seconds.</p></li>
-      <li class="card symptom"><span class="symptom__num">02</span><h3>Build trust</h3><p>Real work, real people and honest explanations, instead of claims.</p></li>
-      <li class="card symptom"><span class="symptom__num">03</span><h3>Answer important questions</h3><p>The questions that stop people contacting you get answered before they ask.</p></li>
-      <li class="card symptom"><span class="symptom__num">04</span><h3>Qualify inquiries</h3><p>The right people get in touch with the information you need to help them.</p></li>
-      <li class="card symptom"><span class="symptom__num">05</span><h3>Enable bookings or registrations</h3><p>People can take the next step without a round of messages.</p></li>
-      <li class="card symptom"><span class="symptom__num">06</span><h3>Connect to your team</h3><p>What visitors submit reaches the right person and record, without copy-paste.</p></li>
-    </ul>
+    <div class="site-jobs" data-site-jobs>
+      <ul class="grid grid--3 site-jobs__list" role="list">
+        <li class="card symptom" data-region="hero"><span class="symptom__num">01</span><h3>Clarify the offer</h3><p>The first screen says who you help, what you do and what to do next, in plain words anyone gets in five seconds.</p></li>
+        <li class="card symptom" data-region="proof"><span class="symptom__num">02</span><h3>Build trust</h3><p>Real projects, your real team and honest explanations. No stock photos, invented reviews or big promises.</p></li>
+        <li class="card symptom" data-region="faq"><span class="symptom__num">03</span><h3>Answer important questions</h3><p>Price, process, timing: the questions that stop people getting in touch are answered right on the page.</p></li>
+        <li class="card symptom" data-region="form"><span class="symptom__num">04</span><h3>Qualify inquiries</h3><p>A short form asks only what you need, so your first reply is useful instead of a list of questions.</p></li>
+        <li class="card symptom" data-region="cal"><span class="symptom__num">05</span><h3>Enable bookings or registrations</h3><p>Visitors book a call, an assessment or a seat themselves, without a back-and-forth of messages.</p></li>
+        <li class="card symptom" data-region="team"><span class="symptom__num">06</span><h3>Connect to your team</h3><p>Every request lands in one list with an owner and a next step, and your team is alerted straight away. No copy-paste.</p></li>
+      </ul>
+      <div class="site-jobs__aside" aria-hidden="true">
+        <div class="wire">
+          <div class="wire__bar"><i></i><i></i><i></i><span class="wire__url"></span></div>
+          <div class="wire__body">
+            <div class="wire__region" data-region="hero"><span class="wire__label">Clarify the offer</span><b class="w-title"></b><b></b><b class="w-short"></b><b class="w-btn"></b></div>
+            <div class="wire__region" data-region="proof"><span class="wire__label">Build trust</span><div class="wire__logos"><b></b><b></b><b></b></div></div>
+            <div class="wire__region" data-region="faq"><span class="wire__label">Answer important questions</span><div class="wire__faq-row"><b></b><i>+</i></div><div class="wire__faq-row"><b></b><i>+</i></div><div class="wire__faq-row"><b></b><i>+</i></div></div>
+            <div class="wire__row">
+              <div class="wire__region" data-region="form"><span class="wire__label">Qualify inquiries</span><span class="wire__field"></span><span class="wire__field"></span><b class="w-btn"></b></div>
+              <div class="wire__region" data-region="cal"><span class="wire__label">Bookings</span><div class="wire__cal"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="is-pick"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="wire__out wire__region" data-region="team"><span class="wire__label">Connect to your team</span>
+          <svg class="wire__arrow" viewBox="0 0 24 24"><path d="M12 4v15"/><path d="m6 13 6 6 6-6"/></svg>
+          <div class="wire__team">Your team<small>One record, one owner, one next step</small></div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -45,6 +65,17 @@ crumbs: Solutions=solutions.html | Websites
       <li><h3>Connect</h3><p>Forms, bookings and inquiries reach your team's system.</p></li>
       <li><h3>Measure</h3><p>Track qualified inquiries, not just visits.</p></li>
     </ol>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="fits-title">
+  <div class="container">
+    <div class="section-heading"><span class="eyebrow">Where this fits</span><h2 id="fits-title">A website is one part of the journey</h2><p>It works best connected to the two things around it.</p></div>
+    <div class="grid grid--2 grid--gap-lg">
+      <article class="card card--link"><span class="eyebrow">Before the website</span><h3><a class="stretched" href="content-creation-management.html">Content Creation &amp; Management</a></h3><p>Content brings the right people to the site, already understanding what you do.</p></article>
+      <article class="card card--link"><span class="eyebrow">After the website</span><h3><a class="stretched" href="business-operating-systems.html">Business Operating Systems</a></h3><p>What visitors submit lands with the right person, with a next step and an owner.</p></article>
+    </div>
+    <p class="mt-lg"><a class="link-arrow" href="demo-clinic-inquiry.html">See a website connected to an inquiry list {{icon:arrow-right}}</a></p>
   </div>
 </section>
 

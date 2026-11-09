@@ -7,15 +7,13 @@
   letter-spacing: 0.04em; text-transform: uppercase; color: var(--color-text-primary); max-width: 100%;
 }
 .tag--client { border-color: var(--color-text-primary); }
-.tag--demo, .tag--experiment, .tag--illustrative { border-style: dashed; color: var(--color-text-secondary); }
+.tag--demo, .tag--experiment, .tag--illustrative, .tag--prelaunch { border-style: dashed; color: var(--color-text-secondary); }
 .tag--context { border-color: transparent; padding-inline: 0; color: var(--color-text-secondary); }
 
-/* [CONFIRM] marker: content waiting for Samir's approval. Visible on purpose; remove before launch. */
-.confirm {
-  display: inline; padding: 1px var(--space-hairline); border-radius: 3px;
-  background: var(--color-warning-bg); color: var(--color-warning); outline: 1px dashed var(--color-warning);
-  font-size: 0.8em; font-weight: var(--font-weight-semibold); letter-spacing: 0; text-transform: none;
-}
+/* "Delivered" labels on work cards: small outlined chips under the description list. */
+.work-card__scope { margin-top: var(--space-snug); gap: var(--space-tight); }
+.work-card__scope .tag--context { border: 1px solid var(--color-border); padding-inline: var(--space-tight); }
+
 
 /* Prototype notice on screens where behaviour is simulated (the form). */
 .proto-note {
@@ -25,3 +23,6 @@
   border-left: 3px solid var(--color-info);
 }
 .proto-note .icon { color: var(--color-info); margin-top: 0.15em; }
+
+.tag--link { text-decoration: underline; text-underline-offset: 0.2em; min-height: var(--target-min); }
+.tag--link:hover { color: var(--color-text-primary); }

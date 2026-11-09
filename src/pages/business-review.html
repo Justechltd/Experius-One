@@ -1,38 +1,46 @@
 <!--
 title: Book an Experius Business Review
-description: A free, focused 25–30 minute conversation about how your business attracts, converts and serves customers, and what may be worth improving first.
+description: A free, focused 25–30 minute conversation about how your business attracts, converts and serves customers, what is in the way and why, and what to fix first.
 path: /business-review
 crumbs: Book a Business Review
-scripts: review-form.js
+scripts: review-form.js, vendor/gsap.min.js, motion/core.js, motion/next-steps.js
 -->
 <section class="page-hero" aria-labelledby="page-title">
   <div class="container">
     <span class="eyebrow">Experius Business Review</span>
     <h1 id="page-title">Let's understand how your business works.</h1>
-    <p class="lead">Tell us a little about your business and what you would like to improve. We'll read it before the conversation, so we can spend our time understanding the problem, not making you sit through a generic pitch.</p>
+    <p class="lead">Tell us a little about your business and what you'd like to improve. We read it before we talk, so the time goes on your business, not on a pitch.</p>
+    <ul class="assure mt-lg">
+      <li><strong>Who you'll talk to</strong><span>Someone who'd work on your business, usually Samir, our Founder &amp; CEO.</span></li>
+      <li><strong>What happens next</strong><span>We read your request, reply by email, then talk for 25–30 minutes.</span></li>
+      <li><strong>When we reply</strong><span>Within 2 working days. Free, and no obligation.</span></li>
+    </ul>
   </div>
 </section>
 
 <section class="section section--alt section--tight" aria-label="About the Business Review and the request form">
   <div class="container split split--form">
     <div class="form-panel">
-      <p class="proto-note">{{icon:info}}<span><strong>Prototype:</strong> this form doesn't send anything. Submitting shows the loading state, then the thank-you page.<label class="proto-toggle"><input type="checkbox" id="proto-fail"> Simulate a failed submission</label></span></p>
-
-      <form id="review-form" class="form mt-lg" novalidate aria-labelledby="form-title" data-event-start="business_review_form_start" data-event-submit="business_review_form_submit">
+      <form id="review-form" class="form" novalidate aria-labelledby="form-title" data-event-start="business_review_form_start" data-event-submit="business_review_form_submit">
         <h2 id="form-title" class="heading-md">Tell us about your business</h2>
         <p class="text-secondary">Takes about 3 minutes. Everything is required unless it says optional.</p>
 
-        <div class="error-summary" id="error-summary" tabindex="-1" hidden>
-          <h2>{{icon:alert}}<span>There is a problem</span></h2>
+        <div class="error-summary" id="error-summary" tabindex="-1" role="alert" hidden>
+          <h3>{{icon:alert}}<span>There is a problem</span></h3>
           <ul></ul>
         </div>
 
-        <div class="form-alert" id="submit-failed" tabindex="-1" hidden>
+        <div class="form-alert" id="submit-failed" tabindex="-1" role="alert" hidden>
           {{icon:alert}}
           <div>
-            <h2>We couldn't send your request</h2>
+            <h3>We couldn't send your request</h3>
             <p>Your answers are still here, nothing is lost. Please try again in a moment, or email us at <a href="mailto:hello@experius.xyz">hello@experius.xyz</a>.</p>
           </div>
+        </div>
+
+        <div class="hp-field" aria-hidden="true">
+          <label for="f-company-url">Leave this empty</label>
+          <input id="f-company-url" name="company_url" type="text" tabindex="-1" autocomplete="off">
         </div>
 
         <fieldset class="form">
@@ -52,7 +60,7 @@ scripts: review-form.js
           </div>
 
           <div class="field" data-field="business">
-            <label for="f-business">Business or organisation</label>
+            <label for="f-business">Business or organization</label>
             <input class="input" id="f-business" maxlength="120" aria-required="true" name="business" type="text" autocomplete="organization" aria-describedby="f-business-error">
             <p class="field-error" id="f-business-error">{{icon:alert}}<span></span></p>
           </div>
@@ -67,8 +75,9 @@ scripts: review-form.js
             <label for="f-type">What best describes your business?</label>
             <div class="select-wrap"><select class="select" id="f-type" aria-required="true" name="businessType" aria-describedby="f-type-error">
               <option value="">Choose one</option>
+              <option>Special education or therapy centre</option>
               <option>Coach, consultant or independent expert</option>
-              <option>Therapy or counselling practice</option>
+              <option>Therapy or counseling practice</option>
               <option>Clinic or wellness practice</option>
               <option>Training academy or educator</option>
               <option>Solar or battery installation</option>
@@ -98,7 +107,7 @@ scripts: review-form.js
 
         <div class="field" data-field="context">
           <label for="f-context">What's happening in your business right now?</label>
-          <p class="hint" id="f-context-hint">A few sentences is enough. Please don't include passwords, patient or student details, or confidential documents.</p>
+          <p class="hint" id="f-context-hint">A sentence or two is enough. Please don't include passwords, patient or student details, or confidential documents.</p>
           <textarea class="textarea" id="f-context" maxlength="2000" aria-required="true" name="context" rows="5" aria-describedby="f-context-hint f-context-error"></textarea>
           <p class="field-error" id="f-context-error">{{icon:alert}}<span></span></p>
         </div>
@@ -112,7 +121,7 @@ scripts: review-form.js
           </div>
           <div class="field">
             <label for="f-contact">Preferred way to talk <span class="optional">(optional)</span></label>
-            <p class="hint" id="f-contact-hint">If you choose WhatsApp or a phone call, we'll ask for your number in our reply.</p>
+            <p class="hint" id="f-contact-hint">Choose WhatsApp or a phone call and you can add your number.</p>
             <div class="select-wrap"><select class="select" id="f-contact" name="contactMethod" aria-describedby="f-contact-hint">
               <option value="">No preference</option>
               <option>Video call</option>
@@ -120,6 +129,12 @@ scripts: review-form.js
               <option>WhatsApp</option>
               <option>Phone call</option>
             </select></div>
+          </div>
+          <div class="field" data-field="phone" id="phone-field" hidden>
+            <label for="f-phone">WhatsApp or phone number <span class="optional">(optional)</span></label>
+            <p class="hint" id="f-phone-hint">Include your country code, for example +61 or +880.</p>
+            <input class="input" id="f-phone" maxlength="30" name="phone" type="tel" autocomplete="tel" inputmode="tel" aria-describedby="f-phone-hint f-phone-error">
+            <p class="field-error" id="f-phone-error">{{icon:alert}}<span></span></p>
           </div>
           <div class="field">
             <label for="f-source">How did you hear about us? <span class="optional">(optional)</span></label>
@@ -137,13 +152,15 @@ scripts: review-form.js
         </fieldset>
 
         <div class="field" data-field="consent">
-          <label class="option consent"><input type="checkbox" id="f-consent" aria-required="true" name="consent" aria-describedby="f-consent-error">I agree that Experius can use these details to reply to my request. See the <a href="privacy.html">privacy notice</a> for what we keep and for how long.</label>
+          <label class="option consent"><input type="checkbox" id="f-consent" aria-required="true" name="consent" aria-describedby="f-consent-error"><span class="option__text">I agree that Experius can use these details to reply to my request. See the <a href="privacy.html">privacy notice</a> for what we keep and for how long.</span></label>
           <p class="field-error" id="f-consent-error">{{icon:alert}}<span></span></p>
         </div>
 
         <div class="form-footer">
           <button class="btn btn--primary btn--block" type="submit"><span>Send my request</span></button>
           <p>We read every request before replying. There's no mailing list, and we won't share your details.</p>
+          <p class="form-fallback">Prefer email? Write to <a href="mailto:hello@experius.xyz">hello@experius.xyz</a>.</p>
+          <p class="visually-hidden" role="status" id="form-status"></p>
         </div>
       </form>
     </div>
@@ -153,7 +170,7 @@ scripts: review-form.js
         <p class="text-secondary">A focused conversation about how your business currently attracts, converts and serves customers. We'll understand what is working, where friction may exist and what would be worth improving first. If Experius is a good fit, we'll outline a sensible next step. If it isn't, we'll say so.</p>
         <ul class="check-list">
           <li>25–30 minutes, online, or another format we agree</li>
-          <li>With someone who will work on your business, not a sales script</li>
+          <li>With someone who'll work on your business</li>
           <li>Free. If there's a sensible next step, it's scoped and priced in writing before anything starts</li>
         </ul>
       </div>
@@ -179,10 +196,10 @@ scripts: review-form.js
       </div>
       <div class="stack">
         <h2 class="heading-sm">What happens after you send this</h2>
-        <ol class="process process--stacked">
+        <ol class="process process--stacked process--reveal" data-next-steps="reveal">
           <li><h3>We read your request</h3><p>Someone on the team looks at your business and what you've told us before replying.</p></li>
-          <li><h3>We reply by email</h3><p>If a conversation makes sense, we suggest times. If we're not the right fit, we tell you, and point you somewhere useful if we can.</p></li>
-          <li><h3>We talk</h3><p>A focused conversation about your business, not a presentation about ours.</p></li>
+          <li><h3>We reply within 2 working days</h3><p>By email. If a conversation makes sense, we suggest times. If we're not the right fit, we tell you, and point you somewhere useful if we can.</p></li>
+          <li><h3>We talk</h3><p>25–30 minutes about your business and what's worth improving first.</p></li>
         </ol>
       </div>
     </aside>
@@ -194,7 +211,7 @@ scripts: review-form.js
     <div class="section-heading"><h2 id="review-faq-title">Before you send it</h2></div>
     <div class="faq">
       <details><summary>Does the Business Review cost anything? {{icon:plus}}</summary><div class="faq__answer"><p>No. The Business Review is free. If we both see a fit, we'll suggest a next step and agree its scope and price in writing before any work starts. There's no obligation to go ahead.</p></div></details>
-      <details><summary>Who will I talk to? {{icon:plus}}</summary><div class="faq__answer"><p>Someone from the team who would actually work on your business, usually our founder for a first conversation. Not a salesperson reading a script.</p></div></details>
+      <details><summary>Who will I talk to? {{icon:plus}}</summary><div class="faq__answer"><p>Someone from the team who would actually work on your business, usually Samir, our Founder &amp; CEO, for a first conversation.</p></div></details>
       <details><summary>Do I need to prepare anything? {{icon:plus}}</summary><div class="faq__answer"><p>No. It helps to think of one recent example of something that slipped: an inquiry nobody replied to, a booking that took too long. Please don't send confidential documents or customer data.</p></div></details>
     </div>
   </div>

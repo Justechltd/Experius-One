@@ -1,29 +1,37 @@
 <!--
 title: Clinics & Wellness
-description: For physiotherapy, dental, therapy and wellness practices: connect inquiries, appointment requests, reminders and follow-up so fewer patients slip through.
+description: For physiotherapy, dental, therapy and wellness practices: connect inquiries, appointment requests, reminders and follow-up so no patient slips through.
 path: /who-we-help/clinics-wellness
 nav: who
 crumbs: Who We Help=who-we-help.html | Clinics &amp; Wellness
+scripts: vendor/gsap.min.js, vendor/ScrollTrigger.min.js, motion/core.js, motion/journey-walk.js, motion/hero-inbox.js
 -->
-<section class="page-hero" aria-labelledby="page-title">
+<section class="page-hero page-hero--split" aria-labelledby="page-title">
   <div class="container">
     <span class="eyebrow">Clinics &amp; Wellness</span>
     <h1 id="page-title">Make the journey from first inquiry to follow-up feel more connected.</h1>
     <p class="lead">Patients get in touch in many ways, and your team juggles calls, messages and schedules. We help practices see where requests and follow-ups slip, and connect the steps around them, so your team spends less time coordinating.</p>
-    <p class="identity">Experius is a business systems and content studio. Our team is based in Bangladesh and works with service businesses locally and internationally.</p>
     <div class="btn-row"><a class="btn btn--primary" href="business-review.html?type=clinic">Book a Business Review</a></div>
+    <figure class="hero-inbox" data-hero-inbox aria-hidden="true">
+      <figcaption class="hero-inbox__title">Example inbox (illustrative)</figcaption>
+      <ul class="hero-inbox__list">
+        <li data-scatter="-8,1,-3"><span class="hero-inbox__chan">WhatsApp</span><span class="hero-inbox__msg">Can I book a physio assessment?</span><span class="hero-inbox__meta"><span class="hero-inbox__owner">Owner: Front desk</span><span class="hero-inbox__next">Reply today</span></span></li>
+        <li data-scatter="10,-0.4,2.5"><span class="hero-inbox__chan">Website form</span><span class="hero-inbox__msg">New patient, back pain</span><span class="hero-inbox__meta"><span class="hero-inbox__owner">Owner: Front desk</span><span class="hero-inbox__next">Offer an assessment slot</span></span></li>
+        <li data-scatter="-4,-1,-2"><span class="hero-inbox__chan">Phone</span><span class="hero-inbox__msg">Reschedule Thursday</span><span class="hero-inbox__meta"><span class="hero-inbox__owner">Owner: Front desk</span><span class="hero-inbox__next">Confirm the new time</span></span></li>
+      </ul>
+    </figure>
   </div>
 </section>
 
 <section class="section section--alt" aria-labelledby="familiar-title">
   <div class="container">
-    <div class="section-heading"><span class="eyebrow">Does this feel familiar?</span><h2 id="familiar-title">You may recognise some of these</h2></div>
+    <div class="section-heading"><span class="eyebrow">Does this feel familiar?</span><h2 id="familiar-title">You may recognize some of these</h2></div>
     <ul class="grid grid--3" role="list">
       <li class="card symptom"><h3>Requests arrive in many places</h3><p>Phone, WhatsApp, Facebook and the website, each checked by someone different.</p></li>
       <li class="card symptom"><h3>The same details get typed again</h3><p>Front-desk staff re-enter information from messages and forms.</p></li>
       <li class="card symptom"><h3>Nobody owns follow-up</h3><p>After a first visit, it's unclear who checks in or rebooks.</p></li>
       <li class="card symptom"><h3>Reminders go out by hand</h3><p>When the front desk is busy, they don't go out at all.</p></li>
-      <li class="card symptom"><h3>The website doesn't explain how to book</h3><p>So people call or message to ask, adding to the queue.</p></li>
+      <li class="card symptom"><h3>The website doesn't explain how to book</h3><p>So people call or message to ask, adding to the queue. <a href="websites.html">What a website's job should be</a>.</p></li>
       <li class="card symptom"><h3>Schedules live in different places</h3><p>Each practitioner keeps their own, and the team pieces it together.</p></li>
     </ul>
   </div>
@@ -64,7 +72,18 @@ crumbs: Who We Help=who-we-help.html | Clinics &amp; Wellness
   </div>
 </section>
 
-<section class="section" aria-labelledby="data-title">
+<section class="section" aria-labelledby="caps-title">
+  <div class="container">
+    <div class="section-heading"><span class="eyebrow">Relevant capabilities and demonstration</span><h2 id="caps-title">Where we'd usually help</h2></div>
+    <div class="grid grid--3 grid--gap-lg">
+      <article class="card card--link"><span class="eyebrow">Usually first</span><h3><a class="stretched" href="business-operating-systems.html">Business Operating Systems</a></h3><p>Inquiry capture, appointment flow, reminders and follow-up ownership.</p></article>
+      <article class="card card--link"><span class="eyebrow">Then</span><h3><a class="stretched" href="content-creation-management.html">Content Creation &amp; Management</a></h3><p>Clear, helpful content that answers patients' questions before they call.</p></article>
+      <article class="card card--link work-card"><span class="tag tag--demo">System demonstration</span><h3><a class="stretched" href="demo-clinic-inquiry.html">Every appointment request, in one place</a></h3><p>See one inquiry list with an owner and a next action for every request.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" aria-labelledby="data-title">
   <div class="container">
     <div class="card card--note">
       <h2 id="data-title" class="heading-sm">How we handle patient information</h2>
@@ -77,24 +96,13 @@ crumbs: Who We Help=who-we-help.html | Clinics &amp; Wellness
   </div>
 </section>
 
-<section class="section section--alt" aria-labelledby="caps-title">
-  <div class="container">
-    <div class="section-heading"><span class="eyebrow">Relevant capabilities and demonstration</span><h2 id="caps-title">Where we'd usually help</h2></div>
-    <div class="grid grid--3 grid--gap-lg">
-      <article class="card card--link"><span class="eyebrow">Usually first</span><h3><a class="stretched" href="business-operating-systems.html">Business Operating Systems</a></h3><p>Inquiry capture, appointment flow, reminders and follow-up ownership.</p></article>
-      <article class="card card--link"><span class="eyebrow">Then</span><h3><a class="stretched" href="content-creation-management.html">Content Creation &amp; Management</a></h3><p>Clear, helpful content that answers patients' questions before they call.</p></article>
-      <article class="card card--link work-card"><span class="tag tag--demo">System demonstration</span><h3><a class="stretched" href="demo-clinic-inquiry.html">Every appointment request, in one place</a></h3><p>See one inquiry list with an owner and a next action for every request.</p></article>
-    </div>
-  </div>
-</section>
-
 <section class="section" aria-labelledby="faq-title">
   <div class="container">
     <div class="section-heading"><h2 id="faq-title">Questions people ask</h2></div>
     <div class="faq">
       <details><summary>Will you replace our clinic management software? {{icon:plus}}</summary><div class="faq__answer"><p>No. We work around and alongside it, on the parts before and after the appointment, where requests and follow-ups tend to get lost.</p></div></details>
       <details><summary>Can patients book online? {{icon:plus}}</summary><div class="faq__answer"><p>Often, yes, if it suits how your practitioners work. Some practices prefer online requests that the front desk confirms. We'll recommend what fits your capacity and rules.</p></div></details>
-      <details><summary>Do you work with small practices? {{icon:plus}}</summary><div class="faq__answer"><p>Yes. A single-practitioner clinic and a multi-practitioner centre have different needs, and we size the system to yours.</p></div></details>
+      <details><summary>Do you work with small practices? {{icon:plus}}</summary><div class="faq__answer"><p>Yes. A single-practitioner clinic and a multi-practitioner center have different needs, and we size the system to yours.</p></div></details>
     </div>
   </div>
 </section>

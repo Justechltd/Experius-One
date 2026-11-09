@@ -1,17 +1,29 @@
 <!--
 title: Business Operating Systems
-description: Connect the workflows behind your business: inquiries, CRM and pipeline, booking, onboarding, dashboards and automation, designed around how your team actually works.
+description: Connect inquiries, follow-ups, bookings, onboarding and reporting into one simple system, built around how your business actually works today, not a template.
 path: /solutions/business-operating-systems
 nav: solutions
 crumbs: Solutions=solutions.html | Business Operating Systems
+scripts: vendor/gsap.min.js, motion/core.js, motion/flow-trace.js
 -->
-<section class="page-hero" aria-labelledby="page-title">
+<section class="page-hero page-hero--visual" aria-labelledby="page-title">
   <div class="container">
     <span class="eyebrow">Business Operating Systems</span>
     <h1 id="page-title">Connect the moving parts of your business.</h1>
     <p class="lead">Inquiries, follow-ups, bookings, onboarding and reporting shouldn't depend on memory and copy-paste. We map how work actually moves through your business, then build the smallest connected system that makes it clearer.</p>
-    <p class="identity">Experius is a business systems and content studio. Our team is based in Bangladesh and works with service businesses locally and internationally.</p>
     <div class="btn-row"><a class="btn btn--primary" href="business-review.html">Book a Business Review</a></div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="rec-card" data-hero-visual>
+        <p class="rec-card__tag">Example record</p>
+        <ul class="rec-card__rows">
+          <li data-row><span>Came in through</span><b>Website form</b></li>
+          <li data-row><span>Recorded in</span><b>One shared list</b></li>
+          <li data-row><span>Owner</span><b>Front desk</b></li>
+          <li data-row><span>Next action</span><b>Reply by Thursday</b></li>
+          <li class="rec-card__stamp" data-row><i>&#10003;</i>1 place &middot; 1 owner</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -19,7 +31,7 @@ crumbs: Solutions=solutions.html | Business Operating Systems
   <div class="container">
     <h2 id="flow-title" class="heading-sm">The journey a good operating system supports</h2>
     <figure class="flow-frame mt-lg">
-      <ol class="flow-inline">
+      <ol class="flow-inline flow-trace" data-trace="dot">
         <li><span>Visitor</span></li><li><span>Inquiry</span></li><li><span>Record</span></li><li><span>Assignment</span></li><li><span>Follow-up</span></li><li><span>Booking</span></li><li><span>Service</span></li><li><span>Feedback</span></li>
       </ol>
       <figcaption>Every step has one place where the information lives and one person who owns what happens next.</figcaption>
@@ -32,10 +44,19 @@ crumbs: Solutions=solutions.html | Business Operating Systems
     <div class="section-heading">
       <span class="eyebrow">What this can cover</span>
       <h2 id="caps-title">Start from the problem, not the software</h2>
-      <p>For each area: the problem you may recognise, what a better process looks like, what might be built, and what we need to understand before recommending anything.</p>
+      <p>For each area: the problem you may recognize, what a better process looks like, what might be built, and what we need to understand before recommending anything.</p>
     </div>
-    <div class="stack stack--lg">
-      <article class="card cap-detail">
+    <nav aria-label="Jump to an area"><ul class="cluster cap-jump">
+      <li><a href="#cap-leads">Lead capture</a></li>
+      <li><a href="#cap-crm">CRM and pipeline</a></li>
+      <li><a href="#cap-booking">Booking</a></li>
+      <li><a href="#cap-onboarding">Onboarding</a></li>
+      <li><a href="#cap-reporting">Reporting</a></li>
+      <li><a href="#cap-automation">Automation</a></li>
+      <li><a href="#cap-website">Website connections</a></li>
+    </ul></nav>
+    <div class="stack stack--lg cap-list">
+      <article class="card cap-detail" id="cap-leads">
         <h3>Lead capture and management</h3>
         <dl>
           <div><dt>The problem</dt><dd>Inquiries arrive through WhatsApp, Messenger, calls and forms, and nobody sees them all.</dd></div>
@@ -44,7 +65,7 @@ crumbs: Solutions=solutions.html | Business Operating Systems
           <div><dt>We need to understand</dt><dd>Where inquiries really arrive, and how many a week.</dd></div>
         </dl>
       </article>
-      <article class="card cap-detail">
+      <article class="card cap-detail" id="cap-crm">
         <h3>CRM and pipeline</h3>
         <dl>
           <div><dt>The problem</dt><dd>Follow-up depends on memory, and prospects quietly go cold.</dd></div>
@@ -53,7 +74,7 @@ crumbs: Solutions=solutions.html | Business Operating Systems
           <div><dt>We need to understand</dt><dd>Your sales steps, who sells, and what "qualified" means for you.</dd></div>
         </dl>
       </article>
-      <article class="card cap-detail">
+      <article class="card cap-detail" id="cap-booking">
         <h3>Booking and registration</h3>
         <dl>
           <div><dt>The problem</dt><dd>Scheduling, confirming and reminding take endless back-and-forth.</dd></div>
@@ -62,7 +83,7 @@ crumbs: Solutions=solutions.html | Business Operating Systems
           <div><dt>We need to understand</dt><dd>Capacity, practitioners or classes, and your cancellation rules.</dd></div>
         </dl>
       </article>
-      <article class="card cap-detail">
+      <article class="card cap-detail" id="cap-onboarding">
         <h3>Client onboarding</h3>
         <dl>
           <div><dt>The problem</dt><dd>Every new client gets a slightly different start, depending on who's busy.</dd></div>
@@ -71,7 +92,7 @@ crumbs: Solutions=solutions.html | Business Operating Systems
           <div><dt>We need to understand</dt><dd>What a good first week looks like for your clients.</dd></div>
         </dl>
       </article>
-      <article class="card cap-detail">
+      <article class="card cap-detail" id="cap-reporting">
         <h3>Dashboards and reporting</h3>
         <dl>
           <div><dt>The problem</dt><dd>You can't see what's happening without asking someone.</dd></div>
@@ -80,16 +101,16 @@ crumbs: Solutions=solutions.html | Business Operating Systems
           <div><dt>We need to understand</dt><dd>Which decisions you make each week, and with what information.</dd></div>
         </dl>
       </article>
-      <article class="card cap-detail">
+      <article class="card cap-detail" id="cap-automation">
         <h3>Workflow automation</h3>
         <dl>
           <div><dt>The problem</dt><dd>The team retypes the same information and sends the same messages by hand.</dd></div>
           <div><dt>Better process</dt><dd>Repetitive steps happen on their own, and a person stays responsible for the outcome.</dd></div>
           <div><dt>What might be built</dt><dd>Automations between the tools you use, with clear failure alerts.</dd></div>
-          <div><dt>We need to understand</dt><dd>Which steps are truly repetitive, and which need human judgement.</dd></div>
+          <div><dt>We need to understand</dt><dd>Which steps are truly repetitive, and which need human judgment.</dd></div>
         </dl>
       </article>
-      <article class="card cap-detail">
+      <article class="card cap-detail" id="cap-website">
         <h3>Website-to-operations connections</h3>
         <dl>
           <div><dt>The problem</dt><dd>Your website collects information that someone then copies into a spreadsheet.</dd></div>

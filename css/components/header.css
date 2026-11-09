@@ -28,6 +28,9 @@
 .nav-link:hover { background: var(--color-state-hover); color: var(--color-text-primary); text-decoration: none; }
 /* Current page: orange underline bar plus aria-current; not colour alone (the bar is a shape). */
 .nav-link[aria-current="page"], .nav-link.is-current { box-shadow: inset 0 -2px 0 var(--color-accent-ink); border-radius: var(--radius-sm) var(--radius-sm) 0 0; }
+@media (forced-colors: active) { .nav-link[aria-current="page"], .nav-link.is-current { border-bottom: 2px solid CanvasText; } }
+/* Without JS the dropdowns still open on hover and keyboard focus; once site.js is ready, clicks take over. */
+html:not(.js-ready) .nav-item:hover .nav-sub[hidden], html:not(.js-ready) .nav-item:focus-within .nav-sub[hidden] { display: block; }
 .nav-link .icon { width: 1rem; height: 1rem; transition: transform var(--duration-fast) var(--ease); }
 .nav-link[aria-expanded="true"] .icon { transform: rotate(180deg); }
 
@@ -61,6 +64,11 @@
 .menu-toggle[aria-expanded="true"] .icon-open { display: none; }
 .menu-toggle[aria-expanded="true"] .icon-close { display: block; }
 @media (min-width: 1100px) { .menu-toggle { display: none; } }
+/* JS disabled: the toggle can't work, so a plain link to the footer navigation replaces it. */
+.menu-fallback { display: none; }
+@media (max-width: 1099px) { html:not(.js) .menu-toggle { display: none; } html:not(.js) .menu-fallback { display: inline-flex; align-items: center; min-height: var(--target-min); padding: 0 var(--space-snug); color: var(--color-text-primary); } }
+.header-cta__short { display: none; }
+@media (max-width: 479px) { .header-cta__long { display: none; } .header-cta__short { display: inline; } }
 @media (max-width: 479px) { .menu-toggle__label { display: none; } }
 
 /* Mobile menu: full-height panel under the header, same hierarchy as desktop. */

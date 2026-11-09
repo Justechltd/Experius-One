@@ -1,4 +1,4 @@
-# Experius website: hi-fi prototype v0.2
+# Experius website: hi-fi prototype v0.3
 
 **Date:** 5 Nov 2026 · **Status:** clickable prototype for testing and developer handoff. Not production.
 **v0.2:** all 18 fixes from the design review, heuristic evaluation and persona test applied. See [../reviews/00-fix-list.md](../reviews/00-fix-list.md).
@@ -34,7 +34,11 @@ If you see a "Directory listing" page instead of the site, another server is usi
 | `css/base.css`, `css/layout.css` | Element defaults and layout primitives | Global styles |
 | `css/components/*.css` | One file per component, named after brief §9.2 | One component each |
 | `js/site.js` | Dropdown nav, mobile menu, scroll reveal | Header and motion components |
-| `js/review-form.js` | Business Review validation and states | Form component plus **server-side validation** |
+| `js/review-form.js` | Business Review validation and states; POSTs to the `submit_review_request` RPC, which validates again | Form component |
+| `js/config.js` | Backend URL and public anon key (empty = backend off) | Env config |
+| `js/analytics.js` | First-party analytics: no cookies, no third parties, honours DNT/GPC | Analytics module |
+| `admin/`, `js/admin.js`, `css/admin.css` | Admin panel at `/admin/`: Business Review requests (status, notes, CSV) and analytics. Supabase Auth + RLS. Not passed through `build.py` | Admin app |
+| `supabase/` | Migration (tables, RLS, RPCs, Telegram trigger) and the `notify-review-request` Edge Function. See `docs/backend.md` and `docs/admin-contract.md` | Backend |
 | `assets/` | Logo trimmed from the PNGs: mark, wordmark, stacked; black and white | Replace with SVGs from the source file |
 
 Rules the developer should keep: components use semantic tokens only, never raw hex values. Dark sections are `data-surface="dark"`. No inline styles.
@@ -71,7 +75,7 @@ Not built: the Partner page (R2, kept out of the nav) and the cookie notice (onl
 
 ## States you can test
 
-- **Business Review form:** submit it empty to see inline errors plus an error summary that takes focus. Fill it in and submit to see the loading state, then the thank-you page with your first name. Tick "simulate a failed submission" to see the failure state: every value is kept, with a retry and an email fallback.
+- **Business Review form:** submit it empty to see inline errors plus an error summary that takes focus. Fill it in and submit to see the loading state, then the thank-you page with your first name. It now sends for real to the Supabase backend (`docs/backend.md`). While `js/config.js` is empty, or if the request fails, the failure state shows: every value is kept, with a retry and an email fallback.
 - **Navigation:** dropdowns open on click, close on Escape or an outside click, and return focus. Below 1100px the mobile menu takes over: focus moves into it, the page stops scrolling, and Escape closes it.
 - **Empty states:** client case studies (Work, Expertise, Education) and Experiments.
 - **Reduced motion:** turn on "reduce motion" in your OS and all reveals appear at once.
@@ -87,23 +91,23 @@ Not built: the Partner page (R2, kept out of the nav) and the cookie notice (onl
 
 ## Things the developer must add
 
-- Server-side validation, spam protection, lead storage, the acknowledgement email and the internal notification (brief Phase 4)
-- Analytics: every Business Review link already carries `data-event="business_review_cta_click"`, and the form has `data-event-start` / `data-event-submit`. Wire these to the analytics tool and add the rest of brief §13.6, with **no personal data** in events
+- The acknowledgement email to the visitor (brief Phase 4). Server-side validation, spam protection, storage and the internal Telegram notification are built (`docs/backend.md`)
+- Analytics is built (`js/analytics.js`); a framework port should keep the same events and the no-personal-data rule
 - Self-hosted Poppins, Latin subset, with 400 and 600 preloaded
-- SVG logo from the source file, a favicon set, and a 1200×630 share image
-- Remove `noindex` and all `[CONFIRM]` markers before launch
+- SVG logo from the source file (the PNG logos work; the share image `assets/og-image.png` and the icons `icon-512.png` and `apple-touch-icon.png` are generated)
+- Search Console: add its verification meta tag to `src/partials/head.html`, then run PageSpeed Insights on the live URL
 
-## Open `[CONFIRM]` markers (28)
+## Launch state (9 Nov 2026)
 
-| Page | What's needed |
-|---|---|
-| Footer, Contact | Email address, social URLs |
-| Thank-you | Response window the team can keep every time |
-| Solar | Markets to name · wording of "why we work with installers" (NSW mention approved 5 Nov) |
-| Work, Expertise | Tapika: display name, one-line description, what the system does · Noore Jewelry: scope · Austar Solar: content formats · approved screenshots for all five |
-| About | Names, roles, photos and consent · Samir's bio |
-| Content | Languages offered |
-| Insight article | Author |
-| Privacy | Storage, access, retention, analytics, date. **Legal review** |
-| Terms | Legal entity and wording. **Legal review** |
-| Head | Share image |
+- All `[CONFIRM]` markers are cleared and the content is approved. Blocks that had no real data behind them were removed instead of shipped: the Contact WhatsApp link (no number), the social links (no URLs), and the "Where it stands" and client-proof paragraphs on the Work case studies (no approved text or screenshots).
+- `LAUNCHED = True` in `build.py`, so pages are indexable. The 404 and thank-you pages stay `noindex`. `sitemap.xml`, `robots.txt` and `vercel.json` (clean URLs and redirects) are generated by the build.
+- WhatsApp +880 1895-626386 and Facebook (facebook.com/experius.hq) are on Contact, in the footer and in the Organization schema. To add later: client-approved screenshots and quotes (Work).
+- Admin has a Settings tab to change the password (checks the current password first, minimum 12 characters).
+
+## v0.3 (8 Nov 2026)
+
+- **Build:** `build.py` now bundles all CSS into `css/site.css` (no @import chain), escapes titles, adds `role="list"`, writes root-relative links and assets, and emits JSON-LD (Organization, WebSite, BreadcrumbList, Service, FAQPage). Serve from the site root.
+- **Fonts:** Poppins self-hosted in `assets/fonts/` (400/500/600/700, Latin), 400 and 600 preloaded.
+- **Content:** US spelling; reply promise "within 2 working days"; Austar hidden until signed; Noree Jewellery; team titles; Noholi + Construction OS + Clinic OS + two experiments on Work; Insights pillars; new `fix-the-flow-worksheet.html`; homepage self-check (`js/self-check.js`) passes `?improve=` to the Review form; WhatsApp field and contact route.
+- **Asset slots** (drop files in, then swap the placeholder for an `<img>` with the same class): `assets/team/<name>.webp` 800×1000 · `assets/work/<client>.webp` 1600×1000 · `assets/recordings/<name>.mp4` ≤20s muted loop + `.jpg` poster.
+- **Client proof asks:** `docs/client-proof-asks.md` (not sent).
