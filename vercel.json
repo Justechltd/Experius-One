@@ -1,4 +1,6 @@
 {
+  "buildCommand": "python build.py",
+  "outputDirectory": "public",
   "cleanUrls": false,
   "trailingSlash": false,
   "redirects": [

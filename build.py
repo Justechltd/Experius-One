@@ -17,6 +17,7 @@ import html as htmllib
 import json
 import pathlib
 import re
+import shutil
 
 ROOT = pathlib.Path(__file__).parent
 SRC = ROOT / "src"
@@ -213,7 +214,7 @@ def write_vercel(metas):
             continue
         rewrites.append({"source": p, "destination": f"/{slug}.html"})
         redirects.append({"source": f"/{slug}.html", "destination": p, "permanent": True})
-    config = {"cleanUrls": False, "trailingSlash": False, "redirects": redirects, "rewrites": rewrites}
+    config = {"buildCommand": "python build.py", "outputDirectory": "public", "cleanUrls": False, "trailingSlash": False, "redirects": redirects, "rewrites": rewrites}
     (ROOT / "vercel.json").write_text(json.dumps(config, indent=2) + "\n", encoding="utf-8")
 
 
@@ -248,7 +249,22 @@ def build():
     write_sitemap(metas)
     write_robots()
     write_vercel(metas)
-    print(f"Built {len(pages)} pages, sitemap.xml, robots.txt, vercel.json (LAUNCHED={LAUNCHED})")
+    publish(pages)
+    print(f"Built {len(pages)} pages, sitemap.xml, robots.txt, vercel.json, public/ (LAUNCHED={LAUNCHED})")
+
+
+def publish(pages):
+    # Vercel serves public/. Only the website goes in: no src/, docs/, supabase/ or build files.
+    out = ROOT / "public"
+    if out.exists():
+        shutil.rmtree(out)
+    out.mkdir()
+    for page in pages:
+        shutil.copy2(ROOT / f"{page.stem}.html", out)
+    for name in ("sitemap.xml", "robots.txt"):
+        shutil.copy2(ROOT / name, out)
+    for folder in ("assets", "css", "js", "admin"):
+        shutil.copytree(ROOT / folder, out / folder)
 
 
 if __name__ == "__main__":
